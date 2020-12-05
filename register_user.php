@@ -16,7 +16,6 @@
 </head>
 <body class="body_x">
 
-
 <div id="id01" class="modal">
 <form class="modal-content animate" action="register_user_p.php" method="POST" onsubmit="return  validation();">
     <div class="imgcontainer">
@@ -30,9 +29,9 @@
       <label for="uname"><b>שם משתמש</b></label>
       <input type="text" placeholder="שם משתמש" name="name" id="name" required>
       <label for="psw"><b>סיסמה</b></label>
-      <input type="password" placeholder="סיסמה" name="password" id="pass" >
+      <input type="password" placeholder="סיסמה" name="password" id="pass" require>
       <label for="psw"><b>ודא סיסמה</b></label>
-      <input type="password" placeholder="שוב סיסמה" name="password2" id="pass2" >
+      <input type="password" placeholder="שוב סיסמה" name="password2" id="pass2" require>
       <button  class="sub" type="submit">התחבר</button>
       <label>
         <input type="checkbox" checked="checked" name="remember"> Remember me

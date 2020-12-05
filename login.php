@@ -9,7 +9,6 @@
         <link rel="stylesheet" type="text/css" href="formStyle.css">
 				<script src="ck.js"></script>
         <script src="valid_all.js"></script>
-        </head>
 </head>
 <body class="body_x">
 

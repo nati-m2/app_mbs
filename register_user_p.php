@@ -11,11 +11,14 @@
 
 <body>
     <?php
+
         include_once 'sqli.php';
-        $name=$password=NULL;
-        $name=$_POST['name'];
-        $password=$_POST['password'];
-        if((isset($name)) && (isset($password))){
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $name=$_POST['name'];
+            $password=$_POST['password'];
+            if ((empty($name)) || (empty($password))) {
+                echo "חייב למלא שם וסיסמה <br>";
+            }else{
             $query="SELECT * FROM `user` WHERE `firstname`='".$name."'";
             $result=mysqli_query($connect,$query);
             if(mysqli_num_rows($result) > 0){
@@ -29,10 +32,8 @@
             }
             //header("Location:   .php");
             mysqli_close($connect);
-            unset($_POST['name']);
-            unset($_POST['password']);
             echo "!!נרשמת בהצלחה $name";
-
+        }
     }
 }
     ?>

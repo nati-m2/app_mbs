@@ -6,7 +6,6 @@
 				<meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel="stylesheet" type="text/css" href="styles.css">
   </head>
-  
       <body>
 
 <?php
@@ -15,17 +14,23 @@ include "php_func\get_ip.php";
 date_default_timezone_set("israel");
 echo "<h1>".date("G:i:s  -  d/m/y")."</h1>";
 session_start();
-//if(isset($session['login'])){
-
-  echo $session['login'];
-//}
+if(!isset($_SESSION["login"])){
+  echo "<center> <form action=login.php>
+  <input class=sub1 type=submit value=התחל>
+  </form>
+  </center>";
+}else{
+  echo "<center> <form action=start.php>
+  <input class=sub1 type=submit value=".$_SESSION["login"].">
+  </form>
+  </center>";
+}
 ?>
-<h1 >hi  <?php echo " ip addres is:".get_ip(); ?> </h1>
-      
-
 <center>
-<form action="login.php"><input class="sub1" type="submit" value="התחל"></form>   
+<h1 >hi  <?php echo " ip addres is:".get_ip(); ?> </h1>
 </center>
+
+
 
   </body>   
       </html>

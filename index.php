@@ -22,6 +22,9 @@ if(!isset($_SESSION["login"])){
 }else{
   echo "<center> <form action=start.php>
   <input class=sub1 type=submit value=".$_SESSION["login"].">
+  </form>;
+  <form action=logout.php>
+  <input class=sub type=submit value=logout>
   </form>
   </center>";
 }

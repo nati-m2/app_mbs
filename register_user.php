@@ -17,7 +17,8 @@
 <body class="body_x">
 
 <div id="id01" class="modal">
-<form class="modal-content animate" action="register_user_p.php" method="POST" onsubmit="return  validation();">
+<form class="modal-content animate" action="register_user_p.php"   method="POST" onsubmit="return validation();"  >
+
     <div class="imgcontainer">
       <span onclick="document.getElementById('id01').style.display='none',window.history.back();" class="close" title="Close Modal">&times;</span>
       <img  src="img\img_avatar1.gif" alt="Avatar"   width="200" height="200"  class="avatar">
@@ -33,11 +34,12 @@
       <label for="psw"><b>ודא סיסמה</b></label>
       <input type="password" placeholder="שוב סיסמה" name="password2" id="pass2" require>
       <button  class="sub" type="submit">התחבר</button>
+      <center><p style=" color:red;" id="result"></p></center>
       <label>
         <input type="checkbox" checked="checked" name="remember"> Remember me
       </label>
     </div>
-    <center><p style=" color:red;" id="result"></p></center>
+   
     <div class="container" style="background-color:#f1f1f1">
       <button type="button" onclick="document.getElementById('id01').style.display='none' , window.history.back();" class="sub2">Cancel</button>
     </div>

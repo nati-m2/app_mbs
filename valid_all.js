@@ -2,16 +2,10 @@ function validation(){
     var name= document.getElementById("name").value;
     var password=document.getElementById("pass").value;
     var password2=document.getElementById("pass2").value;
-    var admin=document.getElementById("admin").value;
-    /*
-        if(admin!='Nm1191'){
-            document.getElementById("result").innerHTML="קוד מנהל שגוי";
-            document.getElementById("admin").style.borderColor="red";
-            return false;*/
-    }
     if(name==''){
         document.getElementById("result").innerHTML="נא למלא שדות חובה";
         document.getElementById("name").style.borderColor="red";
+        
         return false;
     }
 

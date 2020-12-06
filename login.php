@@ -14,7 +14,7 @@
 
 
 <div id="id01" class="modal">
-<form class="modal-content animate" action="login_p.php" method="POST" onsubmit="return  validpass();">
+<form class="modal-content animate"  action="login_p.php" method="POST" onsubmit="return  validpass();">
     <div class="imgcontainer">
       <span onclick="document.getElementById('id01').style.display='none',window.history.back();" class="close" title="Close Modal">&times;</span>
       <img  src="img\img_avatar1.gif" alt="Avatar"   width="200" height="200"  class="avatar">
@@ -35,8 +35,7 @@
       <button type="button" onclick="document.getElementById('id01').style.display='none' , window.history.back();" class="sub2">Cancel</button>
       <a class="sub1" href ="register_user.php" >עוד לא רשום</a>
 			<a class="sub1" href ="index.php" >לא רוצה להתחבר</a>
-    </div>
-                
+    </div>   
   </form>
 </div>
 

@@ -14,7 +14,7 @@
 
 
 <div id="id01" class="modal">
-<form class="modal-content animate" action="logincheck.php" method="POST" onsubmit="return  validpass();">
+<form class="modal-content animate" action="login_p.php" method="POST" onsubmit="return  validpass();">
     <div class="imgcontainer">
       <span onclick="document.getElementById('id01').style.display='none',window.history.back();" class="close" title="Close Modal">&times;</span>
       <img  src="img\img_avatar1.gif" alt="Avatar"   width="200" height="200"  class="avatar">

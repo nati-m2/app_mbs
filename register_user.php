@@ -40,9 +40,7 @@
     <center><p style=" color:red;" id="result"></p></center>
     <div class="container" style="background-color:#f1f1f1">
       <button type="button" onclick="document.getElementById('id01').style.display='none' , window.history.back();" class="sub2">Cancel</button>
-   
     </div>
-                
   </form>
 </div>
 

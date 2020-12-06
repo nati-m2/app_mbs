@@ -26,13 +26,15 @@
                 mysqli_close($connect);
             }
             else{
-            $query = "INSERT INTO `user`(`firstname`, `pass`) VALUES('".$name."' ,'".sha1($password)."')";
+            $query = "INSERT INTO `user`(`firstname`, `pass`) 
+            VALUES('".$name."' ,'".sha1($password)."')";
             if (!mysqli_query($connect,$query)){
                 echo "Error: " . $query . "<br>" . mysqli_error($connect);
             }
             //header("Location:   .php");
             mysqli_close($connect);
             echo "!!נרשמת בהצלחה $name";
+            header("Location:index.php");
         }
     }
 }

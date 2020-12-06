@@ -11,6 +11,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     $result=mysqli_query($connect,$query);
     if(mysqli_num_rows($result) == 1){
         echo"<script> alert('אתה מחובר'); </script>" ;
+        session_start();
+        $session['login']=$name;
+        //header("Location:index.php");
         mysqli_close($connect);
         }else{  
             echo"<script> alert('שם משתמש לא קיים'); </script>" ;

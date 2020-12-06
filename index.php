@@ -14,7 +14,11 @@ include_once 'sqli.php';
 include "php_func\get_ip.php"; 
 date_default_timezone_set("israel");
 echo "<h1>".date("G:i:s  -  d/m/y")."</h1>";
+session_start();
+//if(isset($session['login'])){
 
+  echo $session['login'];
+//}
 ?>
 <h1 >hi  <?php echo " ip addres is:".get_ip(); ?> </h1>
       

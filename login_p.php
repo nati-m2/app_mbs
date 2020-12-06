@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     if ((empty($name)) || (empty($password))){
         echo "חייב למלא שם וסיסמה <br>";
     }else{
-    $query="SELECT * FROM `user` WHERE `firstname`='".$name."' AND  `pass`= '". sha1($password)."'";
+    $query="SELECT * FROM `user` WHERE `firstname`='".$name."' AND  `pass`= '". md5($password)."'";
     $result=mysqli_query($connect,$query);
     if(mysqli_num_rows($result) == 1){
         echo"<script> alert('אתה מחובר'); </script>" ;

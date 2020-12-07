@@ -34,6 +34,10 @@ if(!isset($_SESSION["login"])){
 ?>
 <center>
 <h1 >hi  <?php echo " ip addres is:".get_ip(); ?> </h1>
+
+
+<a  href="Settings.php">aaaaaaaaaaaaaaaaaaa</a>
+
 </center>
 
 

@@ -48,7 +48,7 @@ function  create_table_user(){
       echo "Table user created successfully";
       echo "<br>";
     } else {
-      echo 'Error creating table user <br>';
+     throw new Exception("Error creating table user");
       echo "Error creating table: " . mysqli_error($connect);
    
     }
@@ -62,7 +62,7 @@ function  create_table_devise(){
         echo "Table devise created successfully";
         echo "<br>";
       } else {
-        echo ' Error creating table devise <br>';
+       throw new Exception("Error creating table devise");
         echo "Error creating table: " . mysqli_error($connect);
       
       }
@@ -78,7 +78,7 @@ function  create_table_settings(){
         echo "Table devise created successfully";
         echo "<br>";
       } else {
-        echo ' Error creating table settings <br>';
+       throw new Exception("Error creating table settings");
         echo "Error creating table: " . mysqli_error($connect);
       
       }

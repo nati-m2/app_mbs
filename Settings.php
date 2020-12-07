@@ -6,16 +6,25 @@
 </head>
     <body>
         <?php
-        
-
-
-
-
-            
-
-
-
-
-                echo pull_set("rrrrr");
+            include "php_func\phpFunction.php";
+            include "sqli.php";
+            $query="SELECT * FROM `settings`";
+            $result=mysqli_query($connect,$query);
+            $result_check=mysqli_num_rows($result);
+            if($result_check>0){
+                while($row=mysqli_fetch_assoc($result)){
+                    $id=$row['id'];	
+                    $val=$row['val'];
+                    echo"
+                    <center>
+                    <form action=update_set.php>
+                    <p>הגדרת :".$id."
+                    ".$row['name'].": <input class=ordern type=text name=val  placeholder= ".$row['val']." required>
+                    <input  class=sub_up type=submit  name=id  value=".$id.">עדכן
+                    </form>
+                    </center>";
+                }
+            }
+            mysqli_close($connect);
         ?>
     </body>

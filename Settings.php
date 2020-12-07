@@ -13,6 +13,7 @@
             $result_check=mysqli_num_rows($result);
             if($result_check>0){
                 while($row=mysqli_fetch_assoc($result)){
+<<<<<<< HEAD
                     $id=$row['id'];	
                     $val=$row['val'];
                     echo"
@@ -26,5 +27,13 @@
                 }
             }
             mysqli_close($connect);
+=======
+                    echo "<input type=text placeholder=".$row['val']." name=val required><a href= update_set.php?id=".$row['id'].">:בחר</a></h1>";
+                }
+            }
+            mysqli_close($connect);
+            //update_set(1,"aaaa");
+            echo pull_set("rrrrr");
+>>>>>>> 88335ec8d1e692bc11b0998d9c13d495c8beacdc
         ?>
     </body>

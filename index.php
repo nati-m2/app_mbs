@@ -10,7 +10,7 @@
 
 <?php
 include_once 'sqli.php'; 
-include "php_func\get_ip.php"; 
+include "php_func\phpFunction.php"; 
 date_default_timezone_set("israel");
 echo "<h1>".date("G:i:s  -  d/m/y")."</h1>";
 session_start();
@@ -28,6 +28,10 @@ if(!isset($_SESSION["login"])){
   </form>
   </center>";
 }
+
+ echo pull_set("rrrrr");
+
+
 ?>
 <center>
 <h1 >hi  <?php echo " ip addres is:".get_ip(); ?> </h1>

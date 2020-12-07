@@ -9,6 +9,10 @@
     catch(Exception $e) {
       echo 'Message: ' .$e->getMessage();
     }
+    try{ create_table_settings(); }
+    catch(Exception $e) {
+      echo 'Message: ' .$e->getMessage();
+    }
     header("Location: index.php");
   }
   catch(Exception $e) {
@@ -69,6 +73,24 @@ function  create_table_devise(){
       } else {
 
         throw new Exception('Error creating table devise');
+        echo "<br>";
+        echo "Error creating table: " . mysqli_error($connect);
+      
+      }
+      mysqli_close($connect);
+}
+
+
+function  create_table_settings(){
+  include 'sqli.php'; 
+    $query = "CREATE TABLE settings(id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+        name TEXT(15) NOT NULL, val TEXT(40))";
+      if (mysqli_query($connect,$query)) {
+        echo "Table devise created successfully";
+        echo "<br>";
+      } else {
+
+        throw new Exception('Error creating table settings');
         echo "<br>";
         echo "Error creating table: " . mysqli_error($connect);
       

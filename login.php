@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 			<meta name="author" content="nati mizrhi">
-        <title>mbs</title>
+        <title>login</title>
 				<meta name="viewport" content="width=device-width, initial-scale=1.0">
 				<link rel="stylesheet" type="text/css" href="styles.css">
         <link rel="stylesheet" type="text/css" href="formStyle.css">

@@ -37,6 +37,16 @@ if(mysqli_num_rows($result)==1){
 }
 }
 
+function update_set($id,$val){
+  include 'sqli.php'; 
+  $query = "UPDATE `settings` SET `val`='".$val."' WHERE `id`=$id";
+  if(!mysqli_query($connect,$query)){
+    echo "Error: " . $query . "<br>" . mysqli_error($connect);
+    return;
+  }
+  mysqli_close($connect);
+  return;
+  }
 
 
 ?>

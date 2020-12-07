@@ -7,5 +7,15 @@
     <body>
         <?php
         
+
+
+
+
+            
+
+
+
+
+                echo pull_set("rrrrr");
         ?>
     </body>

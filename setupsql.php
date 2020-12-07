@@ -1,18 +1,10 @@
  <?php
 
   try { create_db();
-    try{  create_table_user();}
-    catch(Exception $e) {
-      echo 'Message: ' .$e->getMessage();
-    }
-    try{ create_table_devise(); }
-    catch(Exception $e) {
-      echo 'Message: ' .$e->getMessage();
-    }
-    try{ create_table_settings(); }
-    catch(Exception $e) {
-      echo 'Message: ' .$e->getMessage();
-    }
+        create_table_user();
+        create_table_devise(); 
+        create_table_settings();
+   
     header("Location: index.php");
   }
   catch(Exception $e) {
@@ -56,8 +48,7 @@ function  create_table_user(){
       echo "Table user created successfully";
       echo "<br>";
     } else {
-      throw new Exception('Error creating table user');
-      echo "<br>";
+      echo 'Error creating table user <br>';
       echo "Error creating table: " . mysqli_error($connect);
    
     }
@@ -71,9 +62,7 @@ function  create_table_devise(){
         echo "Table devise created successfully";
         echo "<br>";
       } else {
-
-        throw new Exception('Error creating table devise');
-        echo "<br>";
+        echo ' Error creating table devise <br>';
         echo "Error creating table: " . mysqli_error($connect);
       
       }
@@ -89,9 +78,7 @@ function  create_table_settings(){
         echo "Table devise created successfully";
         echo "<br>";
       } else {
-
-        throw new Exception('Error creating table settings');
-        echo "<br>";
+        echo ' Error creating table settings <br>';
         echo "Error creating table: " . mysqli_error($connect);
       
       }

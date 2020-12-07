@@ -29,7 +29,6 @@ if(!isset($_SESSION["login"])){
   </center>";
 }
 
- echo pull_set("rrrrr");
 
 
 ?>

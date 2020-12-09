@@ -19,11 +19,10 @@ else
   {
     $ip_address = $_SERVER['REMOTE_ADDR'];
   }
-
+if($ip_address== "::1")
+    $ip_address="127.0.0.1";
    return $ip_address;
 }
-
-
 
 function pull_set($name){
 include 'sqli.php'; 

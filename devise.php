@@ -1,3 +1,11 @@
+<?php
+if(isset($_GET['Address'])){
+    session_start();
+    $_SESSION["target"]=$_GET['Address'];
+    header("Location:run.php");
+    }
+
+?><html>
 <head>
 	<meta charset="UTF-8">
 	<meta name="author" content="nati mizrhi">
@@ -8,24 +16,18 @@
         <?php
             include "php_func\phpFunction.php";
             include "sqli.php";
-            $query="SELECT * FROM `settings`";
+            $query="SELECT * FROM `devise`";
             $result=mysqli_query($connect,$query);
             $result_check=mysqli_num_rows($result);
             if($result_check>0){
                 while($row=mysqli_fetch_assoc($result)){
-     		    $id=$row['id'];	
-                    $val=$row['val'];
-                    echo"
-                    <center>
-                    <form action=update_set.php>
-                    <p>הגדרת :".$id."
-                    ".$row['name'].": <input class=ordern type=text name=val  placeholder= ".$row['val']." required>
-                    <input  class=sub_up type=submit  name=id  value=".$id.">עדכן
-                    </form>
-                    </center>";
-                }
+                echo "<form action=devise.php>
+                    ".$row['devise_name'].": <input  class=sub_up type=submit  name=Address value=".$row['Address'].">עדכן</form>";
             }
+        }
             mysqli_close($connect);
+
 
         ?>
     </body>
+</html>

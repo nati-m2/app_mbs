@@ -36,7 +36,11 @@ if(!isset($_SESSION["login"])){
 <h1 >hi  <?php echo " ip addres is:".get_ip(); ?> </h1>
 
 
-<a  href="Settings.php">aaaaaaaaaaaaaaaaaaa</a>
+<a  href="Settings.php"><h1>settings</h1></a>
+
+<a  href="newDevise.php"><h1>newDevise</h1></a>
+<a  href="devise.php"><h1>Devise</h1></a>
+<a  href="play.php"><h1>play</h1></a></h1>
 
 </center>
 

@@ -1,5 +1,10 @@
 <html>
     <head>
+    <meta charset="UTF-8">
+			<meta name="author" content="nati mizrhi">
+				<title>home</title>
+				<meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" type="text/css" href="styles.css">
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script>
 
@@ -44,8 +49,12 @@
     </script>
     </head>
     <body onload="setInterval('CheckTask()', 1000)">
-
-  
+    <p  id="demo">00000</p>
+    <script>
+    function myFunction() {
+    document.getElementById("demo").innerHTML =  document.getElementById("myAudio").currentTime;
+    }
+</script> 
     <?php
     if(isset($_SESSION["task"])){
    // session_start();
@@ -53,15 +62,15 @@
     echo "<h1>";
     echo $_SESSION["task"];
     echo "</h1>";
-        
     echo "
-     <audio controls autoplay preload='metadata'>
+     <audio id= 'myAudio' controls autoplay preload='metadata' >
         <source src= 'Media_Library/".$song. "' type=audio/ogg>
         <source src= 'Media_Library/".$song. "' type=audio/mpeg>
      </audio>";
+
+     //sleep(2);
      unset($_SESSION["task"]);
     }
-   
 ?>
 
 

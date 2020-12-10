@@ -2,7 +2,6 @@
 include "php_func\phpFunction.php";
 if(isset($_GET['Address'])){
     session_start();
-    $_SESSION["flag"]=1;
     unset($_SESSION["task"]);
     $Address= $_GET['Address'];
     $task= "on";
@@ -19,7 +18,7 @@ if(isset($_GET['Address'])){
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
-    <body>
+<body >
         <?php
             
             include "sqli.php";

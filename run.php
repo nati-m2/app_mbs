@@ -21,10 +21,7 @@
     <body>
 <br><br><br><br><br><br><br><br><br><br>
      <div id="test">
-     <center>
-  
-        <p>מאזין</p>
-        </center>
+     
         </div>
 
 

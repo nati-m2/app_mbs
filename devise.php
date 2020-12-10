@@ -1,7 +1,7 @@
 <?php
 if(isset($_GET['Address'])){
     session_start();
-    $_SESSION["target"]=$_GET['Address'];
+    $_SESSION["flag"]=1;
     header("Location:run.php");
     }
 

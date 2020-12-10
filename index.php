@@ -9,6 +9,7 @@
       <body>
 
 <?php
+include "run.php";
 include_once 'sqli.php'; 
 include "php_func\phpFunction.php"; 
 date_default_timezone_set("israel");

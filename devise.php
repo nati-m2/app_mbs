@@ -3,10 +3,12 @@ include "php_func\phpFunction.php";
 if(isset($_GET['Address'])){
     session_start();
     $_SESSION["flag"]=1;
+    unset($_SESSION["task"]);
     $Address= $_GET['Address'];
-    $task= "Celine Dion - Im Alive.mp3";
+    $task= "on";
     $name= "play";
-    insert_task($name,$task,$Address);
+    $song_n = "Celine Dion - Im Alive.mp3";
+    insert_task($name,$task,$Address,$song_n);
     header("Location:index.php");
     }
 ?>

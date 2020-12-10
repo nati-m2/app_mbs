@@ -9,10 +9,10 @@
       <body>
 
 <?php
-
-
 include_once 'sqli.php'; 
+
 include "php_func\phpFunction.php"; 
+
 date_default_timezone_set("israel");
 echo "<h1>".date("G:i:s  -  d/m/y")."</h1>";
 session_start();
@@ -32,7 +32,7 @@ if(!isset($_SESSION["login"])){
 }
 
 echo "<h1>";
-echo pull_task(get_ip(),2); 
+echo pull_task(get_ip(),4); 
 echo "</h1>";
 ?>
 <center>

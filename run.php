@@ -1,8 +1,3 @@
-<?php
-
-
-?>
-
 <html>
     <head>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
@@ -38,8 +33,7 @@
                         console.log(data);
                         // play song
                         RemoveFromDb();
-                        
-
+                        location.reload();
                     }
                 },
                 error: function(xhr, status, error) {
@@ -53,12 +47,24 @@
     </head>
     <body onload="setInterval('CheckTask()', 1000)">
 
-    <audio controls autoplay>
-    <?php echo pull_task(get_ip(),3);  ?>
-        <source src=" <?php echo "Media_Library/".pull_task(get_ip(),3); ?>" type="audio/ogg">
-        <source src=" <?php echo "Media_Library/".pull_task(get_ip(),3); ?>"type="audio/mpeg">
-     </audio>
-
+  
+    <?php
+    if(isset($_SESSION["task"])){
+   // session_start();
+   $song=$_SESSION["task"];
+    echo "<h1>";
+    echo $_SESSION["task"];
+    echo "</h1>";
+        
+    echo "
+     <audio controls autoplay>
+        <source src= 'Media_Library/".$song. "' type=audio/ogg>
+        <source src= 'Media_Library/".$song. "' type=audio/mpeg>
+     </audio>";
+     unset($_SESSION["task"]);
+    }
+   
+?>
 
 
     </body>

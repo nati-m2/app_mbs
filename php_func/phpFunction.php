@@ -49,7 +49,7 @@ function update_set($id,$val){
 
 
 
-function insert_task($name,$task,$Address){
+function insert_task($name,$task,$Address,$song_n){
   include 'sqli.php'; 
   /*
   if(pull_task($Address,'play')){
@@ -58,7 +58,7 @@ function insert_task($name,$task,$Address){
     return;
   }
  */
-  $query = "INSERT INTO task_t(`name`,`task`, `Address`) VALUES('".$name."','".$task."','".$Address."')";
+  $query = "INSERT INTO task_t(`name`,`task`, `Address`,`song_n`) VALUES('".$name."','".$task."','".$Address."','".$song_n."')";
    if(!mysqli_query($connect,$query)){
     echo "Error: " . $query . "<br>" . mysqli_error($connect);
 }
@@ -82,6 +82,9 @@ function pull_task($Address,$c){
       return  $row['name'];
     else if($c==3)
       return  $row['task'];
+    else if($c==4)
+      return  $row['song_n'];
+    
     }
   
   return null;

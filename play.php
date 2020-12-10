@@ -2,8 +2,8 @@
  include "sqli.php"; //  $connect
 
 
- include "php_func\phpFunction.php";
-
+ 
+include "php_func\phpFunction.php";
 
 $this_ip = get_ip();
 $query=mysqli_query($connect,"select * from task_t where Address='$this_ip' and name='play'");

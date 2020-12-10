@@ -1,5 +1,5 @@
  <?php
-  create_table_Task();
+
   try { create_db();
         create_table_user();
         create_table_devise(); 
@@ -92,7 +92,7 @@ function  create_table_settings(){
 function  create_table_Task(){
   include 'sqli.php'; 
     $query = "CREATE TABLE task_t(id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-        name TEXT(15) NOT NULL, task TEXT(40) ,Address TEXT(20))";
+        name TEXT(15) NOT NULL, task TEXT(5), Address TEXT(20), song_n TEXT(40) )";
       if (mysqli_query($connect,$query)) {
         echo "Table devise created successfully";
         echo "<br>";

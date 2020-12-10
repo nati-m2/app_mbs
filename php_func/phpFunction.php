@@ -48,4 +48,28 @@ function update_set($id,$val){
   }
 
 
+
+function insert_task($name,$task,$Address){
+  include 'sqli.php'; 
+  $query = "INSERT INTO task_t(`name`,`task`, `Address`) VALUES('".$name."','".$task."','".$Address."')";
+   if(!mysqli_query($connect,$query)){
+    echo "Error: " . $query . "<br>" . mysqli_error($connect);
+}
+mysqli_close($connect);
+}
+
+
+function pull_task($Address){
+  include 'sqli.php'; 
+  $query="SELECT * FROM `task_t` WHERE  `name` LIKE 'play' and  'Address' LIKE '".$Address."' , LIMET 1 ";
+  $result=mysqli_query($connect,$query);
+  if(mysqli_num_rows($result)==1){
+    $row=mysqli_fetch_assoc($result);
+      return  $row['Address'];
+  }
+    return null;
+  
+  }
+
+
 ?>

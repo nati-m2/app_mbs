@@ -1,11 +1,16 @@
 <?php
+include "php_func\phpFunction.php";
 if(isset($_GET['Address'])){
     session_start();
     $_SESSION["flag"]=1;
-    header("Location:run.php");
+    $Address= $_GET['Address'];
+    $task= "Celine Dion - Im Alive.mp3";
+    $name= "play";
+    insert_task($name,$task,$Address);
+    //header("Location:run.php");
     }
-
-?><html>
+?>
+<html>
 <head>
 	<meta charset="UTF-8">
 	<meta name="author" content="nati mizrhi">
@@ -14,7 +19,7 @@ if(isset($_GET['Address'])){
 </head>
     <body>
         <?php
-            include "php_func\phpFunction.php";
+            
             include "sqli.php";
             $query="SELECT * FROM `devise`";
             $result=mysqli_query($connect,$query);

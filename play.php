@@ -14,7 +14,6 @@
 
 
 
-
      <audio controls autoplay>
         <source src="img\Celine Dion - I'm Alive.mp3" type="audio/ogg">
         <source src="img\Celine Dion - I'm Alive.mp3" type="audio/mpeg">

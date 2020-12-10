@@ -1,9 +1,10 @@
  <?php
-
+  create_table_Task();
   try { create_db();
         create_table_user();
         create_table_devise(); 
         create_table_settings();
+        create_table_Task();
    
     header("Location: index.php");
   }
@@ -87,6 +88,21 @@ function  create_table_settings(){
 
 
 
+
+function  create_table_Task(){
+  include 'sqli.php'; 
+    $query = "CREATE TABLE task_t(id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+        name TEXT(15) NOT NULL, task TEXT(40) ,Address TEXT(20))";
+      if (mysqli_query($connect,$query)) {
+        echo "Table devise created successfully";
+        echo "<br>";
+      } else {
+       throw new Exception("Error creating table Task");
+        echo "Error creating table: " . mysqli_error($connect);
+      
+      }
+      mysqli_close($connect);
+}
 
 
 

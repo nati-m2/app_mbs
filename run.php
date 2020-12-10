@@ -41,9 +41,7 @@
                 }
             });
     }
-        
     </script>
-
     </head>
     <body onload="setInterval('CheckTask()', 1000)">
 
@@ -57,7 +55,7 @@
     echo "</h1>";
         
     echo "
-     <audio controls autoplay>
+     <audio controls autoplay preload='metadata'>
         <source src= 'Media_Library/".$song. "' type=audio/ogg>
         <source src= 'Media_Library/".$song. "' type=audio/mpeg>
      </audio>";

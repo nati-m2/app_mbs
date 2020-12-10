@@ -18,8 +18,11 @@
 <?php 
 include "php_func\phpFunction.php";
 echo "<h1>";
+
 echo pull_task(get_ip(),3); 
-update_task(get_ip(),"playing");
+
+  //  update_task(get_ip(),"playing");
+
 echo "</h1>";
 ?>
      <audio controls autoplay>

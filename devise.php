@@ -31,8 +31,6 @@ if(isset($_GET['Address'])){
             }
         }
             mysqli_close($connect);
-
-
         ?>
     </body>
 </html>

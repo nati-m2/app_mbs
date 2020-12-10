@@ -19,7 +19,7 @@ else
   {
     $ip_address = $_SERVER['REMOTE_ADDR'];
   }
-if($ip_address== "::1")
+if($ip_address== "::1" )
     $ip_address="127.0.0.1";
    return $ip_address;
 }
@@ -51,6 +51,13 @@ function update_set($id,$val){
 
 function insert_task($name,$task,$Address){
   include 'sqli.php'; 
+  /*
+  if(pull_task($Address,'play')){
+    echo "קיימת משימה ללקוח זה אין אפשרות לצור שני משימות לאותו לקוח";
+    mysqli_close($connect);
+    return;
+  }
+ */
   $query = "INSERT INTO task_t(`name`,`task`, `Address`) VALUES('".$name."','".$task."','".$Address."')";
    if(!mysqli_query($connect,$query)){
     echo "Error: " . $query . "<br>" . mysqli_error($connect);
@@ -58,10 +65,9 @@ function insert_task($name,$task,$Address){
 mysqli_close($connect);
 }
 
-
 function pull_task($Address,$c){
   include 'sqli.php'; 
-  $query="SELECT * FROM `task_t` WHERE  Address LIKE '".$Address."' AND  name LIKE  'play' OR name LIKE  'playing' ";
+  $query="SELECT * FROM `task_t` WHERE  Address = '".$Address."' AND  name LIKE  'play' OR name LIKE  'playing' ";
   $result=mysqli_query($connect,$query);
   if(!$result){
     echo "Error: " . $query . "<br>" . mysqli_error($connect);
@@ -69,6 +75,7 @@ function pull_task($Address,$c){
   $result_check=mysqli_num_rows($result);
   if($result_check==1){
     $row=mysqli_fetch_assoc($result);
+  
     if($c==1)  
       return  $row['Address'];
     else if($c==2)

@@ -31,8 +31,9 @@ if(!isset($_SESSION["login"])){
   </center>";
 }
 
-
-
+echo "<h1>";
+echo pull_task(get_ip(),2); 
+echo "</h1>";
 ?>
 <center>
 <h1 >hi  <?php echo " ip addres is:".get_ip(); ?> </h1>

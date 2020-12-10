@@ -59,17 +59,37 @@ mysqli_close($connect);
 }
 
 
-function pull_task($Address){
+function pull_task($Address,$c){
   include 'sqli.php'; 
-  $query="SELECT * FROM `task_t` WHERE  `name` LIKE 'play' and  'Address' LIKE '".$Address."' , LIMET 1 ";
+  $query="SELECT * FROM `task_t` WHERE  Address LIKE '".$Address."' AND  name LIKE  'play' OR name LIKE  'playing' ";
   $result=mysqli_query($connect,$query);
-  if(mysqli_num_rows($result)==1){
+  if(!$result){
+    echo "Error: " . $query . "<br>" . mysqli_error($connect);
+  }
+  $result_check=mysqli_num_rows($result);
+  if($result_check==1){
     $row=mysqli_fetch_assoc($result);
+    if($c==1)  
       return  $row['Address'];
-  }
-    return null;
+    else if($c==2)
+      return  $row['name'];
+    else if($c==3)
+      return  $row['task'];
+    }
   
-  }
+  return null;
+  mysqli_close($connect);
+}
 
+function update_task($Address,$val){
+  include 'sqli.php'; 
+  $query = "UPDATE `task_t` SET `name`='".$val."' WHERE Address LIKE '".$Address."' ";
+  if(!mysqli_query($connect,$query)){
+    echo "Error: " . $query . "<br>" . mysqli_error($connect);
+    return;
+  }
+  mysqli_close($connect);
+  return;
+  }
 
 ?>

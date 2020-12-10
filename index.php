@@ -10,7 +10,7 @@
 
 <?php
 
-include "run.php";
+
 include_once 'sqli.php'; 
 include "php_func\phpFunction.php"; 
 date_default_timezone_set("israel");
@@ -44,6 +44,7 @@ echo "</h1>";
 
 </center>
 
+<?php include "run.php";?>
 
 
   </body>   

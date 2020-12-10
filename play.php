@@ -1,30 +1,24 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="author" content="nati mizrhi">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="styles.css">
-    </head>
-    <body>
-<br><br><br><br><br><br><br>
-
-
-<br><br><br>
-<center>
 <?php 
-include "php_func\phpFunction.php";
-echo "<h1>";
-echo pull_task(get_ip(),3); 
-  //  update_task(get_ip(),"playing");
-echo "</h1>";
+ include "sqli.php"; //  $connect
+
+
+ include "php_func\phpFunction.php";
+
+
+$this_ip = get_ip();
+$query=mysqli_query($connect,"select * from task_t where Address='$this_ip' and name='play'");
+$row=mysqli_fetch_array($query);
+if ($row){
+    $song_name = $row['task'];
+    if ($song_name){
+        echo $song_name;
+        exit;
+    }
+}
+
+
+echo "";
+exit;
+
 ?>
-     <audio controls autoplay>
-        <source src=" <?php echo "Media_Library/".pull_task(get_ip(),3); ?>" type="audio/ogg">
-        <source src=" <?php echo "Media_Library/".pull_task(get_ip(),3); ?>"type="audio/mpeg">
-     </audio> 
-</center>    
 
-
-    </body>
-</html>

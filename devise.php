@@ -1,5 +1,6 @@
 <?php
 include "php_func\phpFunction.php";
+if($_SERVER['REQUEST_METHOD'] == 'GET'){
 if(isset($_GET['Address'])){
     session_start();
     unset($_SESSION["task"]);
@@ -8,8 +9,9 @@ if(isset($_GET['Address'])){
     $name= "play";
     $song_n = "Celine Dion - Im Alive.mp3";
     insert_task($name,$task,$Address,$song_n);
-    header("Location:index.php");
+    //header("Location:index.php");
     }
+}
 ?>
 <html>
 <head>
@@ -27,11 +29,13 @@ if(isset($_GET['Address'])){
             $result_check=mysqli_num_rows($result);
             if($result_check>0){
                 while($row=mysqli_fetch_assoc($result)){
-                echo "<form action=devise.php>
+                echo "<form action=devise.php method=GET >
                     ".$row['devise_name'].": <input  class=sub_up type=submit  name=Address value=".$row['Address'].">עדכן</form>";
             }
         }
             mysqli_close($connect);
         ?>
+       <iframe class="player" src="player.php" width="100%" height="170" style="border:none;"></iframe>
+
     </body>
 </html>

@@ -6,6 +6,10 @@ body{
     background-repeat:no-repeat;
     background-attachment: fixed;
     }
+.body_x{
+      background-image:url("");
+      
+      }
 h1,p{ color: white; 
 }
 
@@ -51,4 +55,10 @@ h1,p{ color: white;
         cursor: pointer;
         margin-left: 20;
         margin-top: 10;
+      }
+
+      .player{
+        position: absolute;
+        margin-bottom:20%;
+
       }

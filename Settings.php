@@ -28,4 +28,6 @@
             mysqli_close($connect);
 
         ?>
+       <iframe class="player" src="player.php" width="100%" height="170" style="border:none;"></iframe>
+
     </body>

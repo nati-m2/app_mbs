@@ -4,7 +4,7 @@
 			<meta name="author" content="nati mizrhi">
 				<title>home</title>
 				<meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <link rel="stylesheet" type="text/css" href="styles.css">
+            
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script>
 
@@ -54,6 +54,12 @@
     function myFunction() {
     document.getElementById("demo").innerHTML =  document.getElementById("myAudio").currentTime;
     }
+    var aid = document.getElementById("myAudio"); 
+    function playaid() {
+    aid.play();
+} 
+
+playaid();
 </script> 
     <?php
     if(isset($_SESSION["task"])){

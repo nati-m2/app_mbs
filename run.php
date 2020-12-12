@@ -7,7 +7,6 @@
             
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script>
-
     function RemoveFromDb(){
         $.ajax({
                 type: "POST",
@@ -39,6 +38,8 @@
                         // play song
                         RemoveFromDb();
                         location.reload();
+                        playaid();
+                        time_play();
                     }
                 },
                 error: function(xhr, status, error) {
@@ -47,34 +48,36 @@
             });
     }
     </script>
-    </head>
-    <body onload="setInterval('CheckTask()', 1000)">
-    <p  id="demo">00000</p>
-    <script>
-    function myFunction() {
-    document.getElementById("demo").innerHTML =  document.getElementById("myAudio").currentTime;
-    }
-    var aid = document.getElementById("myAudio"); 
-    function playaid() {
-    aid.play();
-} 
+ <script>
+    var duration_aid = document.getElementById("Audio").duration; 
+    var currentTime_aid = document.getElementById("Audio").currentTime; 
 
+    function time_play() {
+        document.getElementById("demo").innerHTML =  currentTime_aid;
+        document.getElementById("demo2").innerHTML =  duration_aid;
+    }
+    function playaid() {
+        aid.play();
+    }
+time_play();
 playaid();
-</script> 
+   </script> 
+ </head>
+    <body onload="setInterval('CheckTask()', 1000)">
+    <p  id="demo" ></p>
+    <p  id="demo2"></p>
     <?php
-    if(isset($_SESSION["task"])){
-   // session_start();
+      session_start();
+    if(isset($_SESSION["task"]) && $_SESSION["task"]!='0'){
    $song=$_SESSION["task"];
     echo "<h1>";
-    echo $_SESSION["task"];
+    echo  $song;
     echo "</h1>";
     echo "
-     <audio id= 'myAudio' controls autoplay preload='metadata' >
+     <audio id='Audio'   autoplay controls preload='metadata' >
         <source src= 'Media_Library/".$song. "' type=audio/ogg>
         <source src= 'Media_Library/".$song. "' type=audio/mpeg>
      </audio>";
-
-     //sleep(2);
      unset($_SESSION["task"]);
     }
 ?>

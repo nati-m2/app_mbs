@@ -10,8 +10,7 @@
 <?php
 include_once 'sqli.php'; 
 include "php_func\phpFunction.php"; 
-$_SESSION["task"]="0";
-session_start();
+
 
 ?>
 <center>

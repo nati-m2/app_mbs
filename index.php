@@ -1,3 +1,4 @@
+<?php if(!session_id())session_start(); ?>
 <html>
 <head>
 			<meta charset="UTF-8">
@@ -15,7 +16,7 @@ include "php_func\phpFunction.php";
 $_SESSION["task"]="0";
 date_default_timezone_set("israel");
 echo "<h1>".date("G:i:s  -  d/m/y")."</h1>";
-session_start();
+
 if(!isset($_SESSION["login"])){
   echo "<center> <form action=login.php>
   <input class=sub1 type=submit value=התחל>

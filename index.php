@@ -13,10 +13,8 @@
 include_once 'sqli.php'; 
 
 include "php_func\phpFunction.php"; 
-$_SESSION["task"]="0";
 date_default_timezone_set("israel");
 echo "<h1>".date("G:i:s  -  d/m/y")."</h1>";
-
 if(!isset($_SESSION["login"])){
   echo "<center> <form action=login.php>
   <input class=sub1 type=submit value=התחל>
@@ -31,10 +29,6 @@ if(!isset($_SESSION["login"])){
   </form>
   </center>";
 }
-
-echo "<h1>";
-echo pull_task(get_ip(),4); 
-echo "</h1>";
 ?>
 <center>
 <h1 >hi  <?php echo " ip addres is:".get_ip(); ?> </h1>
@@ -44,7 +38,8 @@ echo "</h1>";
 <a  href="play.php"><h1>play</h1></a></h1>
 
 </center>
+<iframe class="player" src="player.php" width="99%" height="300" style="border:none;"></iframe>
 
-<iframe class="player" src="player.php" width="100%" height="170" style="border:none;"></iframe>
+
   </body>   
       </html>

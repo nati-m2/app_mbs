@@ -1,7 +1,7 @@
 <?php
 include "php_func\phpFunction.php";
-if($_SERVER['REQUEST_METHOD'] == 'GET'){
 if(isset($_GET['Address'])){
+  if($_SERVER['REQUEST_METHOD'] == 'GET'){
     session_start();
     unset($_SESSION["task"]);
     $Address= $_GET['Address'];
@@ -11,6 +11,7 @@ if(isset($_GET['Address'])){
     insert_task($name,$task,$Address,$song_n);
    // header("Location:index.php");
     }
+    unset($_SESSION["task"]);
 }
 ?>
 <html>
@@ -72,7 +73,7 @@ if(isset($_GET['Address'])){
             mysqli_close($connect);
             ?>
 
-
+                          
        <iframe class="player" src="player.php" width="100%" height="170" style="border:none;"></iframe>
 
     </body>

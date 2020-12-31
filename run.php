@@ -4,7 +4,7 @@
 			<meta name="author" content="nati mizrhi">
 				<title>home</title>
 				<meta name="viewport" content="width=device-width, initial-scale=1.0">
-            
+                <link rel="stylesheet" type="text/css" href="player/play_st.css">
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script>
     function RemoveFromDb(){
@@ -38,8 +38,9 @@
                         // play song
                         RemoveFromDb();
                         location.reload();
-                        playaid();
                         time_play();
+                        playaid();
+                     
                     }
                 },
                 error: function(xhr, status, error) {
@@ -48,40 +49,51 @@
             });
     }
     </script>
- <script>
-    var duration_aid = document.getElementById("Audio").duration; 
-    var currentTime_aid = document.getElementById("Audio").currentTime; 
-
-    function time_play() {
-        document.getElementById("demo").innerHTML =  currentTime_aid;
-        document.getElementById("demo2").innerHTML =  duration_aid;
-    }
-    function playaid() {
-        aid.play();
-    }
-time_play();
-playaid();
-   </script> 
+ 
  </head>
-    <body onload="setInterval('CheckTask()', 1000)">
-    <p  id="demo" ></p>
-    <p  id="demo2"></p>
+
+    <body onload="setInterval('CheckTask()', 1000),start() ">
+  
+    <p id="demo"></p>
+    <p  id="demo2">xxx</p>
     <?php
-      session_start();
-    if(isset($_SESSION["task"]) && $_SESSION["task"]!='0'){
-   $song=$_SESSION["task"];
+    if(isset($_SESSION["task"])){
+   $song= "Media_Library/".$_SESSION["task"];
     echo "<h1>";
-    echo  $song;
-    echo "</h1>";
-    echo "
-     <audio id='Audio'   autoplay controls preload='metadata' >
-        <source src= 'Media_Library/".$song. "' type=audio/ogg>
-        <source src= 'Media_Library/".$song. "' type=audio/mpeg>
-     </audio>";
-     unset($_SESSION["task"]);
+    echo  $_SESSION["task"];
+     "</h1>";
+     echo" <br>";
+    
     }
 ?>
 
 
+<div id= "player_div" > 
+        <audio   id='myAudio' >
+        <source src= '<?php echo $song; ?>'   type= 'audio/ogg'>
+        <source src= '<?php echo $song; ?>'   type='audio/mpeg'>
+        </audio>
+        <center>
+        <img id='play' src='player/play-icon.png' width='45' height='45' onclick='playAudio()'>
+        <img id='pause' src='player/Puse-icon.png' width='45' height='45' onclick='pauseAudio()'>
+        <br>
+        
+        <div class='slidecontainer2'>
+            <input type='range' min='0' max='' value='0' class='slider' id='c_time'>
+        </div>
+        <div class='s_time'>
+        <p>  <i id='s_time'></i>:<i id='sec_time_s'></i>/<i id='e_time'></i>:<i id='sec_time'></i>  </p>
+        </div>
+        </center>
+
+        <div class='slidecontainer'>
+        <img   id ='speaker'  src='player/speaker.png' width='27' height='27' >
+        <input id='myRange' type='range' min='0' max='100' value='10' class='slider'   >
+        </div>
+    </div>
     </body>
+    <script src="player/play_logic.js"></script>
 </html>
+
+
+

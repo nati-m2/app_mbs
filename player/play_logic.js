@@ -5,11 +5,16 @@ document.getElementById("play").style.display = "block";
 document.getElementById("pause").style.display = "none";
 document.getElementById("myRange").style.display = "none";
 document.getElementById("speaker").style.display = "block";
- 
+
+document.getElementById("speaker_m").style.display = "block";
+document.getElementById("speaker_devise").style.display = "none";
+
 var slider = document.getElementById("myRange");
 var speaker = document.getElementById("speaker");
 var slider_c_time = document.getElementById("c_time");
 var c_time = x.currentTime;
+var devise = document.getElementById("speaker_m");
+var devise_div = document.getElementById("speaker_devise");
 
 speaker.onmouseover= function(){
   document.getElementById("speaker").style.display = "none";
@@ -20,6 +25,20 @@ slider.onmouseout= function(){
   document.getElementById("myRange").style.display = "none";
   document.getElementById("speaker").style.display = "block";
 }
+
+
+
+devise.onmouseover= function(){
+  document.getElementById("speaker_m").style.display = "none";
+  document.getElementById("speaker_devise").style.display = "block";
+}
+
+devise_div.onmouseout= function(){
+  document.getElementById("speaker_devise").style.display = "none";
+  document.getElementById("speaker_m").style.display = "block";
+}
+
+
 
 
 setCurTime();
@@ -41,7 +60,7 @@ function playAudio() {
 
 function start(){
   getduration();
-  //autoplay_f();
+  autoplay_f();
   document.getElementById("player_div").style.display = "block";
   setInterval(up_time_val, 1000);
 }
@@ -67,11 +86,12 @@ function pauseAudio() {
   document.getElementById("play").style.display = "block";
   document.getElementById("pause").style.display = "none";
 } 
-/*
+
 function autoplay_f(){
   x.autoplay;
+console.log("hhhhhhhhhhhhhh");
+
 }
-*/
 function getCurTime(){ 
 return x.currentTime;
 } 

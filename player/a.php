@@ -10,8 +10,8 @@
       <source src="t_a.mp3" type="audio/mpeg">
     </audio>
     <center>
-      <img id="play" src="play-icon.png" width="45" height="45" onclick="playAudio()">
-      <img id="pause" src="Puse-icon.png" width="50" height="50" onclick="pauseAudio()">
+      <img id="play" src="img/play-icon.png" width="45" height="45" onclick="playAudio()">
+      <img id="pause" src="img/Puse-icon.png" width="50" height="50" onclick="pauseAudio()">
       <br>
     
       <div class="slidecontainer2">

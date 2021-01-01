@@ -74,7 +74,7 @@ if(isset($_GET['Address'])){
             ?>
 
                           
-       <iframe class="player" src="player.php" width="100%" height="170" style="border:none;"></iframe>
+      
 
     </body>
 </html>

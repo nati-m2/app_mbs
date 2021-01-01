@@ -63,19 +63,19 @@
     echo  $_SESSION["task"];
      "</h1>";
      echo" <br>";
-    
+    unset($_SESSION["task"]);
     }
 ?>
 
 
 <div id= "player_div" > 
-        <audio   id='myAudio' >
-        <source src= '<?php echo $song; ?>'   type= 'audio/ogg'>
-        <source src= '<?php echo $song; ?>'   type='audio/mpeg'>
+        <audio   id='myAudio' autoplay>
+        <source src= '<?php echo $song; ?>'  type= 'audio/ogg'>
+        <source src= '<?php echo $song; ?>'  type='audio/mpeg'>
         </audio>
         <center>
-        <img id='play' src='player/play-icon.png' width='45' height='45' onclick='playAudio()'>
-        <img id='pause' src='player/Puse-icon.png' width='45' height='45' onclick='pauseAudio()'>
+        <img id='play' src='img/play-icon.png' width='45' height='45' onclick='playAudio()'>
+        <img id='pause' src='img/Puse-icon.png' width='45' height='45' onclick='pauseAudio()'>
         <br>
         
         <div class='slidecontainer2'>
@@ -87,10 +87,19 @@
         </center>
 
         <div class='slidecontainer'>
-        <img   id ='speaker'  src='player/speaker.png' width='27' height='27' >
+        <img   id ='speaker'  src='img/speaker.png' width='27' height='27' >
         <input id='myRange' type='range' min='0' max='100' value='10' class='slider'   >
         </div>
+        
+
     </div>
+        <div class='speaker_m'>
+            <img   id ='speaker_m'  src='img/speaker_m.png' width='55' height='55' >
+            </div>
+        <iframe  id ='speaker_devise' class="" src="devise.php" width="217" height="" style="border:none;"></iframe>
+       
+
+
     </body>
     <script src="player/play_logic.js"></script>
 </html>

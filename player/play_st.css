@@ -5,11 +5,13 @@
 }
 .slidecontainer {
   position: absolute;
-  top: 166;
+
   width: 15%;
 }
 .slidecontainer2 {
+  
   width: 50%;
+  counter-reset: 0;
 }
 
 .slider {
@@ -38,4 +40,21 @@
   cursor: pointer;
 }
 
+
+.speaker_m{
+
+  position: absolute;
+  top: 75;
+  right:75 ;
+  
+}
+
+
+
+#speaker_devise{
+
+  position: absolute;
+  top: 75;
+  right:75 ;
+}
 

@@ -124,3 +124,9 @@ h1,p{ color: white;
   .sidebar {padding-top: 15px;}
   .sidebar a {font-size: 18px;}
 }
+.player{
+
+  position: absolute;
+  bottom: 0;
+  
+}

@@ -38,6 +38,7 @@
                         // play song
                         RemoveFromDb();
                         location.reload();
+                        playAudio();
                         time_play();
                         playaid();
                      

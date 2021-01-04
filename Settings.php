@@ -6,7 +6,8 @@
 </head>
     <body>
         <?php
-            include "php_func\phpFunction.php";
+         include 'Sidebar.php';
+            
             include "sqli.php";
             $query="SELECT * FROM `settings`";
             $result=mysqli_query($connect,$query);

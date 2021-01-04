@@ -3,6 +3,23 @@
 
     h1,p{ color: white; 
 }
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    'header header header header header header'
+    'menu main main main main  right'
+    'footer  footer  footer  footer  footer  footer ';
+ 
+}
+
+
+
+
+#speaker_devise { grid-area: right; }
+
+
+
 .slidecontainer {
   position: absolute;
 
@@ -52,7 +69,6 @@
 
 
 #speaker_devise{
-
   position: absolute;
   top: 75;
   right:75 ;

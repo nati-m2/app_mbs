@@ -7,38 +7,45 @@
 				<meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel="stylesheet" type="text/css" href="styles.css">
   </head>
-      <body>
+  <body>
+  
+  <div class="grid-container">
+          <div class="main">
+        
+                <?php
+                include 'Sidebar.php';
+                include_once 'sqli.php'; 
+                
+                date_default_timezone_set("israel");
+                echo "<h1>".date("G:i:s  -  d/m/y")."</h1>";
+                if(!isset($_SESSION["login"])){
+                  echo "<center> <form action=login.php>
+                  <input class=sub1 type=submit value=התחל>
+                  </form>
+                  </center>";
+                }else{
+                  echo "<center> <form action=start.php>
+                  <input class=sub1 type=submit value=".$_SESSION["login"].">
+                  </form>;
+                  <form action=logout.php>
+                  <input class=sub type=submit value=logout>
+                  </form>
+                  </center>";
+                }
+                ?>
+            <center>
+          
+                </center>
+                </div>
 
-<?php
-include_once 'sqli.php'; 
-
-include "php_func\phpFunction.php"; 
-date_default_timezone_set("israel");
-echo "<h1>".date("G:i:s  -  d/m/y")."</h1>";
-if(!isset($_SESSION["login"])){
-  echo "<center> <form action=login.php>
-  <input class=sub1 type=submit value=התחל>
-  </form>
-  </center>";
-}else{
-  echo "<center> <form action=start.php>
-  <input class=sub1 type=submit value=".$_SESSION["login"].">
-  </form>;
-  <form action=logout.php>
-  <input class=sub type=submit value=logout>
-  </form>
-  </center>";
-}
-?>
 <center>
-<h1 >hi  <?php echo " ip addres is:".get_ip(); ?> </h1>
-<a  href="Settings.php"><h1>settings</h1></a>
-<a  href="newDevise.php"><h1>newDevise</h1></a>
-
-
+<div class="player">
+          <iframe  src="player.php" width="99%" height="400" style="border:none;"></iframe>
+      </div>
 
 </center>
-<iframe class="player" src="player.php" width="99%" height="300" style="border:none;"></iframe>
+    
+    </div>
 
 
   </body>   

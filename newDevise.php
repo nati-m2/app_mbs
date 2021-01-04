@@ -1,7 +1,7 @@
 <?php
-include "php_func\phpFunction.php";
+ include 'Sidebar.php';
 include_once 'sqli.php'; 
-echo "<h1> כתובת ".get_ip()."</h1>";
+
 if(isset($_GET['devise'])){
 $Address=get_ip();
 $devise=$_GET['devise'];
@@ -24,7 +24,7 @@ mysqli_close($connect);
 				<script src="000valid_all.js"></script>
 		</head>
 		<body class="body_y">
-		<a href ="index.php" target="_top" type=submit  class="sub1">חזרה לבית</a>
+
 				<center>
 					<form action="newDevise.php" method="GET" onsubmit="/*return  validpass();*/">
 							<h2 >:התחבר</h2><br>

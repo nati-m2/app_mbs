@@ -23,16 +23,21 @@ include "php_func\phpFunction.php";
                     <div id="mySidebar" class="sidebar">
                         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
                         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-                        <?php if(!isset($_SESSION["login"])){
+                        <?php date_default_timezone_set("israel");
+                          echo "<p>".date("G:i:s  -  d/m/y")."</p>";
+
+                         if(!isset($_SESSION["login"])){
                             echo "<a href='login.php'>login</a>";   
                             }else{
                                 echo "<a href='profile.php'>".$_SESSION["login"]."</a>"; 
                                 echo "<a href='logout.php'>logout</a>"; 
                              }
-                            
                         ?>
                          <a href="index.php" target="_top">בית</a>
-                         <a ><?php echo " ip addres is:".get_ip(); ?> </a>
+                         
+                         <a href="upload.php" target="_top">uploads</a>
+                       
+                         <a ><?php echo " כתובת :".get_ip(); ?> </a>
                         <a  href="Settings.php">settings</a>
                         <a  href="newDevise.php">newDevise</a>         
                   </div>

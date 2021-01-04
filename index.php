@@ -15,27 +15,8 @@
                 <?php
                 include 'Sidebar.php';
                 include_once 'sqli.php'; 
-                
-                date_default_timezone_set("israel");
-                echo "<h1>".date("G:i:s  -  d/m/y")."</h1>";
-                if(!isset($_SESSION["login"])){
-                  echo "<center> <form action=login.php>
-                  <input class=sub1 type=submit value=התחל>
-                  </form>
-                  </center>";
-                }else{
-                  echo "<center> <form action=start.php>
-                  <input class=sub1 type=submit value=".$_SESSION["login"].">
-                  </form>;
-                  <form action=logout.php>
-                  <input class=sub type=submit value=logout>
-                  </form>
-                  </center>";
-                }
                 ?>
-            <center>
-          
-                </center>
+           
                 </div>
 
 <center>

@@ -36,9 +36,13 @@ if(mysqli_num_rows($result)==1){
 }
 }
 
-function update_set($id,$val){
+
+
+
+
+function insert_set($name,$val){
   include 'sqli.php'; 
-  $query = "UPDATE `settings` SET `val`='".$val."' WHERE `id`=$id";
+  $query = "INSERT INTO  settings(`name`,`val`) VALUES('".$name."','".$val."')";
   if(!mysqli_query($connect,$query)){
     echo "Error: " . $query . "<br>" . mysqli_error($connect);
     return;

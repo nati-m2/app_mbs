@@ -1,11 +1,13 @@
  <?php
-
+include "php_func\phpFunction.php"; 
   try { create_db();
         create_table_user();
         create_table_devise(); 
         create_table_settings();
         create_table_Task();
-   
+        insert_set("maxfile","10000000");
+        //insert_set($name,$val);
+
     header("Location: index.php");
   }
   catch(Exception $e) {

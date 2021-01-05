@@ -1,6 +1,7 @@
 <?php
 include "php_func\phpFunction.php";
-if(isset($_GET['Address'])){
+/*
+if(isset($_GET['Address']  )){
   if($_SERVER['REQUEST_METHOD'] == 'GET'){
     session_start();
     unset($_SESSION["task"]);
@@ -12,7 +13,22 @@ if(isset($_GET['Address'])){
    // header("Location:index.php");
     }
     unset($_SESSION["task"]);
+}*/
+
+if(isset($_GET['song'])){
+  if($_SERVER['REQUEST_METHOD'] == 'GET'){
+    session_start();
+    unset($_SESSION["task"]);
+    $Address=get_ip();
+    $task= "on";
+    $name= "play";
+    $song_n = $_GET['song'];
+    insert_task($name,$task,$Address,$song_n);
+   // header("Location:index.php");
+    }
+    unset($_SESSION["task"]);
 }
+
 ?>
 <html>
 <head>
@@ -30,13 +46,13 @@ if(isset($_GET['Address'])){
             
               overflow: hidden;
               background-color: #333;
-              width: 200;
+              width: 150;
               margin-top:1 ;
             
             }
             
             .navbar a {
-              width: 200;
+              width: 150;
               float: left;
               font-size: 14px;
               color: white;

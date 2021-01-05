@@ -6,7 +6,7 @@ include "php_func\phpFunction.php";
 		<head>
 		<meta charset="UTF-8">
 			<meta name="author" content="nati mizrhi">
-				<title>bon</title>
+				<title>Sidebar</title>
 				<meta name="viewport" content="width=device-width, initial-scale=1.0">
                <link rel="stylesheet" type="text/css" href="styles.css"> 	
                <script src="ck.js"></script>
@@ -35,10 +35,10 @@ include "php_func\phpFunction.php";
                         ?>
                          <a href="index.php" target="_top">בית</a>
                          
-                         <a href="upload.php" target="_top">uploads</a>
+                         <a href="upload.php" target="main">uploads</a>
                        
                          <a ><?php echo " כתובת :".get_ip(); ?> </a>
-                        <a  href="Settings.php">settings</a>
+                        <a  href="Settings.php" >settings</a>
                         <a  href="newDevise.php">newDevise</a>         
                   </div>
 </div>

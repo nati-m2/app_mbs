@@ -6,6 +6,7 @@ include "php_func\phpFunction.php";
         create_table_settings();
         create_table_Task();
         insert_set("maxfile","10000000");
+        create_table_song_t();
         //insert_set($name,$val);
 
     header("Location: index.php");
@@ -90,13 +91,12 @@ function  create_table_settings(){
 
 
 
-
 function  create_table_Task(){
   include 'sqli.php'; 
     $query = "CREATE TABLE task_t(id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-        name TEXT(15) NOT NULL, task TEXT(5), Address TEXT(20), song_n TEXT(40) )";
+        name TEXT(15) NOT NULL, task TEXT(5), Address TEXT(20), song_n VARCHAR(120) )";
       if (mysqli_query($connect,$query)) {
-        echo "Table devise created successfully";
+        echo "Table Task created successfully";
         echo "<br>";
       } else {
        throw new Exception("Error creating table Task");
@@ -106,6 +106,22 @@ function  create_table_Task(){
       mysqli_close($connect);
 }
 
+
+
+function  create_table_song_t(){
+  include 'sqli.php'; 
+    $query = "CREATE TABLE song_t(id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+        name VARCHAR(100) NOT NULL, path VARCHAR(120))";
+      if (mysqli_query($connect,$query)) {
+        echo "Table song_t created successfully";
+        echo "<br>";
+      } else {
+       throw new Exception("Error creating table Task");
+        echo "Error creating table song_t: " . mysqli_error($connect);
+      
+      }
+      mysqli_close($connect);
+}
 
 
 

@@ -24,8 +24,8 @@ $it=(int)pull_set("maxfile");
 					echo "Sorry, your file is too large.";
 					continue;
 				  }
-				   echo "<br>";
 				move_uploaded_file($_FILES['files']['tmp_name'][$i],$foldername."/".$name);
+				insert_song_t($name,$foldername.$name);
   		    }
   		}
   		echo "Folder is successfully uploaded";
@@ -33,5 +33,14 @@ $it=(int)pull_set("maxfile");
   	//else
   	  //  echo "Upload folder name is empty";
   }
+
+
+
+
   header("Location:upload.php");
+
+
+
+
+
   ?>

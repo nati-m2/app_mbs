@@ -51,7 +51,21 @@ function insert_set($name,$val){
   return;
   }
 
+  function insert_song_t($name,$path){
+    include 'sqli.php'; 
+    $query = "INSERT INTO  song_t(`name`,`path`) VALUES('".$name."','".$path."')";
+    if(!mysqli_query($connect,$query)){
+      echo "Error: " . $query . "<br>" . mysqli_error($connect);
+      return;
+    }
+    mysqli_close($connect);
+    return;
+    }
+  
 
+
+
+      
 
 function insert_task($name,$task,$Address,$song_n){
   include 'sqli.php'; 

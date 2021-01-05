@@ -1,6 +1,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="author" content="nati mizrhi">
+    <title>settings</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
@@ -29,6 +30,6 @@
             mysqli_close($connect);
 
         ?>
-       <iframe class="player" src="player.php" width="100%" height="170" style="border:none;"></iframe>
+     
 
     </body>

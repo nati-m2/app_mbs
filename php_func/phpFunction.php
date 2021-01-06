@@ -62,10 +62,23 @@ function insert_set($name,$val){
     return;
     }
   
+    function pull_song_t($id){
+      include 'sqli.php'; 
+      $query="SELECT path FROM `song_t` WHERE  id = $id  ";
+      $result=mysqli_query($connect,$query);
+      if($result){
+        $result_check=mysqli_num_rows($result);
+        if($result_check){
+          $row=mysqli_fetch_assoc($result); 
+            return  $row['path'];
+        }
+      echo "Error: " . $query . "<br>" . mysqli_error($connect);
+      return;
+      }
+    }
 
 
-
-      
+   // pull_song_t
 
 function insert_task($name,$task,$Address,$song_n){
   include 'sqli.php'; 
@@ -76,7 +89,7 @@ function insert_task($name,$task,$Address,$song_n){
     return;
   }
  */
-  $query = "INSERT INTO task_t(`name`,`task`, `Address`,`song_n`) VALUES('".$name."','".$task."','".$Address."','".$song_n."')";
+  $query = "INSERT INTO task_t(`name`,`task`, `Address_d`,`song_id`) VALUES('".$name."','".$task."','".$Address."','".$song_n."')";
    if(!mysqli_query($connect,$query)){
     echo "Error: " . $query . "<br>" . mysqli_error($connect);
 }
@@ -85,26 +98,25 @@ mysqli_close($connect);
 
 function pull_task($Address,$c){
   include 'sqli.php'; 
-  $query="SELECT * FROM `task_t` WHERE  Address = '".$Address."' AND  name LIKE  'play' OR name LIKE  'playing' ";
+  $query="SELECT * FROM `task_t` WHERE  Address_d = '".$Address."'  AND  name LIKE  'play' OR name LIKE  'playing' ";
   $result=mysqli_query($connect,$query);
-  if(!$result){
-    echo "Error: " . $query . "<br>" . mysqli_error($connect);
+  if($result){
+    $result_check=mysqli_num_rows($result);
+    if($result_check==1){
+      $row=mysqli_fetch_assoc($result);
+      if($c==1)  
+        return  $row['Address'];
+      else if($c==2)
+        return  $row['name'];
+      else if($c==3)
+        return  $row['task'];
+      else if($c==4)
+        return  $row['song_id'];
+      
+      }
+      return null;
   }
-  $result_check=mysqli_num_rows($result);
-  if($result_check==1){
-    $row=mysqli_fetch_assoc($result);
-  
-    if($c==1)  
-      return  $row['Address'];
-    else if($c==2)
-      return  $row['name'];
-    else if($c==3)
-      return  $row['task'];
-    else if($c==4)
-      return  $row['song_n'];
-    
-    }
-  
+  echo "Error: " . $query . "<br>" . mysqli_error($connect);
   return null;
   mysqli_close($connect);
 }

@@ -27,6 +27,7 @@ include "php_func\phpFunction.php";
                           echo "<p>".date("G:i:s  -  d/m/y")."</p>";
 
                          if(!isset($_SESSION["login"])){
+                          
                             echo "<a href='login.php'>login</a>";   
                             }else{
                                 echo "<a href='profile.php'>".$_SESSION["login"]."</a>"; 

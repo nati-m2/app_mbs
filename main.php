@@ -32,14 +32,18 @@
 
     <?php
 
+ 
     include 'sqli.php'; 
     $query="SELECT * FROM `song_t`  ";
+    include "php_func\phpFunction.php";
+   
+     echo pull_task(get_ip(),4);
     $result=mysqli_query($connect,$query);
     $result_check=mysqli_num_rows($result);
     if($result_check>0){
         while($row=mysqli_fetch_assoc($result)){
      
-         echo" <li> <span>".$row['name']."</span><span><a href=devise.php?song=".$row['path'].">p</a> <span>זמן</span></span></li>";
+         echo" <li> <span>".$row['name']."</span><span><a href=devise_logic.php?song_id=".$row['id'].">p</a> <span>זמן</span></span></li>";
         }
     }
     mysqli_close($connect);

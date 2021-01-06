@@ -15,6 +15,7 @@
                 <?php
                 include 'Sidebar.php';
                 include_once 'sqli.php'; 
+              
                 ?>
            
                 </div>

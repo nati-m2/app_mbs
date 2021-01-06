@@ -14,8 +14,7 @@ include "php_func\phpFunction.php";
   catch(Exception $e) {
     echo 'Message: ' .$e->getMessage();
   }
-
- 
+/*//////////////////////////////////////////////////*/
 function  create_db(){
     $servername = "localhost";
     $username = "root";
@@ -37,12 +36,11 @@ function  create_db(){
        throw new Exception("יש בעייה ליצור מסד נתונים");
        echo "<br>";
        echo "Error creating table: " . mysqli_error($connect);
-     
-        
         return 1;
       }
 mysqli_close($conn);
 }
+
 function  create_table_user(){
     include  'sqli.php'; 
     $query = "CREATE TABLE user(
@@ -53,11 +51,11 @@ function  create_table_user(){
       echo "<br>";
     } else {
      throw new Exception("Error creating table user");
-      echo "Error creating table: " . mysqli_error($connect);
-   
+      echo "Error creating table: " . mysqli_error($connect);   
     }
         mysqli_close($connect);
 }
+
 function  create_table_devise(){
   include 'sqli.php'; 
     $query = "CREATE TABLE devise(id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -84,7 +82,6 @@ function  create_table_settings(){
       } else {
        throw new Exception("Error creating table settings");
         echo "Error creating table: " . mysqli_error($connect);
-      
       }
       mysqli_close($connect);
 }
@@ -94,14 +91,12 @@ function  create_table_settings(){
 function  create_table_Task(){
   include 'sqli.php'; 
     $query = "CREATE TABLE task_t(id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-        name TEXT(15) NOT NULL, task TEXT(5), Address TEXT(20), song_n VARCHAR(120) )";
-      if (mysqli_query($connect,$query)) {
+        name TEXT(15) NOT NULL,task TEXT(5), Address_d TEXT(20), song_id INT(6), s_time TEXT(15))";
+      if (mysqli_query($connect,$query)){
         echo "Table Task created successfully";
         echo "<br>";
       } else {
-       throw new Exception("Error creating table Task");
         echo "Error creating table: " . mysqli_error($connect);
-      
       }
       mysqli_close($connect);
 }
@@ -116,9 +111,8 @@ function  create_table_song_t(){
         echo "Table song_t created successfully";
         echo "<br>";
       } else {
-       throw new Exception("Error creating table Task");
+
         echo "Error creating table song_t: " . mysqli_error($connect);
-      
       }
       mysqli_close($connect);
 }

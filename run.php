@@ -35,9 +35,9 @@
                 success: function(data) {
                     if (data != "") {
                         console.log(data);
-                        // play song
+                        //play song
                         RemoveFromDb();
-                        location.reload();
+                       location.reload();
                         playAudio();
                         time_play();
                         playaid();
@@ -45,7 +45,7 @@
                     }
                 },
                 error: function(xhr, status, error) {
-                    console.error(xhr);
+                   console.error(xhr);
                 }
             });
     }
@@ -55,11 +55,14 @@
 
     <body onload="setInterval('CheckTask()', 1000),start() ">
     <?php
+
+    
     if(isset($_SESSION["task"])){
    $song= $_SESSION["task"];
-    echo "<p>";
-    echo  $song;
-     "</p>";
+   echo "<p>";
+   echo  $_SESSION["task"];
+    "</p>";
+
      echo" <br>";
     unset($_SESSION["task"]);
     }
@@ -75,7 +78,6 @@
         <img id='play' src='img/play-icon.png' width='45' height='45' onclick='playAudio()'>
         <img id='pause' src='img/Puse-icon.png' width='45' height='45' onclick='pauseAudio()'>
         <br>
-        
         <div class='slidecontainer2'>
             <input type='range' min='0' max='' value='0' class='slider' id='c_time'>
         </div>
@@ -90,18 +92,12 @@
         <p>  <i id='s_time'></i>:<i id='sec_time_s'></i>/<i id='e_time'></i>:<i id='sec_time'></i>  </p>
         </div>
         </center>
-
-      
-        
-
     </div>
         <div class='speaker_m'>
             <img   id ='speaker_m'  src='img/speaker_m.png' width='55' height='55' >
             </div>
         <iframe  id ='speaker_devise' class="" src="devise.php" width="160" height="" style="border:0none;"></iframe>
        
-
-
     </body>
     <script src="player/play_logic.js"></script>
 </html>

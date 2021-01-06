@@ -1,35 +1,4 @@
-<?php
-include "php_func\phpFunction.php";
-/*
-if(isset($_GET['Address']  )){
-  if($_SERVER['REQUEST_METHOD'] == 'GET'){
-    session_start();
-    unset($_SESSION["task"]);
-    $Address= $_GET['Address'];
-    $task= "on";
-    $name= "play";
-    $song_n = "Celine Dion - Im Alive.mp3";
-    insert_task($name,$task,$Address,$song_n);
-   // header("Location:index.php");
-    }
-    unset($_SESSION["task"]);
-}*/
 
-if(isset($_GET['song'])){
-  if($_SERVER['REQUEST_METHOD'] == 'GET'){
-    session_start();
-    unset($_SESSION["task"]);
-    $Address=get_ip();
-    $task= "on";
-    $name= "play";
-    $song_n = $_GET['song'];
-    insert_task($name,$task,$Address,$song_n);
-   // header("Location:index.php");
-    }
-    unset($_SESSION["task"]);
-}
-
-?>
 <html>
 <head>
 	<meta charset="UTF-8">
@@ -82,7 +51,7 @@ if(isset($_GET['song'])){
                         $result_check=mysqli_num_rows($result);
                         if($result_check>0){
                             while($row=mysqli_fetch_assoc($result)){
-                  echo" <a  href=devise.php?Address=".$row['Address'].">".$row['devise_name']."</a> ";
+                  echo" <a  href=devise_logic.php?Address=".$row['Address'].">".$row['devise_name']."</a>";
                       }
                     }
             echo"</div>";

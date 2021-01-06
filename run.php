@@ -39,8 +39,6 @@
                         RemoveFromDb();
                        location.reload();
                         playAudio();
-                        time_play();
-                        playaid();
                      
                     }
                 },
@@ -70,7 +68,7 @@
 
 
 <div id= "player_div" > 
-        <audio   id='myAudio' autoplay>
+        <audio   id='myAudio' >
         <source src= '<?php echo $song; ?>'  type= 'audio/ogg'>
         <source src= '<?php echo $song; ?>'  type='audio/mpeg'>
         </audio>
@@ -101,6 +99,3 @@
     </body>
     <script src="player/play_logic.js"></script>
 </html>
-
-
-

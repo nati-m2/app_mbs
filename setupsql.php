@@ -9,7 +9,7 @@ include "php_func\phpFunction.php";
         create_table_song_t();
         //insert_set($name,$val);
 
-    header("Location: index.php");
+   // header("Location: index.php");
   }
   catch(Exception $e) {
     echo 'Message: ' .$e->getMessage();
@@ -106,7 +106,7 @@ function  create_table_Task(){
 function  create_table_song_t(){
   include 'sqli.php'; 
     $query = "CREATE TABLE song_t(id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-        name VARCHAR(100) NOT NULL, path VARCHAR(120))";
+        name VARCHAR(100) NOT NULL, path VARCHAR(120),user_n TEXT(30)) ";
       if (mysqli_query($connect,$query)) {
         echo "Table song_t created successfully";
         echo "<br>";

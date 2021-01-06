@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         echo"<script> alert('אתה מחובר'); </script>" ;
         session_start();
         $_SESSION["login"]=$name;
-        header("Location:index.php");
+        header("Location:main.php");
         mysqli_close($connect);
         }else{  
             echo"<script> alert('שם משתמש לא קיים'); </script>" ;

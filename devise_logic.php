@@ -23,7 +23,7 @@ if(isset($_GET['song_id'])){
     $name= "play";
     $song_n = $_GET['song_id'];
     insert_task($name,$task,$Address,$song_n);
-    //header("Location:index.php");
+    header("Location:main.php");
     }
     unset($_SESSION["task"]);
 }

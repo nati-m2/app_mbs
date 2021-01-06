@@ -51,9 +51,9 @@ function insert_set($name,$val){
   return;
   }
 
-  function insert_song_t($name,$path){
+  function insert_song_t($name,$path,$user){
     include 'sqli.php'; 
-    $query = "INSERT INTO  song_t(`name`,`path`) VALUES('".$name."','".$path."')";
+    $query = "INSERT INTO  song_t(`name`,`path`,`user_n`) VALUES('".$name."','".$path."','".$user."')";
     if(!mysqli_query($connect,$query)){
       echo "Error: " . $query . "<br>" . mysqli_error($connect);
       return;
@@ -123,7 +123,7 @@ function pull_task($Address,$c){
 
 function update_task($Address,$val){
   include 'sqli.php'; 
-  $query = "UPDATE `task_t` SET `name`='".$val."' WHERE Address LIKE '".$Address."' ";
+  $query = "UPDATE `task_t` SET `name`='".$val."' WHERE Address_d LIKE '".$Address."' ";
   if(!mysqli_query($connect,$query)){
     echo "Error: " . $query . "<br>" . mysqli_error($connect);
     return;

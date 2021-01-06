@@ -23,7 +23,7 @@
       </div>
     </div>
     <div class="album-details">
-      <h2> <img src="1111"/>1111</h2>
+      <h2> <img src="#"/>1111</h2>
       <h1>Unleashed</h1><span> <span>ז'אנר</span><span></span></span>
     </div>
   </div>
@@ -34,16 +34,16 @@
 
  
     include 'sqli.php'; 
-    $query="SELECT * FROM `song_t`  ";
     include "php_func\phpFunction.php";
-   
-     echo pull_task(get_ip(),4);
+
+    //  user , p where user=   
+    $query="SELECT * FROM `song_t` ";
     $result=mysqli_query($connect,$query);
     $result_check=mysqli_num_rows($result);
     if($result_check>0){
         while($row=mysqli_fetch_assoc($result)){
      
-         echo" <li> <span>".$row['name']."</span><span><a href=devise_logic.php?song_id=".$row['id'].">p</a> <span>זמן</span></span></li>";
+         echo" <li> <span>".$row['name']."</span><span>זמן</span><span><a href=devise_logic.php?song_id=".$row['id']."><div class='play'>Play</div></a></li>";
         }
     }
     mysqli_close($connect);

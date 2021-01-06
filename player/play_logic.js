@@ -1,5 +1,3 @@
-
-
 var x = document.getElementById("myAudio");
 document.getElementById("play").style.display = "block";
 document.getElementById("pause").style.display = "none";
@@ -52,15 +50,19 @@ slider.oninput = function(){
 }
 
 function playAudio() { 
-  x.play(); 
+    x.play(); 
   document.getElementById("play").style.display = "none";
   document.getElementById("pause").style.display = "block";
   x.currentTime=getCurTime();
+ 
 } 
 
 function start(){
-  getduration();
+  var d=getduration();
+ if(d>0){
   autoplay_f();
+  console.log(d);
+}
   document.getElementById("player_div").style.display = "block";
   setInterval(up_time_val, 1000);
 }
@@ -88,9 +90,9 @@ function pauseAudio() {
 } 
 
 function autoplay_f(){
-  x.autoplay;
-console.log("hhhhhhhhhhhhhh");
-
+  x.autoplay = true;
+  x.load();
+  playAudio();
 }
 function getCurTime(){ 
 return x.currentTime;
@@ -104,5 +106,4 @@ function getduration(){
 
 function setCurTime(){ 
   x.currentTime=0;
-} 
-
+}

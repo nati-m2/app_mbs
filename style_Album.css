@@ -1,5 +1,5 @@
 
-@import url("https://f0onts.googleapis.com/css?family=Roboto:300,400,500,700");
+
 :root {
   --color: #faa700;
   --color-light: #f5ede1;
@@ -77,10 +77,10 @@ section .play {
   align-content: initial;
   color: white;
   background: var(--color);
-  padding: 10px;
+  padding:6px;
   text-transform: uppercase;
   -webkit-box-flex: 1;
-          flex: 1 0 50%;
+          flex: 1 1 60%;
 }
 
 

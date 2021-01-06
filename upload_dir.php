@@ -1,5 +1,8 @@
 <?php
 include "php_func\phpFunction.php"; 
+if(!session_id())session_start();
+
+if(isset($_SESSION["login"])){
 $it=(int)pull_set("maxfile");
   if(isset($_POST['upload']))
   {
@@ -25,7 +28,8 @@ $it=(int)pull_set("maxfile");
 					continue;
 				  }
 				move_uploaded_file($_FILES['files']['tmp_name'][$i],$foldername."/".$name);
-				insert_song_t($name,$foldername.$name);
+				$user=$_SESSION["login"];
+				insert_song_t($name,$foldername.$name,$user);
   		    }
   		}
   		echo "Folder is successfully uploaded";
@@ -34,13 +38,7 @@ $it=(int)pull_set("maxfile");
   	  //  echo "Upload folder name is empty";
   }
 
-
-
-
+}
   header("Location:upload.php");
-
-
-
-
 
   ?>

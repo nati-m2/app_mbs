@@ -1,3 +1,4 @@
+
 function openNav() {
     document.getElementById("mySidebar").style.width = "250px";
     document.getElementById("main").style.marginLeft = "250px";
@@ -9,3 +10,10 @@ function openNav() {
   }
 
 
+  function openNav2() {
+    document.getElementById("myNav").style.height = "100%";
+  }
+  
+  function closeNav2() {
+    document.getElementById("myNav").style.height = "0%";
+  }

@@ -56,7 +56,19 @@ h1,p{ color: white;
         margin-top: 10;
       }
 
-     
+   .sub_up {
+        font-size: 20px;
+        width: 80;
+        background-color: rgba(53, 51, 52, 0.295);
+        color: white;
+        padding: 5px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-left: 20;
+        margin-top: 10;
+      }
    /*////////////////////////////////////grid-container/////////////////////////////////////////////
 .grid-container {
   display: grid;

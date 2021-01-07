@@ -19,6 +19,7 @@ if(!isset($_SESSION["login"])){
 
 </head>
 <body>
+
 <div class="background"></div>
 <section>
 
@@ -39,12 +40,10 @@ if(!isset($_SESSION["login"])){
   <div class="album-tracks">
     <ol>
 
-    <?php
-
- 
+    <?php   
+     include 'devise.php';
     include 'sqli.php'; 
     include "php_func\phpFunction.php";
-
     //  user , p where user=where  user   
     $query="SELECT * FROM `song_t` ";
     $result=mysqli_query($connect,$query);
@@ -52,12 +51,12 @@ if(!isset($_SESSION["login"])){
     if($result_check>0){
         while($row=mysqli_fetch_assoc($result)){
      
-         echo" <li>";
-         echo"  <span class='play3'>".$row['name']."</span><span>זמן</span>
-         <span><a href=devise_logic.php?song_id=".$row['id']."><div class='play'>Play</div></a></span>
-         <span class='play3'><a href=devise_logic.php?song_id=".$row['id']."><div class='play2'>Play</div></a> </span> 
-         ";
-         echo" </li>";
+         echo" <li>
+         <span class='play3'>".$row['name']."</span><span>זמן</span>
+         <span style='font-size:15px;cursor:pointer' onclick='openNav()'>&#9776;</span>
+         <span class='sub_up' ><a href=devise_logic.php?song_id=".$row['id'].">play</a></span>
+       
+          </li>";
         }
     }
     mysqli_close($connect);

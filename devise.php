@@ -1,48 +1,70 @@
-
+<!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<meta name="author" content="nati mizrhi">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="styles.css">
-    <style>
-            body {
-              font-family: Arial, Helvetica, sans-serif;
-              
-            }
-            
-            .navbar {
-            
-              overflow: hidden;
-              background-color: #333;
-              width: 150;
-              margin-top:1 ;
-            
-            }
-            
-            .navbar a {
-              width: 150;
-              float: left;
-              font-size: 14px;
-              color: white;
-              text-align: center;
-              padding: 14px 16px;
-              text-decoration: none;
-            }
-            
-            .dropdown {
-              float: left;
-              overflow: hidden;
-            }
-            
-            
-            .navbar a:hover, .dropdown:hover .dropbtn {
-                background-color: rgb(46, 156, 245);
-            }
-            </style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: 'Lato', sans-serif;
+}
+
+.overlay {
+  height: 0%;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(0,0,0);
+  background-color: rgba(255,255,255, 0.3);
+  overflow-y: hidden;
+  transition: 0.5s;
+}
+
+.overlay-content {
+  position: relative;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus {
+  color:  rgb(0,0,0);
+}
+
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+}
+
+@media screen and (max-height: 450px) {
+  .overlay {overflow-y: auto;}
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+  font-size: 40px;
+  top: 15px;
+  right: 35px;
+  }
+}
+</style>
 </head>
-        <body class="body_x">
-            <?php
+<body>
+
+<div id="myNav" class="overlay">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <div class="overlay-content">
+  <?php
             
              echo"<div class=navbar>";
              include "sqli.php";
@@ -50,8 +72,7 @@
                         $result=mysqli_query($connect,$query);
                         $result_check=mysqli_num_rows($result);
                         if($result_check>0){
-                            while($row=mysqli_fetch_assoc($result)){
-                                  
+                            while($row=mysqli_fetch_assoc($result)){ 
                   echo" <a  href=devise_logic.php?Address=".$row['Address'].">".$row['devise_name']."</a>";
                       }
                     }
@@ -59,9 +80,21 @@
             mysqli_close($connect);
          
             ?>
+  </div>
+</div>
 
-                          
-      
 
-    </body>
+
+
+<script>
+function openNav() {
+  document.getElementById("myNav").style.height = "100%";
+}
+
+function closeNav() {
+  document.getElementById("myNav").style.height = "0%";
+}
+</script>
+     
+</body>
 </html>

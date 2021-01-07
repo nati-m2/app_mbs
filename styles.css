@@ -69,6 +69,12 @@ h1,p{ color: white;
         margin-left: 20;
         margin-top: 10;
       }
+
+      #player{
+        position: absolute;
+          bottom:1;
+        }
+
    /*////////////////////////////////////grid-container/////////////////////////////////////////////
 .grid-container {
   display: grid;
@@ -149,4 +155,29 @@ h1,p{ color: white;
 @media screen and (max-height: 450px) {
   .sidebar {padding-top: 15px;}
   .sidebar a {font-size: 18px;}
+}
+
+.avt-art {
+  float: right;
+  width: 220px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  border-radius: 3px;
+}
+.f_right{
+  float: right;
+}
+
+.scroll_n{
+  width: 100%;
+  height: 50%;
+  border: none;
+  overflow-y: scroll;
+}
+.scroll_n::-webkit-scrollbar {
+  display: none;
+}
+.scroll_n{
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }

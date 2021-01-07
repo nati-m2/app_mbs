@@ -83,7 +83,7 @@
 
         <div class='slidecontainer'>
         <img   id ='speaker'  src='img/speaker.png' width='27' height='27' >
-        <input id='myRange' type='range' min='0' max='100' value='50' class='slider'>
+        <input id='myRange' type='range' min='0' max='100' value='<?php echo pull_set("default volume") ?>' class='slider'>
         </div>
 
         <center>

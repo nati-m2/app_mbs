@@ -12,22 +12,21 @@ if(!session_id())session_start();
 	<meta name="author" content="nati mizrhi">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="styles.css">
-
-
     <body>
-        <right>
+    <div class="f_right">
+        <div class="avt-art">
     <img  src="img\img_avatar1.gif" alt="Avatar"   width="200" height="200"  class="avatar">
-        <form class="" action="" method="post" >
-        <div class="container">
-        <p>:שם משתמש
-        <?php echo $_SESSION['login']; ?></p>
-      <p>:סיסמה
-      <?php echo "pass"; ?></p>
-      <label>
+    </div>
+    <form class="" action="" method="post" >
+        <h1><?php echo $_SESSION['login']; ?> :שם משתמש </h1>
+        <h1>  pass <?php  ?>:סיסמה </h1>
+    
+    
        <p> <input type="checkbox" checked="checked" name="prev"> premesheng</p>
-      </label>
+  
     </div>
         </form>
+        </div>
     </body>
 </head>
 </html>

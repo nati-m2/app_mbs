@@ -20,21 +20,18 @@ body {
 
 
 .background + section {
-  margin-top: 60vmin;
+  margin-top:5%;
   background: transparent;
   --dark: rgba(white, .5);
   --dark: rgba(white, .6);
   --darker: rgba(white, .8);
 }
-.background + section .bookmark {
-  border-color: rgba(255, 255, 255, 0.2);
-}
-.background + section .bookmark svg {
-  fill: #fff;
-}
+
+
 .background + section .album-tracks {
   background: rgba(255, 255, 255, 0.1);
-  border: none;
+  border-radius: 15px;
+  border: none; /*   ////////////////////*/
 }
 
 section {
@@ -44,36 +41,23 @@ section {
   color: var(--darker);
   color: rgba(255, 255, 255, 0.8);
 }
-section .album-info:after {
-  content: " ";
-  display: block;
-  height: 0;
-  clear: both;
-}
+
 section .album-art {
-  float: left;
+  float: right;
   width: 220px;
   margin-right: 20px;
   margin-bottom: 20px;
 }
 section .album-art * {
-  border-radius: 3px;
+  border-radius: 10px;
 }
 section .album-art img {
   width: 100%;
   margin-bottom: 10px;
-  margin-top: -80px;
+  margin-top: -110px;
   box-shadow: 0 5px 60px -3px rgba(0, 0, 0, 0.18);
 }
 
-section .play {
-  color: rgb(5, 5, 5);
-  background: #ffffff;
-  padding:6px;
-  text-transform: uppercase;
-  -webkit-box-flex: 1;
-          flex: 1 1 60%;
-}
 
 section .play2 {
   color: white;
@@ -90,26 +74,10 @@ right:auto ;
 
 }
 
-section h2 {
-  display: -webkit-box;
-  display: flex;
-  flex-wrap: initial;
-  -webkit-box-pack: initial;
-          justify-content: initial;
-  -webkit-box-align: center;
-          align-items: center;
-  align-content: initial;
-  color: var(--dark);
-  font-size: 16px;
-  font-weight: 500;
-  text-transform: uppercase;
-}
 
 
 
-section p {
-  margin-top: 15px;
-}
+
 section .album-tracks {
   background: #f8f8f8;
   border: 1px solid #efefef;
@@ -136,7 +104,7 @@ ol li {
   -webkit-box-align: center;
           align-items: center;
   align-content: initial;
-  height: 45px;
+  height: 50px;
   color: var(--dark);
 }
 ol li span:not(:last-child) {

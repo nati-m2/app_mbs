@@ -11,24 +11,17 @@
   
   <div class="grid-container">
           <div class="main">
-        
                 <?php
                 include 'Sidebar.php';
                 include_once 'sqli.php'; 
-              
                 ?>
-           
                 </div>
 
 <center>
-
-
-<iframe  src="main.php" width="100%" height="72%"  name="main"  style="border:none;"></iframe>
-
+    <iframe src="main.php" width="100%" height="70%"  name="main"  style="border:none;"></iframe>
     <div class="player">
-          <iframe  src="player.php" width="99%" height="21%" style="border:none;"></iframe>
-      </div>
-
+        <iframe  src="player.php" width="100%" height="19%" style="border:none;"></iframe>
+    </div>
 </center>
     
     </div>

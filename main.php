@@ -1,11 +1,7 @@
 <?php if(!session_id())session_start(); 
-
 if(!isset($_SESSION["login"])){
-
   $_SESSION["login"]="אורח";
-
 }
-
 ?>
 <html>
 <head>
@@ -19,24 +15,15 @@ if(!isset($_SESSION["login"])){
 
 </head>
 <body>
-
 <div class="background"></div>
 <section>
 
     <div class="album-art">
 		<img src="img/img_avatar1.gif" width='150' height='150'>
-      <div class="actions">
-        <div class="play">Play</div>
-        <div class="bookmark">
-    
-        </div>
-      </div>
     </div>
-    <div class="album-details">
-      <h2> <img src="#"/>1111</h2>
-      <h1><?php echo  $_SESSION["login"] ?>:פליליסט</h1><span> <span>ז'אנר</span><span></span></span>
-    </div>
-  </div>
+     <h1><?php echo  $_SESSION["login"] ?>:פליליסט</h1><span>
+       <span>ז'אנר</span>
+  <div  class="scroll_n">
   <div class="album-tracks">
     <ol>
 
@@ -52,11 +39,13 @@ if(!isset($_SESSION["login"])){
         while($row=mysqli_fetch_assoc($result)){
      
          echo" <li>
-         <span class='play3'>".$row['name']."</span><span>זמן</span>
+         <span>".$row['name']."</span>
+         <div>
+         <span>זמן</span>
          <span style='font-size:15px;cursor:pointer' onclick='openNav()'>&#9776;</span>
-         <span span><a  href=devise_logic.php?song_id=".$row['id'].">
+         <span><a  href=devise_logic.php?song_id=".$row['id'].">
          <img src='img/play.png' width='27' height='25'></a></span>
-       
+         </div>
           </li>";
         }
     }
@@ -67,6 +56,7 @@ if(!isset($_SESSION["login"])){
 	
 	
     </ol>
+  </div>
   </div>
 </section>
 

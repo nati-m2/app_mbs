@@ -1,3 +1,7 @@
+
+<html>
+<?php include 'Sidebar.php';?>
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="author" content="nati mizrhi">
@@ -6,9 +10,12 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
     <body>
-        <?php
-         include 'Sidebar.php';
-            
+  
+    <center>
+    
+    <div class="f_right">
+    <h1>   הגדרות  מערכת</h1>
+    <?php
             include "sqli.php";
             $query="SELECT * FROM `settings`";
             $result=mysqli_query($connect,$query);
@@ -18,18 +25,20 @@
      		    $id=$row['id'];	
                     $val=$row['val'];
                     echo"
-                    <center>
+                    
                     <form action=update_set.php>
-                    <p>הגדרת :".$id."
+                    <p> :".$id."
                     ".$row['name'].": <input class=ordern type=text name=val  placeholder= ".$row['val']." required>
                     <input  class=sub_up type=submit  name=id  value=".$id.">עדכן
                     </form>
-                    </center>";
+                    ";
                 }
             }
             mysqli_close($connect);
 
         ?>
      
-
+        </center>
+        </div>
     </body>
+    </html>

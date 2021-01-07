@@ -6,6 +6,7 @@ include "php_func\phpFunction.php";
         create_table_settings();
         create_table_Task();
         insert_set("maxfile","10000000");
+        insert_set("default volume","30");
         create_table_song_t();
         //insert_set($name,$val);
 

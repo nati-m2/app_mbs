@@ -1,7 +1,7 @@
 
 
 :root {
-  --color: #faa700;
+
   --color-light: #f5ede1;
   --dark: #a7a7a7;
   --dark: #8a8a8a;
@@ -66,23 +66,30 @@ section .album-art img {
   margin-top: -80px;
   box-shadow: 0 5px 60px -3px rgba(0, 0, 0, 0.18);
 }
+
 section .play {
-  display: -webkit-box;
-  display: flex;
-  flex-wrap: initial;
-  -webkit-box-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-          align-items: center;
-  align-content: initial;
   color: white;
-  background: var(--color);
+  background: #faa700b6;
   padding:6px;
   text-transform: uppercase;
   -webkit-box-flex: 1;
           flex: 1 1 60%;
 }
 
+section .play2 {
+  color: white;
+  background: #006cfaa4;
+  padding:6px;
+  text-transform: uppercase;
+  -webkit-box-flex: 1;
+          flex: 1 1 60%;
+}
+section .play3{
+right:auto ;
+
+
+
+}
 
 section h2 {
   display: -webkit-box;

@@ -1,4 +1,12 @@
-<?php if(!session_id())session_start(); ?>
+<?php if(!session_id())session_start(); 
+
+if(!isset($_SESSION["login"])){
+
+  $_SESSION["login"]="אורח";
+
+}
+
+?>
 <html>
 <head>
 			<meta charset="UTF-8">
@@ -7,6 +15,7 @@
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="stylesheet" type="text/css" href="styles.css">
       <link rel="stylesheet" type="text/css" href="style_Album.css">
+      <script src="ck.js"></script>
 
 </head>
 <body>
@@ -24,7 +33,7 @@
     </div>
     <div class="album-details">
       <h2> <img src="#"/>1111</h2>
-      <h1>Unleashed</h1><span> <span>ז'אנר</span><span></span></span>
+      <h1><?php echo  $_SESSION["login"] ?>:פליליסט</h1><span> <span>ז'אנר</span><span></span></span>
     </div>
   </div>
   <div class="album-tracks">
@@ -36,14 +45,19 @@
     include 'sqli.php'; 
     include "php_func\phpFunction.php";
 
-    //  user , p where user=   
+    //  user , p where user=where  user   
     $query="SELECT * FROM `song_t` ";
     $result=mysqli_query($connect,$query);
     $result_check=mysqli_num_rows($result);
     if($result_check>0){
         while($row=mysqli_fetch_assoc($result)){
      
-         echo" <li> <span>".$row['name']."</span><span>זמן</span><span><a href=devise_logic.php?song_id=".$row['id']."><div class='play'>Play</div></a></li>";
+         echo" <li>";
+         echo"  <span class='play3'>".$row['name']."</span><span>זמן</span>
+         <span><a href=devise_logic.php?song_id=".$row['id']."><div class='play'>Play</div></a></span>
+         <span class='play3'><a href=devise_logic.php?song_id=".$row['id']."><div class='play2'>Play</div></a> </span> 
+         ";
+         echo" </li>";
         }
     }
     mysqli_close($connect);

@@ -1,4 +1,7 @@
-<?php include "php_func\phpFunction.php"; 
+<?php
+
+include 'Sidebar.php';
+
 if(!session_id())session_start();
     if(!isset($_SESSION["login"])){
         header("Location:index.php");
@@ -9,9 +12,10 @@ if(!session_id())session_start();
 	<meta name="author" content="nati mizrhi">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="styles.css">
-    <link rel="stylesheet" type="text/css" href="formStyle.css">
+
 
     <body>
+        <right>
     <img  src="img\img_avatar1.gif" alt="Avatar"   width="200" height="200"  class="avatar">
         <form class="" action="" method="post" >
         <div class="container">

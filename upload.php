@@ -20,7 +20,7 @@ if(!isset($_SESSION["login"])){
 ?>
 <form action="uploads.php" method="post" enctype="multipart/form-data" >
  <p> Select file to upload:</p>
-  <input type="file" name="fileToUpload" id="fileToUpload"  webkitdirectory  multiple />
+  <input type="file" name="fileToUpload" id="fileToUpload"  />
   <input type="submit" value="Upload folder" name="submit">
 </form>
 

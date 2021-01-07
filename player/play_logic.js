@@ -4,8 +4,7 @@ document.getElementById("pause").style.display = "none";
 document.getElementById("myRange").style.display = "none";
 document.getElementById("speaker").style.display = "block";
 
-document.getElementById("speaker_m").style.display = "block";
-document.getElementById("speaker_devise").style.display = "none";
+
 
 var slider = document.getElementById("myRange");
 var speaker = document.getElementById("speaker");
@@ -25,16 +24,6 @@ slider.onmouseout= function(){
 }
 
 
-
-devise.onmouseover= function(){
-  document.getElementById("speaker_m").style.display = "none";
-  document.getElementById("speaker_devise").style.display = "block";
-}
-
-devise_div.onmouseout= function(){
-  document.getElementById("speaker_devise").style.display = "none";
-  document.getElementById("speaker_m").style.display = "block";
-}
 
 
 

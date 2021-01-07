@@ -68,7 +68,7 @@
 
 
 <div id= "player_div" > 
-        <audio   id='myAudio' >
+        <audio   id='myAudio' autoplay>
         <source src= '<?php echo $song; ?>'  type= 'audio/ogg'>
         <source src= '<?php echo $song; ?>'  type='audio/mpeg'>
         </audio>
@@ -80,9 +80,10 @@
             <input type='range' min='0' max='' value='0' class='slider' id='c_time'>
         </div>
         </center>
+
         <div class='slidecontainer'>
         <img   id ='speaker'  src='img/speaker.png' width='27' height='27' >
-        <input id='myRange' type='range' min='0' max='100' value='10' class='slider'   >
+        <input id='myRange' type='range' min='0' max='100' value='50' class='slider'>
         </div>
 
         <center>
@@ -91,10 +92,7 @@
         </div>
         </center>
     </div>
-        <div class='speaker_m'>
-            <img   id ='speaker_m'  src='img/speaker_m.png' width='55' height='55' >
-            </div>
-        <iframe  id ='speaker_devise' class="" src="devise.php" width="160" height="" style="border:0none;"></iframe>
+    
        
     </body>
     <script src="player/play_logic.js"></script>

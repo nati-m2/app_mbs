@@ -27,6 +27,7 @@ $it=(int)pull_set("maxfile");
 					echo "Sorry, your file is too large.";
 					continue;
 				  }
+				  echo " <br>מעתיק:".$name;
 				move_uploaded_file($_FILES['files']['tmp_name'][$i],$foldername."/".$name);
 				$user=$_SESSION["login"];
 				insert_song_t($name,$foldername.$name,$user);

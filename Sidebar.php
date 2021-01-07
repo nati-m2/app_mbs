@@ -36,11 +36,32 @@ include "php_func\phpFunction.php";
                         ?>
                          <a href="index.php" target="_top">בית</a>
                          
-                         <a href="upload.php" target="main">uploads</a>
+                         <a href="upload.php" onclick="closeNav()" target="main">uploads</a>
                        
                          <a ><?php echo " כתובת :".get_ip(); ?> </a>
-                        <a  href="Settings.php" >settings</a>
-                        <a  href="newDevise.php">newDevise</a>         
+                        <a  href="Settings.php" onclick="closeNav()" >settings</a>
+                        <a  href="newDevise.php" onclick="closeNav()" >newDevise</a>   
+                        <p>  מכשירים  </p>    
+                        <?php
+                        include "sqli.php";
+                        $query="SELECT * FROM `devise`";
+                        $result=mysqli_query($connect,$query);
+                        $result_check=mysqli_num_rows($result);
+                        if($result_check>0){
+                            while($row=mysqli_fetch_assoc($result)){
+                                  
+                  echo" <a href=devise_logic.php?Address=".$row['Address']." >".$row['devise_name']."</a>";
+                      }
+                    }
+            echo"</div>";
+           // mysqli_close($connect);
+           // exit;
+        
+            ?>
+
+
+
+
                   </div>
 </div>
 </center> 

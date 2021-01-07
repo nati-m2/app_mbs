@@ -51,11 +51,13 @@
                         $result_check=mysqli_num_rows($result);
                         if($result_check>0){
                             while($row=mysqli_fetch_assoc($result)){
+                                  
                   echo" <a  href=devise_logic.php?Address=".$row['Address'].">".$row['devise_name']."</a>";
                       }
                     }
             echo"</div>";
             mysqli_close($connect);
+         
             ?>
 
                           

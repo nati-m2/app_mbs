@@ -59,8 +59,8 @@ h1,p{ color: white;
    .sub_up {
         font-size: 20px;
         width: 80;
-        background-color: rgba(53, 51, 52, 0.295);
-        color: white;
+        background-color: rgba(255, 255, 255, 0.897);
+        color: rgb(14, 14, 14);
         padding: 5px 20px;
         margin: 8px 0;
         border: none;

@@ -54,7 +54,8 @@ if(!isset($_SESSION["login"])){
          echo" <li>
          <span class='play3'>".$row['name']."</span><span>זמן</span>
          <span style='font-size:15px;cursor:pointer' onclick='openNav()'>&#9776;</span>
-         <span class='sub_up' ><a href=devise_logic.php?song_id=".$row['id'].">play</a></span>
+         <span span><a  href=devise_logic.php?song_id=".$row['id'].">
+         <img src='img/play.png' width='27' height='25'></a></span>
        
           </li>";
         }

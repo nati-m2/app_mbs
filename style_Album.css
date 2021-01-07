@@ -67,8 +67,8 @@ section .album-art img {
 }
 
 section .play {
-  color: white;
-  background: #faa700b6;
+  color: rgb(5, 5, 5);
+  background: #ffffff;
   padding:6px;
   text-transform: uppercase;
   -webkit-box-flex: 1;

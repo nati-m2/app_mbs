@@ -51,9 +51,9 @@ function insert_set($name,$val){
   return;
   }
 
-  function insert_song_t($name,$path,$user){
+  function insert_song_t($name,$user){
     include 'sqli.php'; 
-    $query = "INSERT INTO  song_t(`name`,`path`,`user_n`) VALUES('".$name."','".$path."','".$user."')";
+    $query = "INSERT INTO  song_t(`name`,`user_n`) VALUES('".$name."','".$user."')";
     if(!mysqli_query($connect,$query)){
       echo "Error: " . $query . "<br>" . mysqli_error($connect);
       return;
@@ -64,13 +64,13 @@ function insert_set($name,$val){
   
     function pull_song_t($id){
       include 'sqli.php'; 
-      $query="SELECT path FROM `song_t` WHERE  id = $id  ";
+      $query="SELECT name FROM `song_t` WHERE  id = $id  ";
       $result=mysqli_query($connect,$query);
       if($result){
         $result_check=mysqli_num_rows($result);
         if($result_check){
           $row=mysqli_fetch_assoc($result); 
-            return  $row['path'];
+            return  $row['name'];
         }
       echo "Error: " . $query . "<br>" . mysqli_error($connect);
       return;
@@ -96,7 +96,7 @@ function insert_task($name,$task,$Address,$song_n){
 mysqli_close($connect);
 }
 
-function pull_task($Address,$c){
+function pull_task($Address,$c){// colome   $row['$c'];   pull_task($Address,task) 
   include 'sqli.php'; 
   $query="SELECT * FROM `task_t` WHERE  Address_d = '".$Address."'  AND  name LIKE  'play' OR name LIKE  'playing' ";
   $result=mysqli_query($connect,$query);

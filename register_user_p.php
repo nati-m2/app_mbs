@@ -33,6 +33,8 @@
             }
             //header("Location:   .php");
             mysqli_close($connect);
+            chdir ("Media_Library/" );
+            mkdir($name);
             echo "!!נרשמת בהצלחה $name";
             header("Location:index.php");
         }

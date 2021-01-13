@@ -1,7 +1,4 @@
 <?php if(!session_id())session_start(); 
-if(!isset($_SESSION["login"])){
-  $_SESSION["login"]="אורח";
-}
 ?>
 <html>
 <head>
@@ -21,7 +18,7 @@ if(!isset($_SESSION["login"])){
     <div class="album-art">
 		<img src="img/img_avatar1.gif" width='150' height='150'>
     </div>
-     <h1><?php echo  $_SESSION["login"] ?>:פליליסט</h1><span>
+     <h1><?php echo $_SESSION['user']?>:פליליסט</h1><span>
        <span>ז'אנר</span>
   <div  class="scroll_n">
   <div class="album-tracks">
@@ -31,13 +28,14 @@ if(!isset($_SESSION["login"])){
      include 'devise.php';
     include 'sqli.php'; 
     include "php_func\phpFunction.php";
-    //  user , p where user=where  user   
-    $query="SELECT * FROM `song_t` ";
+    //  user , p where user=where  user  
+    
+    $user=$_SESSION['user'];
+    $query="SELECT * FROM `song_t`  WHERE `user_n` LIKE '". $user."' ";
     $result=mysqli_query($connect,$query);
     $result_check=mysqli_num_rows($result);
     if($result_check>0){
         while($row=mysqli_fetch_assoc($result)){
-     
          echo" <li>
          <span>".$row['name']."</span>
          <div>
@@ -52,9 +50,7 @@ if(!isset($_SESSION["login"])){
     mysqli_close($connect);
 
 ?>
-   
-	
-	
+  
     </ol>
   </div>
   </div>

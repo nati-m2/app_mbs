@@ -10,9 +10,7 @@ include "php_func\phpFunction.php";
 				<meta name="viewport" content="width=device-width, initial-scale=1.0">
                <link rel="stylesheet" type="text/css" href="styles.css"> 	
                <script src="ck.js"></script>
-        </head>
-
-                    
+        </head>             
 <body>
 
 <div id="Sidebar0">
@@ -25,7 +23,6 @@ include "php_func\phpFunction.php";
                         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
                         <?php date_default_timezone_set("israel");
                           echo "<p>".date("G:i:s  -  d/m/y")."</p>";
-
                          if(!isset($_SESSION["login"])){
                           
                             echo "<a href='login.php'>login</a>";   
@@ -34,10 +31,10 @@ include "php_func\phpFunction.php";
                                 echo "<a href='logout.php'>logout</a>"; 
                              }
                         ?>
-                         <a href="index.php" target="_top">בית</a>
+                         <a href="start.php" target="_top">בית</a>
                          
                          <a href="upload.php" onclick="closeNav()" target="main">uploads</a>
-                       
+                         <a href="index.php" onclick="closeNav()" target="_top" >החלף חשבון</a>
                          <a ><?php echo " כתובת :".get_ip(); ?> </a>
                         <a  href="Settings.php" onclick="closeNav()" >settings</a>
                         <a  href="newDevise.php" onclick="closeNav()" >newDevise</a>   

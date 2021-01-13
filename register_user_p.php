@@ -4,7 +4,7 @@
 			<meta name="author" content="nati mizrhi">
         <title>mbs</title>
 				<meta name="viewport" content="width=device-width, initial-scale=1.0">
-				<link rel="stylesheet" type="text/css" href="0styles.css">
+				<link rel="stylesheet" type="text/css" href="styles.css">
 				<script src="ck.js"></script>
         <script src="valid_all.js"></script>
 </head>

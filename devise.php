@@ -22,10 +22,10 @@ body {
 
 .overlay-content {
   position: relative;
-  top: 25%;
-  width: 100%;
-  text-align: center;
-  margin-top: 30px;
+
+
+
+
 }
 
 .overlay a {
@@ -74,6 +74,14 @@ body {
                         if($result_check>0){
                             while($row=mysqli_fetch_assoc($result)){ 
                   echo" <a  href=devise_logic.php?Address=".$row['Address'].">".$row['devise_name']."</a>";
+                  echo" 
+                  <img id='play1' src='img/play-icon.png' width='45' height='45'>
+                  <img id='pause1' src='img/Puse-icon.png' width='50' height='50' >
+                  <input type='range' min='0' max='' value='0' class='slider' id='c_time'>
+                  <img   id='speaker1'  src='img/speaker.png' width='27' height='27' >
+                  <input id='myRange1' type='range' min='0 'max='100' value='10' class='slider' >
+                  ";
+               
                       }
                     }
             echo"</div>";

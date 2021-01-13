@@ -56,7 +56,7 @@
 
     
     if(isset($_SESSION["task"])){
-   $song="Media_Library/".$_SESSION["login"]."/".$_SESSION["task"];
+   $song="Media_Library/".$_SESSION['user']."/".$_SESSION["task"];
 
    echo "<p>";
    echo  $_SESSION["task"];
@@ -86,7 +86,6 @@
         <img   id ='speaker'  src='img/speaker.png' width='27' height='27' >
         <input id='myRange' type='range' min='0' max='100' value='<?php echo pull_set("default volume") ?>' class='slider'>
         </div>
-
         <center>
         <div class='s_time'>
         <p>  <i id='s_time'></i>:<i id='sec_time_s'></i>/<i id='e_time'></i>:<i id='sec_time'></i>  </p>

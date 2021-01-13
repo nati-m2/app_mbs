@@ -6,6 +6,9 @@ document.getElementById("speaker").style.display = "block";
 
 
 
+
+
+
 var slider = document.getElementById("myRange");
 var speaker = document.getElementById("speaker");
 var slider_c_time = document.getElementById("c_time");

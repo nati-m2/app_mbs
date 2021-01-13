@@ -7,26 +7,66 @@
 				<meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel="stylesheet" type="text/css" href="styles.css">
   </head>
-  <body>
   
-  <div class="grid-container">
-          <div class="main">
-                <?php
-                include 'Sidebar.php';
-                include_once 'sqli.php'; 
-         
-                ?>
-                </div>
+
+<style>
+.card {
+
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 270;
+  margin-top: 200;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,1,1);
+}
+
+img {
+  border-radius: 5px 5px 0 0;
+}
+
+.container {
+  padding: 2px 16px;
+}
+</style>
+</head>
+<body>
 
 <center>
-    <iframe src="main.php" width="100%" height="70%"  name="main"  style="border:none;"></iframe>
-    <div class="player">
-        <iframe  src="player.php" width="100%" height="19%" style="border:none;"></iframe>
-    </div>
-</center>
+
+    <?php
+      include "sqli.php";
+      $query="SELECT * FROM `user` ";
+      $result=mysqli_query($connect,$query);
+      $result_check=mysqli_num_rows($result);
+      if($result_check>0){
+          while($row=mysqli_fetch_assoc($result)){
+            echo" 
     
-    </div>
+            <div class='card'>
+            <a href='start.php?user=".$row['firstname']."'>
+         <img src='img/img_avatar.png' alt='Avatar' width='250px' height='250px'   ></a> 
+         <div class='container'>
+         <h1><b>".$row['firstname']."</b></h1> 
+         
+       </div>
+     </div>
+      
+        
+   
+        ";
+    
+          }
+        }
+    ?>
 
+        
+</center>
 
-  </body>   
-      </html>
+  
+  
+</body>
+</html>

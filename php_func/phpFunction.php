@@ -64,18 +64,37 @@ function insert_set($name,$val){
   
     function pull_song_t($id){
       include 'sqli.php'; 
+      $query="SELECT * FROM `song_t` WHERE  id = $id  ";
+      $result=mysqli_query($connect,$query);
+      if($result){
+        $result_check=mysqli_num_rows($result);
+        if($result_check){
+          $row=mysqli_fetch_assoc($result); 
+            return  $row['user_n']."/".$row['name'];
+        }
+      echo "Error: " . $query . "<br>" . mysqli_error($connect);
+      return;
+      }
+    }
+
+
+ /*
+    function pull_song_p($id){
+      include 'sqli.php'; 
       $query="SELECT name FROM `song_t` WHERE  id = $id  ";
       $result=mysqli_query($connect,$query);
       if($result){
         $result_check=mysqli_num_rows($result);
         if($result_check){
           $row=mysqli_fetch_assoc($result); 
-            return  $row['name'];
+            return  $row['user_n'];
         }
       echo "Error: " . $query . "<br>" . mysqli_error($connect);
       return;
       }
     }
+
+*/
 
 
    // pull_song_t

@@ -1,5 +1,5 @@
  <?php
-include "php_func\phpFunction.php"; 
+include "php_func/phpFunction.php"; 
   try { create_db();
         create_table_user();
         create_table_devise(); 
@@ -10,7 +10,7 @@ include "php_func\phpFunction.php";
         create_table_song_t();
         //insert_set($name,$val);
 
-   header("Location: index.php");
+     echo" <script> location.replace('index.php'); </script>";
   }
   catch(Exception $e) {
     echo 'Message: ' .$e->getMessage();

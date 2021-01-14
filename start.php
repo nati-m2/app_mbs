@@ -27,7 +27,7 @@ if(isset($_GET['user'])){
 <center>
     <iframe src="main.php" width="100%" height="70%"  name="main"  style="border:none;"></iframe>
     <div class="player">
-        <iframe  src="player.php" width="100%" height="19%" style="border:none;"></iframe>
+        <iframe  src="run.php" width="100%" height="19%" style="border:none;"></iframe>
     </div>
 </center>
     

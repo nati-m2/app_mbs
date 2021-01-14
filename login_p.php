@@ -13,11 +13,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         echo"<script> alert('אתה מחובר'); </script>" ;
         session_start();
         $_SESSION["login"]=$name;
-        header("Location:index.php");
+          echo" <script> location.replace('index.php'); </script>";
         mysqli_close($connect);
         }else{  
             echo"<script> alert('שם משתמש לא קיים'); </script>" ;
-            header("Location:register_user.php");
+             echo" <script> location.replace('register_user.php'); </script>";
             }
         }
     }     

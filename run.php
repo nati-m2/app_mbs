@@ -1,3 +1,6 @@
+<?php if(!session_id())session_start();
+include "php_func/phpFunction.php"; 
+ ?>
 <html>
     <head>
     <meta charset="UTF-8">
@@ -26,13 +29,16 @@
     }
     function CheckTask(){
         $.ajax({
+            
                 type: "POST",
                 url: "play.php",
                 data: {
                     function: "update"
+                   
                 },
                 cache: false,
                 success: function(data) {
+                    console.log("d");
                     if (data != "") {
                         console.log(data);
                         //play song
@@ -56,7 +62,7 @@
 
     
     if(isset($_SESSION["task"])){
-   $song="Media_Library/".$_SESSION['user']."/".$_SESSION["task"];
+   $song="Media_Library/".$_SESSION["task"];
 
    echo "<p>";
    echo  $_SESSION["task"];

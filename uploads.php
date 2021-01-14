@@ -1,6 +1,6 @@
 
 <?php
-include "php_func\phpFunction.php"; 
+include "php_func/phpFunction.php"; 
 if(!session_id())session_start();
 if(isset($_SESSION["login"])){
 $target_dir = "Media_Library/";

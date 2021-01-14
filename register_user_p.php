@@ -36,7 +36,7 @@
             chdir ("Media_Library/" );
             mkdir($name);
             echo "!!נרשמת בהצלחה $name";
-            header("Location:index.php");
+              echo" <script> location.replace('index.php'); </script>";
         }
     }
 }

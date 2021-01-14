@@ -1,7 +1,9 @@
-<!DOCTYPE html>
+<?php if(!session_id())session_start();
+?>
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="ck.js"></script>
 <style>
 body {
   font-family: 'Lato', sans-serif;
@@ -59,13 +61,16 @@ body {
 }
 </style>
 </head>
-<body>
+<body> 
+<br>
+
+<br>
+
 
 <div id="myNav" class="overlay">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav2()">&times;</a>
   <div class="overlay-content">
   <?php
-            
              echo"<div class=navbar>";
              include "sqli.php";
                         $query="SELECT * FROM `devise`";
@@ -73,14 +78,14 @@ body {
                         $result_check=mysqli_num_rows($result);
                         if($result_check>0){
                             while($row=mysqli_fetch_assoc($result)){ 
-                  echo" <a  href=devise_logic.php?Address=".$row['Address'].">".$row['devise_name']."</a>";
-                  echo" 
-                  <img id='play1' src='img/play-icon.png' width='45' height='45'>
-                  <img id='pause1' src='img/Puse-icon.png' width='50' height='50' >
-                  <input type='range' min='0' max='' value='0' class='slider' id='c_time'>
-                  <img   id='speaker1'  src='img/speaker.png' width='27' height='27' >
-                  <input id='myRange1' type='range' min='0 'max='100' value='10' class='slider' >
-                  ";
+                  echo" <a  href=devise_logic.php?Address=".$row['Address']."&&?name=play>
+                  <img id='play1' src='img/play-icon.png' width='45' height='45'>". $row['devise_name']."
+                  </a>";
+                  echo" <a  href=devise_logic.php?Address=".$row['Address']." &&?name=Puse>
+                  <img id='play1' src='img/Puse-icon.png' width='45' height='45'>
+                  </a>";
+                  
+              
                
                       }
                     }
@@ -90,19 +95,13 @@ body {
             ?>
   </div>
 </div>
-
-
-
-
 <script>
-function openNav() {
-  document.getElementById("myNav").style.height = "100%";
-}
 
-function closeNav() {
-  document.getElementById("myNav").style.height = "0%";
-}
+
+
 </script>
      
 </body>
 </html>
+
+

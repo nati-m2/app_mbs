@@ -9,7 +9,7 @@ $query = "INSERT INTO `devise`(`devise_name`, `Address`) VALUES('".$devise."','"
    if(!mysqli_query($connect,$query)){
     echo "Error: " . $query . "<br>" . mysqli_error($connect);
 }
-header("Location:index.php");
+  echo" <script> location.replace('index.php'); </script>";
 mysqli_close($connect);
 }
 ?>  

@@ -1,6 +1,6 @@
 <?php if(!session_id())session_start();
 
-include "php_func\phpFunction.php"; 
+include "php_func/phpFunction.php"; 
 ?>
 <html>
 		<head>

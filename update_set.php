@@ -4,6 +4,6 @@ include "php_func/phpFunction.php";
         $id=$_GET['id'];
         $val=$_GET['val'];
         update_set($id,$val);
-        header("Location: Settings.php");
+      echo" <script> location.replace('Settings.php'); </script>";
     }
 ?>

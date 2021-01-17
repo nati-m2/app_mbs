@@ -1,6 +1,5 @@
 <?php include 'sqli.php';
-    //if(!session_id()) session_start(); 
-    //echo "num:".$_SESSION["id_up"];
+    if(!session_id()) session_start(); 
 ?>
 <?php
 
@@ -47,28 +46,22 @@ if ($uploadOk == 0) {
        $img=basename( $_FILES["fileToUpload"]["name"]);
        echo"move<br>";  
     }}
-/*///////////////////////////////////SQL///////////////////////////////////// לתקן  שליחה //////////////
-/*if(isset($_SESSION["id_up"])){
-    echo"sql<br>";
-    $id=$_SESSION["id_up"];
+///////////////////////////////////SQL///////////////////////////////////// לתקן  שליחה //////////////
+if(isset($_SESSION["login"])){
+    $user = $_SESSION["login"];
     $img="img/".$img;
-$query = "UPDATE `item` SET  `img`='".$img."'  WHERE `id`= ".$id."  ";
-if (mysqli_query($connect,$query)) {
-echo"@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@";
-echo "הקובץ נשמר במערכת בהצלחה";
-echo"@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@";
+$query = "UPDATE `user` SET  `path`='".$img."'  WHERE `firstname` LIKE '".$user."'  ";
+if (mysqli_query($connect,$query)){
+    echo" <script> location.replace('index.php'); </script>";
 } else {
 echo "Error: " . $query . "<br>" . mysqli_error($connect);
 }
 }
-    } else {
+else {
         echo "Sorry, there was an error uploading your file.";
     }
-}
 
 echo " </p></center>";
 
-
-*/
 
 ?>

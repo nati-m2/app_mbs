@@ -26,7 +26,7 @@
 }
 
 img {
-  border-radius: 5px 5px 0 0;
+  border-radius: 150px;
 }
 
 .container {
@@ -49,7 +49,7 @@ img {
     
             <div class='card'>
             <a href='start.php?user=".$row['firstname']."'>
-         <img src='img/img_avatar.png' alt='Avatar' width='250px' height='250px'   ></a> 
+         <img src=".$row['path']." alt='Avatar' width='250px' height='250px'   ></a> 
          <div class='container'>
          <h1><b>".$row['firstname']."</b></h1> 
          
@@ -62,6 +62,11 @@ img {
     
           }
         }
+        else{
+          echo"
+            <a class='sub1' href ='register_user.php' >עוד לא רשום</a>";
+          }
+          
     ?>
 
         

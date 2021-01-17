@@ -26,8 +26,8 @@
                 mysqli_close($connect);
             }
             else{
-            $query = "INSERT INTO `user`(`firstname`, `pass`) 
-            VALUES('".$name."' ,'".md5($password)."')";
+            $query = "INSERT INTO `user`(`firstname`, `pass`,`path`) 
+            VALUES('".$name."' ,'".md5($password)."',' img/img_avatar.png')";
             if (!mysqli_query($connect,$query)){
                 echo "Error: " . $query . "<br>" . mysqli_error($connect);
             }

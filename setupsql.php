@@ -46,7 +46,7 @@ function  create_table_user(){
     include  'sqli.php'; 
     $query = "CREATE TABLE user(
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-   firstname TEXT(30) NOT NULL, pass TEXT(32) NOT NULL)";
+   firstname TEXT(30) NOT NULL, pass TEXT(32) NOT NULL, path TEXT(30))";
     if (mysqli_query($connect,$query)) {
       echo "Table user created successfully";
       echo "<br>";

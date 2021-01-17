@@ -2,8 +2,8 @@
 /* deise logic*/
 
 session_start();
+//include "php_func/phpFunction.php";
 /*
-
 if(isset($_GET['Address']) && isset($_SESSION['song_id'])){
   if($_SERVER['REQUEST_METHOD'] == 'GET'){ 
     $Address=$_GET['Address'];
@@ -27,23 +27,33 @@ else{
       }
     }
 }
+echo" <script> location.replace('main.php'); </script>";
+
 */
 /* צריך למצא דרך יותר יעילה לישמור את הנתונים שנשלחים לטבלת משימות  */
 
 if(isset($_GET['Address'])){
   $Address=$_GET['Address'];
+}else{
+  $Address="";
 }
+
 if(isset($_GET['song_id'])){
   $song_n=$_GET['song_id'];
 }
+if(isset($_GET['name'])){
+  $name=$_GET['name'];
+  
+}
+echo$_GET['name'];
+echo$_GET['song_id'];
 
+play($Address,$song_n,$name);
 
-play($Address,$song_n);
-
-function play($Address,$song_n){
+function play($Address,$song_n,$name){
     include "php_func/phpFunction.php";
     $task= "on";
-    $name="play";
+ 
     if(!$Address){
       $Address= get_ip();
       $_SESSION['song_id']=  $song_n;
@@ -56,7 +66,7 @@ function play($Address,$song_n){
   insert_task($name,$task,$Address,$song_n);  
 }
 
-echo" <script> location.replace('main.php'); </script>";
+//echo" <script> location.replace('main.php'); </script>";
 
 
 

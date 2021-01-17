@@ -1,4 +1,5 @@
-<?php if(!session_id())session_start(); ?>
+<?php if(!session_id())session_start(); 
+  include 'Sidebar.php';?>
 <html>
 <head>
 			<meta charset="UTF-8">

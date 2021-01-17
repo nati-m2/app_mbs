@@ -11,11 +11,12 @@ $row=mysqli_fetch_array($query);
 if (mysqli_num_rows($query)>1){
     mysqli_query($connect," DELETE FROM `task_t` ");
 }
-
 if ($row){
-    $song_name = $row['song_id'];
-    if ($song_name){
-        echo $song_name;
+
+
+    $val = $row['val'];
+    if ( $val){
+        echo  $val;
         exit;
     }
 }

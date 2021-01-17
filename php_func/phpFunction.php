@@ -108,7 +108,7 @@ function insert_task($name,$task,$Address,$song_n){
     return;
   }
  */
-  $query = "INSERT INTO task_t(`name`,`task`, `Address_d`,`song_id`) VALUES('".$name."','".$task."','".$Address."','".$song_n."')";
+  $query = "INSERT INTO task_t(`name`,`task`, `Address_d`,`val`) VALUES('".$name."','".$task."','".$Address."','".$song_n."')";
    if(!mysqli_query($connect,$query)){
     echo "Error: " . $query . "<br>" . mysqli_error($connect);
 }
@@ -130,7 +130,7 @@ function pull_task($Address,$c){// colome   $row['$c'];   pull_task($Address,tas
       else if($c==3)
         return  $row['task'];
       else if($c==4)
-        return  $row['song_id'];
+        return  $row['val'];
       
       }
       return null;

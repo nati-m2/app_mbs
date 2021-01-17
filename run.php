@@ -58,9 +58,10 @@ include "php_func/phpFunction.php";
  </head>
 
     <body onload="setInterval('CheckTask()', 1000),start() ">
-    <?php
 
+    <div id= "player_div" > 
     
+    <?php
     if(isset($_SESSION["task"])){
    $song="Media_Library/".$_SESSION["task"];
 
@@ -73,16 +74,14 @@ include "php_func/phpFunction.php";
     }
 ?>
 
-
-<div id= "player_div" > 
         <audio   id='myAudio' autoplay>
         <source src= '<?php echo $song; ?>'  type= 'audio/ogg'>
         <source src= '<?php echo $song; ?>'  type='audio/mpeg'>
         </audio>
         <center>
-        <img id='play' src='img/play-icon.png' width='45' height='45' onclick='playAudio()'>
-        <img id='pause' src='img/Puse-icon.png' width='45' height='45' onclick='pauseAudio()'>
-        <br>
+        <input   id='play' type="image" src='img/play-icon.png'  alt="Submit"  width='45' height='45' onclick='playAudio()' value='s'> 
+        <input   id='pause' type="image"   src='img/Puse-icon.png' alt="Submit"  width='45' height='45' onclick='pauseAudio()'value='' > 
+       
         <div class='slidecontainer2'>
             <input type='range' min='0' max='' value='0' class='slider' id='c_time'>
         </div>
@@ -90,7 +89,7 @@ include "php_func/phpFunction.php";
 
         <div class='slidecontainer'>
         <img   id ='speaker'  src='img/speaker.png' width='27' height='27' >
-        <input id='myRange' type='range' min='0' max='100' value='<?php echo pull_set("default volume") ?>' class='slider'>
+        <input id='myRange' type='range' min='0' max='100' class='slider' value='<?php echo pull_set("default volume") ?>' >
         </div>
         <center>
         <div class='s_time'>

@@ -45,7 +45,7 @@
          <div>
          <span>זמן</span>
         
-         <span><a  href=devise_logic.php?song_id=".$row['id']."&&?name=play>
+         <span><a  href=devise_logic.php?song_id=".$row['id']."&&name=play>
          <img src='img/play.png' width='27' height='25'></a></span>
          </div>
           </li>";

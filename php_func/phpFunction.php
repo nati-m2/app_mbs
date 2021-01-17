@@ -117,7 +117,7 @@ mysqli_close($connect);
 
 function pull_task($Address,$c){// colome   $row['$c'];   pull_task($Address,task) 
   include 'sqli.php'; 
-  $query="SELECT * FROM `task_t` WHERE  Address_d = '".$Address."'  AND  name LIKE  'play' OR name LIKE  'playing' ";
+  $query="SELECT * FROM `task_t` WHERE  task ='on' AND  Address_d = '".$Address."' ";
   $result=mysqli_query($connect,$query);
   if($result){
     $result_check=mysqli_num_rows($result);

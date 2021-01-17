@@ -60,18 +60,27 @@ include "php_func/phpFunction.php";
     <body onload="setInterval('CheckTask()', 1000),start() ">
 
     <div id= "player_div" > 
-    
+  
     <?php
-    if(isset($_SESSION["task"])){
-   $song="Media_Library/".$_SESSION["task"];
-
-   echo "<p>";
-   echo  $_SESSION["task"];
-    "</p>";
-
-     echo" <br>";
-    unset($_SESSION["task"]);
+     $song=$pause=null;
+     $vol=pull_set("default volume"); 
+    
+    if(isset($_SESSION["task"])   && isset($_SESSION["val"]) ){
+        if($_SESSION["task"]=='play'){
+             $song="Media_Library/".$_SESSION["val"];
+             $pause='1';
+             echo "<p>".$song."</p>";
+        } 
+        else if($_SESSION["task"]=='pause'){
+            $pause='0'; // pause=0 play=1
+       }
+       else if($_SESSION["task"]=='volume'){
+        $vol=$_SESSION["val"];
+   }
+    unset($_SESSION["val"]);
     }
+
+
 ?>
 
         <audio   id='myAudio' autoplay>
@@ -79,8 +88,8 @@ include "php_func/phpFunction.php";
         <source src= '<?php echo $song; ?>'  type='audio/mpeg'>
         </audio>
         <center>
-        <input   id='play' type="image" src='img/play-icon.png'  alt="Submit"  width='45' height='45' onclick='playAudio()' value='s'> 
-        <input   id='pause' type="image"   src='img/Puse-icon.png' alt="Submit"  width='45' height='45' onclick='pauseAudio()'value='' > 
+        <input id='play' type="image" src='img/play.png'  width='45' height='45' onclick='playAudio()' value='<?php echo $pause; ?>'> 
+        <input id='pause'type="image" src='img/Puse-icon.png'  width='45' height='45' onclick='pauseAudio()'value='<?php echo $pause; ?>' > 
        
         <div class='slidecontainer2'>
             <input type='range' min='0' max='' value='0' class='slider' id='c_time'>
@@ -89,7 +98,7 @@ include "php_func/phpFunction.php";
 
         <div class='slidecontainer'>
         <img   id ='speaker'  src='img/speaker.png' width='27' height='27' >
-        <input id='myRange' type='range' min='0' max='100' class='slider' value='<?php echo pull_set("default volume") ?>' >
+        <input id='myRange' type='range' min='0' max='100' class='slider' value='<?php echo $vol; ?>' >
         </div>
         <center>
         <div class='s_time'>

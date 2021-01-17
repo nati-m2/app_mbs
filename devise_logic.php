@@ -45,6 +45,7 @@ if(isset($_GET['name'])){
   $name=$_GET['name'];
   
 }
+
 echo$_GET['name'];
 echo$_GET['song_id'];
 
@@ -60,13 +61,13 @@ function play($Address,$song_n,$name){
 
     }else{
       $song_n = $_SESSION['song_id'];
-      unset($_SESSION['song_id']);
+      //unset($_SESSION['song_id']);
     }
 
   insert_task($name,$task,$Address,$song_n);  
 }
 
-//echo" <script> location.replace('main.php'); </script>";
+echo" <script> location.replace('main.php'); </script>";
 
 
 

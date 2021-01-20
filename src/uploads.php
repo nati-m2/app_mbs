@@ -1,9 +1,8 @@
-
 <?php
-include "php_func/phpFunction.php"; 
 if(!session_id())session_start();
+include "php_func/phpFunction.php"; 
 if(isset($_SESSION["login"])){
-$target_dir = "Media_Library/";
+$target_dir = "Media_Library/".$_SESSION['login']."/";
 $target_file = $target_dir.basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $FileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -42,12 +41,12 @@ if($FileType != "mp3" && $FileType != "wav" && $FileType !="m4a" ) {
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
   echo "Sorry, your file was not uploaded.";
-// if everything is ok, try to upload file
+// if everything is ok, try to upload file                     ///$target_file = Media_Library/s.mp3     ||Media_Library/admin/s.mp3  
 } else {
   if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
     echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
     $user=$_SESSION["login"];
-    insert_song_t($_FILES["fileToUpload"]["name"],$target_file,$user);
+    insert_song_t($_FILES["fileToUpload"]["name"],$user);
   } else {
     echo "Sorry, there was an error uploading your file.";
   }

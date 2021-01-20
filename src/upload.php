@@ -1,4 +1,10 @@
-<!DOCTYPE html>
+<?php
+if(!session_id())session_start();
+if(!isset($_SESSION["login"])){
+ 
+  echo" <script> location.replace('login.php'); </script>";
+  
+}?>
 <html>
 <html>
 <head>
@@ -12,18 +18,13 @@
 </head>
 <body>
 <center>
-<?php
-if(!session_id())session_start();
-if(!isset($_SESSION["login"])){
-  header("Location:login.php");
-}
-?>
+
 <form action="uploads.php" method="post" enctype="multipart/form-data" >
  <p> Select file to upload:</p>
   <input type="file" name="fileToUpload" id="fileToUpload"  />
   <input type="submit" value="Upload folder" name="submit">
 </form>
-
+<br><br>
 <form action="upload_dir.php" method="post" enctype="multipart/form-data"> 
 <p>  Select Folder to Upload:</p>  <input type="file" name="files[]" id="files"  directory="" webkitdirectory="" moxdirectory="" multiple><br/><br/> 
   <input type="Submit" value="Upload" name="upload" />

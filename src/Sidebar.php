@@ -31,14 +31,14 @@ include "php_func/phpFunction.php";
                                 echo "<a href='logout.php'>logout</a>"; 
                              }
                         ?>
-                         <a href="start.php" target="_top">בית</a>
-                         
+                         <a href="start.php" target="_top">מוזיקה שלי</a>
+                         <a  href=" Photos.php" onclick="closeNav()" >התמונות שלי</a>
                          <a href="upload.php" onclick="closeNav()" target="main">uploads</a>
                          <a href="index.php" onclick="closeNav()" target="_top" >החלף חשבון</a>
                          <a ><?php echo " כתובת :".get_ip(); ?> </a>
                         <a  href="Settings.php" onclick="closeNav()" >settings</a>
                         <a  href="newDevise.php" onclick="closeNav()" >newDevise</a>   
-             
+                     
 
 
 

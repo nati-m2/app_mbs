@@ -1,7 +1,8 @@
 <?php if(!session_id())session_start(); 
-if(isset($_GET['user'])){
+if(isset($_GET['user'])&&isset($_GET['img']) ){
     $user=$_GET['user'];
     $_SESSION['user']=$user;
+    $_SESSION['img']= $_GET['img'];
   }
 
 ?>
@@ -25,7 +26,7 @@ if(isset($_GET['user'])){
                 </div>
 
 <center>
-    <iframe src="main.php" width="100%" height="70%"  name="main"  style="border:none;"></iframe>
+    <iframe src="main.php" width="100%" height="69%"  name="main"  style="border:none;"></iframe>
     <div class="player">
         <iframe  src="run.php" width="100%" height="19%" style="border:none;"></iframe>
     </div>

@@ -40,6 +40,7 @@ $it=(int)pull_set("maxfile");
   }
 
 }
-  header("Location:upload.php");
+echo" <script> location.replace('upload.php'); </script>";
+
 
   ?>

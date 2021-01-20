@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 include_once 'sqli.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -11,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     $result=mysqli_query($connect,$query);
     if(mysqli_num_rows($result) == 1){
         echo"<script> alert('אתה מחובר'); </script>" ;
-        session_start();
+        
         $_SESSION["login"]=$name;
           echo" <script> location.replace('index.php'); </script>";
         mysqli_close($connect);

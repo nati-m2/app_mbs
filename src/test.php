@@ -1,3 +1,15 @@
+<?php
+
+
+
+//since PHP 5.2.0, allow_url_include must be enabled for these
+
+// To create the nested structure, the $recursive parameter 
+// to mkdir() must be specified.
+//rmdir ( '/var/www/html/Media_Library' );
+//mkdir('/var/www/html/Media_Library1', 0777, true);
+//mkdir('/var/www/html/Media_Library1', 0777, true);
+//chown -R 100 /var/www/html/
 <?php if(!session_id())session_start();
 include "php_func/phpFunction.php"; 
  ?>
@@ -38,7 +50,7 @@ include "php_func/phpFunction.php";
                 },
                 cache: false,
                 success: function(data) {
-                    console.log("d");
+                  
                     if (data != "") {
                         console.log(data);
                         //play song
@@ -58,39 +70,39 @@ include "php_func/phpFunction.php";
  </head>
 
     <body onload="setInterval('CheckTask()', 1000),start() ">
-
-    <div id= "player_div" > 
-  
     <?php
-     $song=$pause=null;
-     $vol=pull_set("default volume"); 
+  
     
-    if(isset($_SESSION["task"])   && isset($_SESSION["val"]) ){
-        if($_SESSION["task"]=='play'){
-             $song="Media_Library/".$_SESSION["val"];
-             $pause='1';
-             echo "<p>".$song."</p>";
-        } 
-        else if($_SESSION["task"]=='pause'){
-            $pause='0'; // pause=0 play=1
-       }
-       else if($_SESSION["task"]=='volume'){
-        $vol=$_SESSION["val"];
-   }
-    unset($_SESSION["val"]);
+if(isset($_SESSION["task"]) && isset($_SESSION["name"]) ){
+   // $volume=pull_set("default volume");   set default volume
+    if($_SESSION["name"]=="play"){
+   $song="Media_Library/".$_SESSION["task"];
+   echo "<p>". $_SESSION["task"]."</p>";
+    }
+    if($_SESSION["name"]=="volume"){
+        $volume=$_SESSION["task"];
+    }
+    if($_SESSION["name"]=="pause"){
+        $pause="pause";
     }
 
-
+ 
+    unset( $_SESSION["name"]);
+  unset($_SESSION["task"]);
+    }
 ?>
 
+
+<div id= "player_div" > 
         <audio   id='myAudio' autoplay>
         <source src= '<?php echo $song; ?>'  type= 'audio/ogg'>
         <source src= '<?php echo $song; ?>'  type='audio/mpeg'>
         </audio>
         <center>
-        <input id='play' type="image" src='img/play.png'  width='45' height='45' onclick='playAudio()' value='<?php echo $pause; ?>'> 
-        <input id='pause'type="image" src='img/Puse-icon.png'  width='45' height='45' onclick='pauseAudio()'value='<?php echo $pause; ?>' > 
-       
+        
+        <input id='play' type="image"  src='img/play-icon.png' width='45' height='45' value='' onclick='playAudio()' >
+       <input id='pause'  type="image"  src='img/Puse-icon.png' width='45' height='45' value='' onclick='pauseAudio()' >
+        <br>
         <div class='slidecontainer2'>
             <input type='range' min='0' max='' value='0' class='slider' id='c_time'>
         </div>
@@ -98,7 +110,7 @@ include "php_func/phpFunction.php";
 
         <div class='slidecontainer'>
         <img   id ='speaker'  src='img/speaker.png' width='27' height='27' >
-        <input id='myRange' type='range' min='0' max='100' class='slider' value='<?php echo $vol; ?>' >
+        <input id='myRange' type='range' min='0' max='100' value='<?php echo $volume ?>' class='slider'>
         </div>
         <center>
         <div class='s_time'>
@@ -111,3 +123,5 @@ include "php_func/phpFunction.php";
     </body>
     <script src="player/play_logic.js"></script>
 </html>
+phpinfo();
+  ?>

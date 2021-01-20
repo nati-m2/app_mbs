@@ -78,20 +78,23 @@ body {
                         $result_check=mysqli_num_rows($result);
                         if($result_check>0){
                             while($row=mysqli_fetch_assoc($result)){ 
-                  echo" <a  href=devise_logic.php?Address=".$row['Address']."&&?name=play>
-                  <img id='play1' src='img/play-icon.png' width='45' height='45'>". $row['devise_name']."
-                  </a>";
-                  echo" <a  href=devise_logic.php?Address=".$row['Address']." &&?name=Puse>
+                  echo $row['devise_name']."<a  href=devise_logic.php?Address=".$row['Address']."&&acc=play>
+                  <img id='play1' src='img/play-icon.png' width='45' height='45'></a>";
+                  echo" <a  href=devise_logic.php?Address=".$row['Address']."&&acc=pause>
                   <img id='play1' src='img/Puse-icon.png' width='45' height='45'>
                   </a>";
-                  
-              
-               
+                 echo" 
+                 <form action='devise_logic.php' method='POST' >
+                 <input type='hidden'  name='Address'  value='".$row['Address']."'>
+                 <input type='hidden'  name='acc'   value='volume'  >
+                  <input  type='range' name='val'  min='0' max='100' value='' >
+                  <input type='submit' value='שלח'>
+                  </form>";
                       }
                     }
             echo"</div>";
             mysqli_close($connect);
-         
+           
             ?>
   </div>
 </div>

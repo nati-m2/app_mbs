@@ -8,7 +8,6 @@ if(!session_id())session_start();
 }
 $user = $_SESSION["login"];
 $query="SELECT path FROM `user`  WHERE `firstname` LIKE '". $user."' ";
-
 $result=mysqli_query($connect,$query);
 $result_check=mysqli_num_rows($result);
 if($result_check == 1){

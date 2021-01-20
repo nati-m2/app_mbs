@@ -1,5 +1,5 @@
 <?php if(!session_id())session_start(); 
-  include 'Sidebar.php';?>
+include 'Sidebar.php';?>
 <html>
 <head>
 			<meta charset="UTF-8">
@@ -24,10 +24,10 @@
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,1,1);
 }
-
 img {
   border-radius: 150px;
 }
+
 
 .container {
   padding: 2px 16px;
@@ -35,10 +35,8 @@ img {
 </style>
 </head>
 <body>
-
 <center>
-
-    <?php
+<?php
       include "sqli.php";
       $query="SELECT * FROM `user` ";
       $result=mysqli_query($connect,$query);
@@ -48,7 +46,7 @@ img {
             echo" 
     
             <div class='card'>
-            <a href='start.php?user=".$row['firstname']."'>
+            <a href='start.php?user=".$row['firstname']."&&img=".$row['path']."'>
          <img src=".$row['path']." alt='Avatar' width='250px' height='250px'   ></a> 
          <div class='container'>
          <h1><b>".$row['firstname']."</b></h1> 
@@ -68,6 +66,7 @@ img {
           }
           
     ?>
+
 
         
 </center>

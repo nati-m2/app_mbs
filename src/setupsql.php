@@ -9,7 +9,8 @@ include "php_func/phpFunction.php";
         insert_set("default volume","30");
         create_table_song_t();
         //insert_set($name,$val);
-
+        chown ("/var/www/html/",33);
+        mkdir('/var/www/html/Media_Library', 0777, true);
      echo" <script> location.replace('index.php'); </script>";
   }
   catch(Exception $e) {
@@ -17,9 +18,9 @@ include "php_func/phpFunction.php";
   }
 /*//////////////////////////////////////////////////*/
 function  create_db(){
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
+  $servername = "db";
+  $username = "root";
+  $password = "root";
     // Create connection
     $conn = mysqli_connect($servername, $username, $password);
     // Check connection
@@ -42,21 +43,21 @@ function  create_db(){
 mysqli_close($conn);
 }
 
-function  create_table_user(){
-    include  'sqli.php'; 
-    $query = "CREATE TABLE user(
-    id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-   firstname TEXT(30) NOT NULL, pass TEXT(32) NOT NULL, path TEXT(30))";
-    if (mysqli_query($connect,$query)) {
-      echo "Table user created successfully";
-      echo "<br>";
-    } else {
-     throw new Exception("Error creating table user");
-      echo "Error creating table: " . mysqli_error($connect);   
-    }
-        mysqli_close($connect);
-}
 
+function  create_table_user(){
+  include  'sqli.php'; 
+  $query = "CREATE TABLE user(
+  id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+ firstname TEXT(30) NOT NULL, pass TEXT(32) NOT NULL, path TEXT(30))";
+  if (mysqli_query($connect,$query)) {
+    echo "Table user created successfully";
+    echo "<br>";
+  } else {
+   throw new Exception("Error creating table user");
+    echo "Error creating table: " . mysqli_error($connect);   
+  }
+      mysqli_close($connect);
+}
 function  create_table_devise(){
   include 'sqli.php'; 
     $query = "CREATE TABLE devise(id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -92,7 +93,7 @@ function  create_table_settings(){
 function  create_table_Task(){
   include 'sqli.php'; 
     $query = "CREATE TABLE task_t(id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-        name TEXT(15) NOT NULL,task TEXT(5), Address_d TEXT(20), val INT(6), s_time TEXT(15))";
+        name TEXT(15) NOT NULL,task TEXT(5), Address_d TEXT(20), song_id INT(6), s_time TEXT(15))";
       if (mysqli_query($connect,$query)){
         echo "Table Task created successfully";
         echo "<br>";
@@ -106,8 +107,7 @@ function  create_table_Task(){
 
 function  create_table_song_t(){
   include 'sqli.php'; 
-    $query = "CREATE TABLE song_t(id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-        name VARCHAR(100) NOT NULL,user_n TEXT(30)) ";
+    $query = "CREATE TABLE song_t(id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, name VARCHAR(100) NOT NULL,user_n TEXT(30)) ";
       if (mysqli_query($connect,$query)) {
         echo "Table song_t created successfully";
         echo "<br>";
@@ -117,6 +117,20 @@ function  create_table_song_t(){
       }
       mysqli_close($connect);
 }
+
+function  create_table_Photos(){
+  include 'sqli.php'; 
+    $query = "CREATE TABLE photos(id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, name VARCHAR(100) NOT NULL,user_n TEXT(30)) ";
+      if (mysqli_query($connect,$query)) {
+        echo "Table Photos created successfully";
+        echo "<br>";
+      } else {
+
+        echo "Error creating table Photos: " . mysqli_error($connect);
+      }
+      mysqli_close($connect);
+}
+
 
 
 

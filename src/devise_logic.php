@@ -2,8 +2,8 @@
 /* deise logic*/
 
 session_start();
-//include "php_func/phpFunction.php";
 /*
+
 if(isset($_GET['Address']) && isset($_SESSION['song_id'])){
   if($_SERVER['REQUEST_METHOD'] == 'GET'){ 
     $Address=$_GET['Address'];
@@ -27,44 +27,46 @@ else{
       }
     }
 }
-echo" <script> location.replace('main.php'); </script>";
-
 */
 /* צריך למצא דרך יותר יעילה לישמור את הנתונים שנשלחים לטבלת משימות  */
 
+
+  if(!empty($_POST['Address'])){
+    $Address=$_POST['Address'];
+  }
+  if(!empty($_POST['val'])){
+    $val=$_POST['val'];
+  }
+  if(!empty($_POST['acc'])){
+    $name=$_POST['acc'];
+  }
+
 if(isset($_GET['Address'])){
   $Address=$_GET['Address'];
-}else{
-  $Address="";
+}
+if(isset($_GET['val'])){
+  $val=$_GET['val'];
+}
+if(isset($_GET['acc'])){
+  $name=$_GET['acc'];
 }
 
-if(isset($_GET['song_id'])){
-  $song_n=$_GET['song_id'];
-}
-if(isset($_GET['name'])){
-  $name=$_GET['name'];
-  
-}
+play($Address,$val,$name);
 
-echo$_GET['name'];
-echo$_GET['song_id'];
-
-play($Address,$song_n,$name);
-
-function play($Address,$song_n,$name){
+function play($Address,$val,$name){  
     include "php_func/phpFunction.php";
     $task= "on";
- 
+    
+  if(!$val){
+    $val = $_SESSION['val'];
+   // unset($_SESSION['val']);
+  }
     if(!$Address){
       $Address= get_ip();
-      $_SESSION['song_id']=  $song_n;
+      $_SESSION['val']=  $val;
 
-    }else{
-      $song_n = $_SESSION['song_id'];
-      //unset($_SESSION['song_id']);
     }
-
-  insert_task($name,$task,$Address,$song_n);  
+  insert_task($name,$task,$Address,$val);  
 }
 
 echo" <script> location.replace('main.php'); </script>";

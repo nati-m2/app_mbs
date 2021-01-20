@@ -1,7 +1,7 @@
-<?php include 'sqli.php';
-    if(!session_id()) session_start(); 
-?>
-<?php
+<?php  if(!session_id()) session_start(); 
+include 'sqli.php';
+   
+
 
 
 echo " <center><p>";
@@ -22,8 +22,11 @@ if(isset($_POST["submit"])) {
 }
 //Check if file already exists
 if (file_exists($target_file)) {
-    echo"<br>קיים קובץ עם אותו שם בתיקיית תמונות<br> ";
-    $uploadOk = 0;
+    // Use unlink() function to delete a file  
+    if (!unlink($target_file)) {  
+        echo"<script> alert('קיים קובץ עם אותו שם בתיקיית תמונות'); </script>" ;
+        $uploadOk = 0;
+    }  
 }
  /*  Check file size
 if ($_FILES["fileToUpload"]["size"] > 500000) {
@@ -34,7 +37,7 @@ if ($_FILES["fileToUpload"]["size"] > 500000) {
 // Allow certain file formats
 if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
 && $imageFileType != "gif" ) {
-    echo "הקובץ שנבחר אינו קובץ תמונה ";
+    echo"<script> alert('הקובץ שנבחר אינו קובץ תמונה'); </script>" ;
     $uploadOk = 0;
 }
 // Check if $uploadOk is set to 0 by an error
@@ -44,15 +47,12 @@ if ($uploadOk == 0) {
 } else {
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
        $img=basename( $_FILES["fileToUpload"]["name"]);
-       echo"move<br>";  
-    }}
-///////////////////////////////////SQL///////////////////////////////////// לתקן  שליחה //////////////
 if(isset($_SESSION["login"])){
     $user = $_SESSION["login"];
     $img="img/".$img;
 $query = "UPDATE `user` SET  `path`='".$img."'  WHERE `firstname` LIKE '".$user."'  ";
-if (mysqli_query($connect,$query)){
-    echo" <script> location.replace('index.php'); </script>";
+if (!mysqli_query($connect,$query)){
+    echo"<script> alert('לא ניתן ליצור חיבור למסד נתונים'); </script>" ;
 } else {
 echo "Error: " . $query . "<br>" . mysqli_error($connect);
 }
@@ -62,6 +62,7 @@ else {
     }
 
 echo " </p></center>";
-
+}}
+echo" <script> location.replace('index.php'); </script>";
 
 ?>

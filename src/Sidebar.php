@@ -32,7 +32,7 @@ include "php_func/phpFunction.php";
                              }
                         ?>
                          <a href="start.php" target="_top">מוזיקה שלי</a>
-                         <a  href=" Photos.php" onclick="closeNav()" >התמונות שלי</a>
+                         <a  href="photos.php" onclick="closeNav()" >התמונות שלי</a>
                          <a href="upload.php" onclick="closeNav()" target="main">uploads</a>
                          <a href="index.php" onclick="closeNav()" target="_top" >החלף חשבון</a>
                          <a ><?php echo " כתובת :".get_ip(); ?> </a>

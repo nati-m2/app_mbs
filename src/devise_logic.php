@@ -2,32 +2,7 @@
 /* deise logic*/
 
 session_start();
-/*
 
-if(isset($_GET['Address']) && isset($_SESSION['song_id'])){
-  if($_SERVER['REQUEST_METHOD'] == 'GET'){ 
-    $Address=$_GET['Address'];
-    $task= "on";
-    $name= "play";
-    $song_n = $_SESSION['song_id'];
-    insert_task($name,$task,$Address,$song_n);
-    }
-    unset($_SESSION['song_id']);
-}
-else{
-  if(isset($_GET['song_id'])) {
-    if($_SERVER['REQUEST_METHOD'] == 'GET'){ 
-      $Address= get_ip();
-      $task= "on";
-      $name= "play";
-      $_SESSION['song_id']= $_GET['song_id'];
-      $song_n = $_GET['song_id'];
-      insert_task($name,$task,$Address,$song_n);   //   Address //  song_id
-      $_SESSION['song_id']=$song_n;
-      }
-    }
-}
-*/
 /* צריך למצא דרך יותר יעילה לישמור את הנתונים שנשלחים לטבלת משימות  */
 
 

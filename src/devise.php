@@ -68,8 +68,9 @@ body {
 
 
 <div id="myNav" class="overlay">
+<div class="overlay-content">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav2()">&times;</a>
-  <div class="overlay-content">
+
   <?php
              echo"<div class=navbar>";
              include "sqli.php";
@@ -88,6 +89,7 @@ body {
                  <input type='hidden'  name='Address'  value='".$row['Address']."'>
                  <input type='hidden'  name='acc'   value='volume'  >
                   <input  type='range' name='val'  min='0' max='100' value='' >
+                  <br> <br>
                   <input type='submit' value='שלח'>
                   </form>";
                       }

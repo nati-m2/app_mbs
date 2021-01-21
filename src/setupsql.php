@@ -8,9 +8,12 @@ include "php_func/phpFunction.php";
         insert_set("maxfile","10000000");
         insert_set("default volume","30");
         create_table_song_t();
+        create_table_Photos();
         //insert_set($name,$val);
         chown ("/var/www/html/",33);
         mkdir('/var/www/html/Media_Library', 0777, true);
+        mkdir('/var/www/html/Media_Library/music', 0777, true);
+        mkdir('/var/www/html/Media_Library/photos', 0777, true);
      echo" <script> location.replace('index.php'); </script>";
   }
   catch(Exception $e) {

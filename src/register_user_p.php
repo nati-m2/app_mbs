@@ -31,10 +31,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!mysqli_query($connect,$query)){
         echo "Error: " . $query . "<br>" . mysqli_error($connect);
     }
-    //header("Location:   .php");
+    
     mysqli_close($connect);
-    chdir ("Media_Library/" );
-    mkdir($name);
+
+    chdir ("/var/www/html/Media_Library/photos/" );
+    mkdir($name, 0777, true);
+    chdir ("/var/www/html/Media_Library/music/" );
+    mkdir($name, 0777, true);
     echo "!!נרשמת בהצלחה $name";
       echo" <script> location.replace('index.php'); </script>";
 }

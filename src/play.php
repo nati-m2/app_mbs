@@ -11,14 +11,21 @@ if (mysqli_num_rows($query)>1){
 }
 
 if ($row){
- 
-    $song_name = $row['song_id'];
-    if ($song_name){
-        echo $song_name;
+   if($row['name']=='play'){
+        echo  pull_song_t($row['song_id']); 
+        exit;
+    }else if($row['name']=='volume'){     // var= $row['name']:$row['song_id'] // "volume:84"
+        echo 'volume'.":".$row['song_id'];
         exit;
     }
-}
+    else if($row['name']=='pause'){     // var= $row['name']:$row['song_id'] // "volume:84"
+        echo 'pause';
+        exit;
+    }
 
+
+
+}
 
 echo "";
 exit;

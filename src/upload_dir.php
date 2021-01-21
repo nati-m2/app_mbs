@@ -8,7 +8,8 @@ $it=(int)pull_set("maxfile");
   {
   /*	if($_POST['foldername'] != "")
   	{*/  //$_POST['foldername'];
-  		$foldername="Media_Library/"; // Media_Library/user
+		  $foldername="Media_Library/music/"; //Media_Library/music/user
+		  									//Media_Library/photos/user
   		if(!is_dir($foldername)) mkdir($foldername);
   		foreach($_FILES['files']['name'] as $i => $name)
 		{

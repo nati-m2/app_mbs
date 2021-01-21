@@ -15,7 +15,7 @@ include "php_func/phpFunction.php";
                 type: "POST",
                 url: "remove.php",
                 data: {
-                    function: "remove"
+                   // function: "remove"
                 },
                 cache: false,
                 success: function(data) {
@@ -29,7 +29,6 @@ include "php_func/phpFunction.php";
     }
     function CheckTask(){
         $.ajax({
-            
                 type: "POST",
                 url: "play.php",
                 data: {
@@ -38,14 +37,26 @@ include "php_func/phpFunction.php";
                 },
                 cache: false,
                 success: function(data) {
-                  
                     if (data != "") {
                         console.log(data);
-                        //play song
-                        RemoveFromDb();
-                       location.reload();
-                        playAudio();
-                     
+                       if (data==="pause"){
+                        x.pause(); 
+                        document.getElementById("play").style.display = "block";
+                         document.getElementById("pause").style.display = "none";
+                       }
+                        else  if (data.substring(0, 6)==="volume"){
+                         slider.value=parseInt(data.substring(7));
+                         x.volume=slider.value/100;
+                        }else{
+                            //play song
+                            var data2=data;
+                            document.getElementById("song_n").innerHTML=data2;
+                            data ="Media_Library/music/"+data;
+                            document.getElementById("myAudio").src=data;
+                            playAudio();
+                            }
+                             // location.reload();
+                            RemoveFromDb();
                     }
                 },
                 error: function(xhr, status, error) {
@@ -58,47 +69,23 @@ include "php_func/phpFunction.php";
  </head>
 
     <body onload="setInterval('CheckTask()', 1000),start() ">
-    <?php
-  
-    
-if(isset($_SESSION["task"]) && isset($_SESSION["name"]) ){
-   // $volume=pull_set("default volume");   set default volume
-    if($_SESSION["name"]=="play"){
-   $song="Media_Library/".$_SESSION["task"];
-   echo "<p>". $_SESSION["task"]."</p>";
-    }
-    if($_SESSION["name"]=="volume"){
-        $volume=$_SESSION["task"];
-    }
-    if($_SESSION["name"]=="pause"){
-        $pause="pause";
-    }
-
- 
-   // unset( $_SESSION["name"]);
-  //unset($_SESSION["task"]);
-    }
-?>
-
 
 <div id= "player_div" > 
-        <audio   id='myAudio' autoplay>
-        <source src= '<?php echo $song; ?>'  type= 'audio/ogg'>
-        <source src= '<?php echo $song; ?>'  type='audio/mpeg'>
+        <audio   id='myAudio'  autoplay>
+        <source src  type= 'audio/ogg'>
+        <source src  type='audio/mpeg'>
         </audio>
+        <p id="song_n"></p>
         <center>
-        
         <input id='play' type="image"  src='img/play-icon.png' width='45' height='45' value='' onclick='playAudio()' >
        <input id='pause'  type="image"  src='img/Puse-icon.png' width='45' height='45' value='' onclick='pauseAudio()' >
-        <br>
         <div class='slidecontainer2'>
             <input type='range' min='0' max='' value='0' class='slider' id='c_time'>
         </div>
         </center>
-
         <div class='slidecontainer'>
         <img   id ='speaker'  src='img/speaker.png' width='27' height='27' >
-        <input id='myRange' type='range' min='0' max='100' value='<?php echo $volume ?>' class='slider'>
+        <input id='myRange' type='range' min='0' max='100' value class='slider'>
         </div>
         <center>
         <div class='s_time'>

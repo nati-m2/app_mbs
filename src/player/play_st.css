@@ -22,7 +22,6 @@
 
 .slidecontainer {
   position: absolute;
-
   width: 15%;
 }
 .slidecontainer2 {
@@ -68,9 +67,4 @@
 
 
 
-#speaker_devise{
-  position: absolute;
-  top: 75;
-  right:75 ;
-}
 

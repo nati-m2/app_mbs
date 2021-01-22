@@ -46,6 +46,7 @@ include "php_func/phpFunction.php";
                        }
                         else  if (data.substring(0, 6)==="volume"){
                          slider.value=parseInt(data.substring(7));
+                          
                          x.volume=slider.value/100;
                         }else{
                             //play song

@@ -66,9 +66,16 @@
           <span>".$row['name']."</span>
           <div>
           <span>זמן</span>
-         
-          <span><a  href=devise_logic.php?val=".$row['id']."&&acc=play>
-          <img src='img/play.png' width='27' height='25'></a></span>
+          <span>
+
+        <form class='in_line' action='devise_logic.php' method='POST' >
+        <input type='hidden'  name='val'  value='".$row['id']."'>
+        <input type='hidden'  name='acc'   value='play'  >
+        <input id='play'   type='image'  src='img/play.png' width='27' height='25'>
+       
+         </form>
+
+          </span>
           </div>
            </li>";
    

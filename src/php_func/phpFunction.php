@@ -164,6 +164,50 @@ function update_task($Address,$val){
     return;
     }
   
+    function toggel_sync($Address,$toggel){
+      include 'sqli.php'; 
+      $query = "UPDATE `devise` SET `sync`=$toggel  WHERE `Address` = '".$Address."' ";
+      if(!mysqli_query($connect,$query)){
+        echo "Error: " . $query . "<br>" . mysqli_error($connect);
+        return;
+      }
+      mysqli_close($connect);
+      return;
+      }  
+      function play($Address,$val,$name){  
+        if(!$Address){
+          $Address= get_ip();
+          $_SESSION['val']=$val;
+        }
+        insert_task($name,"on",$Address,$val); 
+      echo" <script> location.replace('main.php'); </script>";
+      return;
+    }
+    
+    
 
+    
+    function sync_and_play($Address,$name,$val){
+      if($name=="pause"){
+        $val=0;
+      }
+      include "sqli.php";
+      $query="SELECT `Address` FROM `devise` where `sync`= 1";
+      $result=mysqli_query($connect,$query);
+      $result_check=mysqli_num_rows($result);
+      if($result_check>1){                                  // <1    192.168.0.2    //play >1
+          while($row=mysqli_fetch_assoc($result)){
+            $Address =$row['Address'];
+            insert_task($name,"on",$Address,$val); 
+          }
+        
+      echo" <script> location.replace('main.php'); </script>";
+          return ;
+          }else{ // no sync                                                    //play ==1
+            play($Address,$val,$name);
+          }
+          mysqli_close($connect);
+          return;
+      }
 
 ?>

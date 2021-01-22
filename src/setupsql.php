@@ -64,7 +64,7 @@ function  create_table_user(){
 function  create_table_devise(){
   include 'sqli.php'; 
     $query = "CREATE TABLE devise(id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-      devise_name TEXT(20) NOT NULL, Address TEXT(20))";
+      devise_name TEXT(20) NOT NULL, Address TEXT(20),  sync  BOOLEAN NOT NULL DEFAULT FALSE )";
       if (mysqli_query($connect,$query)) {
         echo "Table devise created successfully";
         echo "<br>";

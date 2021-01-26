@@ -1,7 +1,6 @@
 <?php
-if(!session_id())session_start();
-if(!isset($_SESSION["login"])){
- 
+include 'Sidebar.php';
+if(!isset($_COOKIE["login"])) {
   echo" <script> location.replace('login.php'); </script>";
   
 }?>

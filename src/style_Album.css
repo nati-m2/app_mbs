@@ -44,18 +44,17 @@ section {
 
 section .album-art {
   float: right;
-  width: 220px;
   margin-right: 20px;
-  margin-bottom: 20px;
+
 }
 section .album-art * {
   border-radius: 10px;
 }
-section .album-art img {
+section .album-art  {
   width: 100%;
-  margin-bottom: 10px;
-  margin-top: -110px;
-  box-shadow: 0 5px 60px -3px rgba(0, 0, 0, 0.18);
+
+  margin-top: 110px;
+  
 }
 
 
@@ -95,7 +94,7 @@ ol {
   font-weight: 500;
 }
 ol li {
-  counter-increment: number;
+ 
   display: -webkit-box;
   display: flex;
   flex-wrap: initial;
@@ -122,7 +121,7 @@ ol li span:first-child {
   color: var(--darker);
 }
 ol li span:first-child:before {
-  content: counter(number);
+ 
   margin-right: 2em;
   color: var(--dark);
   display: inline-block;

@@ -1,5 +1,4 @@
-<?php if(!session_id())session_start();
-
+<?php //if(!session_id())session_start();
 include "php_func/phpFunction.php"; 
 ?>
 <html>
@@ -22,22 +21,25 @@ include "php_func/phpFunction.php";
                         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
                         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
                         <?php date_default_timezone_set("israel");
-                          echo "<p>".date("G:i:s  -  d/m/y")."</p>";
-                         if(!isset($_SESSION["login"])){
-                          
+                          echo "<p>".date("G:i:s  -  d/m/y")."</p>";?>
+                        <a ><?php echo " כתובת :".get_ip(); ?> </a>
+                        <?php
+                         if(!isset($_COOKIE["login"])){
                             echo "<a href='login.php'>login</a>";   
                             }else{
-                                echo "<a href='profile.php'>".$_SESSION["login"]."</a>"; 
+                                echo "<a href='profile.php'>".$_COOKIE["login"]."</a>"; 
                                 echo "<a href='logout.php'>logout</a>"; 
                              }
                         ?>
                          <a href="start.php" target="_top">מוזיקה שלי</a>
                          <a  href="photos.php" onclick="closeNav()" >התמונות שלי</a>
                          <a href="upload.php" onclick="closeNav()" target="main">uploads</a>
+                         <a href="library.php" onclick="closeNav()" target="main">ספריה</a>
                          <a href="index.php" onclick="closeNav()" target="_top" >החלף חשבון</a>
-                         <a ><?php echo " כתובת :".get_ip(); ?> </a>
+                         <a  href="newDevise.php" onclick="closeNav()" >newDevise</a>   
+                     
                         <a  href="Settings.php" onclick="closeNav()" >settings</a>
-                        <a  href="newDevise.php" onclick="closeNav()" >newDevise</a>   
+                       
                      
 
 

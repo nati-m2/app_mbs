@@ -1,4 +1,4 @@
-<?php if(!session_id())session_start();
+<?php 
 include "php_func/phpFunction.php"; 
  ?>
 <html>
@@ -37,6 +37,7 @@ include "php_func/phpFunction.php";
                 },
                 cache: false,
                 success: function(data) {
+                    console.log("ttt");
                     if (data != "") {
                         console.log(data);
                        if (data==="pause"){
@@ -69,7 +70,7 @@ include "php_func/phpFunction.php";
  
  </head>
 
-    <body onload="setInterval('CheckTask()', 1000),start() ">
+    <body onload="setInterval('CheckTask()',1200),start() ">
 
 <div id= "player_div" > 
         <audio   id='myAudio'  autoplay>

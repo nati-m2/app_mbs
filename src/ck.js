@@ -10,12 +10,34 @@ function openNav() {
   }
 
 
- 
-  
   function closeNav2() {
     document.getElementById("myNav").style.height = "0%";
   }
 
+  function openset() { 
+    document.getElementById("set").style.display = "block";
+  }     
+
+  function openset_img() { 
+    document.getElementById("setimg").style.display = "block";
+  } 
+  
 
 
+  function open_log() { 
+    document.getElementById("log").style.display = "block";
+  } 
+  
+  function open_d_user() { 
+    document.getElementById("d_user").style.display = "block";
+  } 
+
+
+  function  close0(){
+    document.getElementById("d_user").style.display  = "none";
+    document.getElementById("set").style.display = "none";
+    document.getElementById("setimg").style.display = "none";
+    document.getElementById("log").style.display = "none";
+  
+  }
 

@@ -13,7 +13,7 @@
   
     <center>
     
-    <div class="f_right">
+   
     <h1>   הגדרות  מערכת</h1>
     <?php
             include "sqli.php";

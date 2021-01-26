@@ -34,7 +34,7 @@
     <div class="container" style="background-color:#f1f1f1">
       <button type="button" onclick="document.getElementById('id01').style.display='none' , window.history.back();" class="sub2">Cancel</button>
       <a class="sub1" href ="register_user.php" >עוד לא רשום</a>
-			<a class="sub1" href ="index.php" >לא רוצה להתחבר</a>
+			<a class="sub1" href ="https://www.youtube.com/" >לא רוצה להתחבר</a>
     </div>   
   </form>
 </div>

@@ -1,5 +1,14 @@
-<?php if(!session_id())session_start(); 
-include 'Sidebar.php';?>
+<?php  
+include 'Sidebar.php';
+if(!isset($_COOKIE["login"])) {
+  echo" <script> location.replace('login.php'); </script>";
+}
+?>
+
+<html>
+<body>
+
+
 <html>
 <head>
 			<meta charset="UTF-8">
@@ -37,6 +46,8 @@ img {
 <body>
 <center>
 <?php
+
+  
       include "sqli.php";
       $query="SELECT * FROM `user` ";
       $result=mysqli_query($connect,$query);

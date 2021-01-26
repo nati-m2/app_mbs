@@ -1,7 +1,7 @@
 <?php
-session_start();
- if(isset($_SESSION["login"])){
-unset($_SESSION["login"]);
+
+if(isset($_COOKIE["login"])) {
+  setcookie("login", "", time() - 3600);
   echo" <script> location.replace('index.php'); </script>";
 }
 ?>

@@ -1,10 +1,11 @@
-<?php
+<?php 
 //whether ip is from share internet
 // import get_ip.php  - get_ip();
 //   
 //    
 
 function get_ip(){
+//whether ip is from share internet
 if (!empty($_SERVER['HTTP_CLIENT_IP']))   
   {
     $ip_address = $_SERVER['HTTP_CLIENT_IP'];
@@ -19,21 +20,20 @@ else
   {
     $ip_address = $_SERVER['REMOTE_ADDR'];
   }
-if($ip_address== "::1" )
-    $ip_address="127.0.0.1";
+
    return $ip_address;
 }
 
 function pull_set($name){
-include 'sqli.php'; 
-$query="SELECT * FROM `settings` WHERE `name` LIKE '".$name."' ";
-$result=mysqli_query($connect,$query);
-if(mysqli_num_rows($result)==1){
-  $row=mysqli_fetch_assoc($result);
-    return  $row['val'];
-}else{
-  return null;
-}
+  include 'sqli.php'; 
+  $query="SELECT * FROM `settings` WHERE `name` LIKE '".$name."' ";
+  $result=mysqli_query($connect,$query);
+  if(mysqli_num_rows($result)==1){
+    $row=mysqli_fetch_assoc($result);
+      return  $row['val'];
+  }else{
+    return null;
+  }
 }
 
 
@@ -41,14 +41,14 @@ if(mysqli_num_rows($result)==1){
 
 
 function insert_set($name,$val){
-  include 'sqli.php'; 
-  $query = "INSERT INTO  settings(`name`,`val`) VALUES('".$name."','".$val."')";
-  if(!mysqli_query($connect,$query)){
-    echo "Error: " . $query . "<br>" . mysqli_error($connect);
+    include 'sqli.php'; 
+    $query = "INSERT INTO  settings(`name`,`val`) VALUES('".$name."','".$val."')";
+    if(!mysqli_query($connect,$query)){
+      echo "Error: " . $query . "<br>" . mysqli_error($connect);
+      return;
+    }
+    mysqli_close($connect);
     return;
-  }
-  mysqli_close($connect);
-  return;
   }
 
   function insert_song_t($name,$user){
@@ -131,7 +131,7 @@ function pull_task($Address,$c){// colome   $row['$c'];   pull_task($Address,tas
         return  $row['task'];
       else if($c==4)
         return  $row['song_id']; //val
-      
+
       }
       return null;
   }
@@ -174,40 +174,71 @@ function update_task($Address,$val){
       mysqli_close($connect);
       return;
       }  
-      function play($Address,$val,$name){  
-        if(!$Address){
-          $Address= get_ip();
+
+    function play($Address,$val,$name){  
+        if($val){
           $_SESSION['val']=$val;
         }
         insert_task($name,"on",$Address,$val); 
-      echo" <script> location.replace('main.php'); </script>";
       return;
     }
-    
-    
 
-    
-    function sync_and_play($Address,$name,$val){
-      if($name=="pause"){
-        $val=0;
-      }
+    function sync_and_play($Address,$val,$name){
       include "sqli.php";
-      $query="SELECT `Address` FROM `devise` where `sync`= 1";
+        if($name=="pause"){
+          $val=0;
+        }
+      $query="SELECT `Address` FROM `devise` where `sync`=  true";
       $result=mysqli_query($connect,$query);
       $result_check=mysqli_num_rows($result);
-      if($result_check>1){                                  // <1    192.168.0.2    //play >1
+      if($result_check>0){                                  // <1    192.168.0.2    //play >1
           while($row=mysqli_fetch_assoc($result)){
-            $Address =$row['Address'];
-            insert_task($name,"on",$Address,$val); 
-          }
-        
-      echo" <script> location.replace('main.php'); </script>";
-          return ;
-          }else{ // no sync                                                    //play ==1
-            play($Address,$val,$name);
+
+            $Address =$row['Address'];                     // nede fix comend to all
+           insert_task($name,"on",$Address,$val); 
           }
           mysqli_close($connect);
           return;
       }
+    }
+    
+
+    function ip_is_sync($Address,$val,$name){   // bool
+      include "sqli.php";
+      $Address=check_ip($Address);
+      $query="SELECT `id` FROM `devise` WHERE `Address` = '".$Address."'   and  `sync`= true ";
+      $result=mysqli_query($connect,$query);
+      if(mysqli_num_rows($result)){
+        sync_and_play($Address,$val,$name);
+        return ;
+      }
+      play($Address,$val,$name); 
+      return ;
+    }
+
+
+    function check_ip($Address){ //bool
+      if(!$Address){
+        $Address= get_ip();
+      }
+      return $Address;
+    } 
+     
+
+    function delete_song($id){
+      include 'sqli.php'; 
+      if(!unlink("Media_Library/music/".pull_song_t($id))) return false;
+      if(!mysqli_query($connect," DELETE FROM `song_t` where `id` = $id"))
+        {
+          echo "Error: " . $query . "<br>" . mysqli_error($connect);
+          return false;
+        }
+        mysqli_close($connect);
+        return true;
+    }
+   
+    
+
+    
 
 ?>

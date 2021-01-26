@@ -1,6 +1,4 @@
 <?php
-session_start();
-
 include_once 'sqli.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
     $name=$_POST['name'];
@@ -11,10 +9,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     $query="SELECT * FROM `user` WHERE `firstname`='".$name."' AND  `pass`= '". md5($password)."'";
     $result=mysqli_query($connect,$query);
     if(mysqli_num_rows($result) == 1){
+      
+        setcookie("login",$name); 
         echo"<script> alert('אתה מחובר'); </script>" ;
-        
-        $_SESSION["login"]=$name;
-          echo" <script> location.replace('index.php'); </script>";
+        echo" <script> location.replace('index.php'); </script>";
         mysqli_close($connect);
         }else{  
             echo"<script> alert('שם משתמש לא קיים'); </script>" ;

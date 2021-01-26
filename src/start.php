@@ -21,10 +21,9 @@ if(isset($_GET['user'])&&isset($_GET['img']) ){
                 <?php
                 include 'Sidebar.php';
                 include_once 'sqli.php'; 
-         
                 ?>
                 </div>
-
+              
 <center>
     <iframe src="main.php" width="100%" height="69%"  name="main"  style="border:none;"></iframe>
     <div class="player">

@@ -15,20 +15,24 @@ function openNav() {
   }
 
   function openset() { 
+    close0();
     document.getElementById("set").style.display = "block";
   }     
 
   function openset_img() { 
+    close0();
     document.getElementById("setimg").style.display = "block";
   } 
   
 
 
   function open_log() { 
+    close0();
     document.getElementById("log").style.display = "block";
   } 
   
   function open_d_user() { 
+    close0();
     document.getElementById("d_user").style.display = "block";
   } 
 
@@ -41,3 +45,17 @@ function openNav() {
   
   }
 
+  function open_updir() { 
+    close1();
+    document.getElementById("updir").style.display = "block";
+  } 
+  function open_upfile() { 
+    close1();
+    document.getElementById("upfile").style.display = "block";
+  } 
+  function close1(){
+
+    document.getElementById("updir").style.display = "none";
+    document.getElementById("upfile").style.display = "none";
+
+  }

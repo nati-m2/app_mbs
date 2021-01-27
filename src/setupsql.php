@@ -96,7 +96,7 @@ function  create_table_settings(){
 function  create_table_Task(){
   include 'sqli.php'; 
     $query = "CREATE TABLE task_t(id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-        name TEXT(15) NOT NULL,task TEXT(5), Address_d TEXT(20), song_id INT(6), s_time TEXT(15))";
+        name TEXT(15) NOT NULL,task TEXT(5), Address_d TEXT(20), val INT(6), s_time TEXT(15))";
       if (mysqli_query($connect,$query)){
         echo "Table Task created successfully";
         echo "<br>";

@@ -9,7 +9,7 @@ body{
       background-image:url("");
       
       }
-h1,p{ color: white; 
+h1,p,h2{ color: white; 
 }
 
     .sub {
@@ -253,3 +253,10 @@ top:0;
 
   display: inline-block;
     }
+
+    #updir{
+      display: none;
+     }
+     #upfile{
+      display: none;
+     }

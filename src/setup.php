@@ -59,11 +59,11 @@
 }
 </style>
 </head>
-        <body class="body_y">
+<body class="body_y" onload="myFunction()" style="margin:0;">    
 		<center>
             <h1>מוכנים להתחיל</h1>
 
-<body onload="myFunction()" style="margin:0;">
+
 
 <div id="loader"></div>
 

@@ -11,7 +11,10 @@ include "php_func/phpFunction.php";
     //mkdir('/var/www/html/Media_Library/photos', 0777, true);
 ///////////////////////////////testing aria////////////////////////////////////////////////
 
-
+echo"
+<div class='w3-light-grey'>
+         <div id='myBar' style='height:24px;width:'.".$c." ></div>
+        </div>";
 
 
 

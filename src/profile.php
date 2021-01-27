@@ -23,7 +23,6 @@ mysqli_close($connect);
     <script src="ck.js"></script>
     <style>
 
-
 img {
         border-radius: 150px;
     }
@@ -31,7 +30,20 @@ img {
   </style>
   </head>
     <body>
-
+    <center>
+    
+    <button class="button button1" onclick="open_log()">פתח לוג משימות</button>
+      <button class="button button2" id="b2" onclick="openset_img()">שנה תמונה</button>
+        <a href="test.php" target="_top" id="b1">
+        <button class="button button2" id="b2" onclick="openset_img()">מידע על השרת</button><a> 
+        <a href="/:1242" target="_top" id="b1">
+        <button class="button button2" id="b2" onclick="openset_img()">sql</button><a> 
+        <button class="button button3" id="b1" onclick="openset()">פתח הגדרות</button>
+        <button class="button button3" id="b1" onclick="open_d_user()">מחק משתמש</button>
+    
+    
+    </center>
+   
   
     <div class="f_right">
     
@@ -39,22 +51,15 @@ img {
     <img  src=<?php echo $img; ?> alt="Avatar"   width="200" height="200"  class="avatar">
     </div>
       <form class="" action="" method="post" >
-            <h1><?php echo $_SESSION['login']; ?> :שם משתמש </h1>
+            <h1><?php echo $_COOKIE["login"]; ?> :שם משתמש </h1>
             <h1>  pass <?php  ?>:סיסמה </h1>
           <p> <input type="checkbox" checked="checked" name="prev"> premesheng</p>
      
       </form>
-      <button class="button button1" onclick="open_log()">פתח לוג משימות</button><br><br>
-      <button class="button button2" id="b2" onclick="openset_img()">שנה תמונה</button><br><br>
-        <a href="test.php" target="_top" id="b1">
-        <button class="button button2" id="b2" onclick="openset_img()">מידע על השרת</button><a> <br><br>
-        <a href="/:1242" target="_top" id="b1">
-        <button class="button button2" id="b2" onclick="openset_img()">sql</button><a> <br><br>
-        <button class="button button3" id="b1" onclick="openset()">פתח הגדרות</button><br><br>
-        <button class="button button3" id="b1" onclick="open_d_user()">מחק משתמש</button><br><br>
+
       </div>
-        <center>
-        <div id="log" class="scroll_n ab">
+      <center>
+        <div id="log"   class="scroll_n">
       <h1>לוג  מערכת</h1>
       <?php
               include "sqli.php";
@@ -64,12 +69,12 @@ img {
               if($result_check>0){
                   while($row=mysqli_fetch_assoc($result)){
           
-                      echo"<p>".$row['id']." [משימה:".$row['name']."] ".$row['task']." [כתובת:".$row['Address_d']."][ערך:".$row['song_id']."] </p>";
+                      echo"<p>".$row['id']." [משימה:".$row['name']."] ".$row['task']." [כתובת:".$row['Address_d']."][ערך:".$row['val']."] </p>";
                   }
               }
               mysqli_close($connect);
           ?>
-      <button class="button button2"   onclick="close0()" >סגור</button>
+          <button class="button button2"   onclick="close0()" >סגור</button>
           </div>
         <div id="mo">
         <div id="setimg" >
@@ -117,7 +122,7 @@ img {
           </div>
   
 
-
-        </center>
+          </center>
+  
     </body>
 </html>

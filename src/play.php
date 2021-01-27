@@ -14,11 +14,11 @@ if ($row){
    if($row['name']=='play'){
         echo  pull_song_t($row['val']); 
         exit;
-    }else if($row['name']=='volume'){     // var= $row['name']:$row['val'] // "volume:84"
+    }else if($row['name']=='volume'){     // var= $row['name']:$row['song_id'] // "volume:84"
         echo 'volume'.":".$row['val'];
         exit;
     }
-    else if($row['name']=='pause'){     // var= $row['name']:$row['val'] // "volume:84"
+    else if($row['name']=='pause'){     // var= $row['name']:$row['song_id'] // "volume:84"
         echo 'pause';
         exit;
     }

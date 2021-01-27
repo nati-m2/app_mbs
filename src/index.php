@@ -1,4 +1,5 @@
 <?php  
+  include "sqli.php";
 include 'Sidebar.php';
 if(!isset($_COOKIE["login"])) {
   echo" <script> location.replace('login.php'); </script>";
@@ -48,7 +49,7 @@ img {
 <?php
 
   
-      include "sqli.php";
+    
       $query="SELECT * FROM `user` ";
       $result=mysqli_query($connect,$query);
       $result_check=mysqli_num_rows($result);

@@ -69,7 +69,7 @@ img {
               if($result_check>0){
                   while($row=mysqli_fetch_assoc($result)){
           
-                      echo"<p>".$row['id']." [משימה:".$row['name']."] ".$row['task']." [כתובת:".$row['Address_d']."][ערך:".$row['val']."] </p>";
+                      echo"<p>".$row['id']." [משימה:".$row['name']."] ".$row['task']." [כתובת:".$row['Address_d']."][ערך:".$row['song_id']."] </p>";
                   }
               }
               mysqli_close($connect);

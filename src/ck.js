@@ -45,6 +45,8 @@ function openNav() {
   
   }
 
+
+
   function open_updir() { 
     close1();
     document.getElementById("updir").style.display = "block";
@@ -54,8 +56,44 @@ function openNav() {
     document.getElementById("upfile").style.display = "block";
   } 
   function close1(){
-
     document.getElementById("updir").style.display = "none";
     document.getElementById("upfile").style.display = "none";
+  }
+
+ 
+
+
+  function o_music() {
+    close2();
+    close1();
+    close3();
+    document.getElementById("music").style.display = "block";
+  } 
+  function o_photos() {
+    close2();
+    close1();
+    close3();
+    document.getElementById("photos").style.display = "block";
+  } 
+  function close2(){
+    document.getElementById("music").style.display = "none";
+    document.getElementById("photos").style.display = "none";
 
   }
+  function close3(){
+    document.getElementById("updir_img").style.display = "none";
+    document.getElementById("upfile_img").style.display = "none";
+
+  }
+  function o_file_img() { 
+    close3();
+    document.getElementById("upfile_img").style.display = "block";
+  } 
+  function o_updir_img() { 
+    close3();
+    document.getElementById("updir_img").style.display = "block";
+ 
+  } 
+  function loader1(){ 
+    document.getElementById("loader").style.display = "block";
+  } 

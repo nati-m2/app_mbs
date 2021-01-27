@@ -1,5 +1,4 @@
 <?php if(!session_id())session_start(); 
-
  include 'sqli.php'; 
  include "php_func/phpFunction.php";
  if(!isset($_COOKIE["login"])) {
@@ -66,7 +65,7 @@
 
      <div class="chip">
      <img src=" <?php echo $_SESSION['img']?>" alt="Person" width="20" height="20">
-  <?php echo $_SESSION['user']?>:פלייליסט
+  <?php echo $_COOKIE["login"]?>:פלייליסט
   </div>
        <span>פתח במכשיר</>
        <span style='font-size:15px;cursor:pointer' onclick='openNav2()' >&#9776;</span>
@@ -80,7 +79,7 @@
 
      include 'devise.php';
     //  user , p where user=where  user  LIKE '". $user."'
-    $user=$_SESSION['user'];
+    $user=$_COOKIE["login"];
     include "sqli.php";
     $query="SELECT * FROM `song_t` where  user_n  LIKE '". $user."' ";
     $result=mysqli_query($connect,$query);

@@ -1,8 +1,9 @@
 <?php
-if(!session_id())session_start();
+
 include "php_func/phpFunction.php"; 
-if(isset($_SESSION["login"])){
-$target_dir = "Media_Library/".$_SESSION['login']."/";
+if(isset($_COOKIE["login"])) {
+ 
+$target_dir = "Media_Library/music/".$_COOKIE["login"]."/";
 $target_file = $target_dir.basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $FileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -25,9 +26,9 @@ if (file_exists($target_file)) {
   echo "Sorry, file already exists.";
   $uploadOk = 0;
 }
-
+ //pull_set("max_file_size")){  //10000000 //pull from settings maxsimun file size
 // Check file size (10 mb)
-if ($_FILES["fileToUpload"]["size"] > 10000000) {  //pull_set("max_file_size")){  //10000000 //pull from settings maxsimun file size
+if ($_FILES["fileToUpload"]["size"] > 10000000) { 
   echo "Sorry, your file is too large.";
   $uploadOk = 0;
 }
@@ -44,13 +45,15 @@ if ($uploadOk == 0) {
 // if everything is ok, try to upload file                     ///$target_file = Media_Library/s.mp3     ||Media_Library/admin/s.mp3  
 } else {
   if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-    echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
-    $user=$_SESSION["login"];
+    $user=$_COOKIE["login"];
     insert_song_t($_FILES["fileToUpload"]["name"],$user);
+    echo"<script> alert(' הקובץ עלה למערכת בהצלחה'); </script>" ;
   } else {
     echo "Sorry, there was an error uploading your file.";
   }
-}
-}
+  
 
+}
+}
+echo" <script> location.replace('upload.php'); </script>";
 ?>

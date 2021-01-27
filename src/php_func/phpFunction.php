@@ -99,7 +99,7 @@ function insert_set($name,$val){
 
    // pull_song_t
 
-function insert_task($name,$task,$Address,$song_n){
+function insert_task($name,$task,$Address,$val){
   include 'sqli.php'; 
   /*
   if(pull_task($Address,'play')){
@@ -108,14 +108,14 @@ function insert_task($name,$task,$Address,$song_n){
     return;
   }
  */
-  $query = "INSERT INTO task_t(`name`,`task`, `Address_d`,`val`) VALUES('".$name."','".$task."','".$Address."','".$song_n."')";
+  $query = "INSERT INTO task_t(`name`,`task`, `Address_d`,`val`) VALUES('".$name."','".$task."','".$Address."','".$val."')";
    if(!mysqli_query($connect,$query)){
     echo "Error: " . $query . "<br>" . mysqli_error($connect);
 }
 mysqli_close($connect);
 }
-
-function pull_task($Address,$c){// colome   $row['$c'];   pull_task($Address,task) 
+// colome   $row['$c'];   pull_task($Address,task) 
+function pull_task($Address,$c){
   include 'sqli.php'; 
   $query="SELECT * FROM `task_t` WHERE  Address_d = '".$Address."'   AND task='on' ";
   $result=mysqli_query($connect,$query);
@@ -236,7 +236,17 @@ function update_task($Address,$val){
         mysqli_close($connect);
         return true;
     }
-   
+    
+    function insert_picture($name,$user){
+      include 'sqli.php'; 
+      $query = "INSERT INTO  photos(`name`,`user_n`) VALUES('".$name."','".$user."')";
+      if(!mysqli_query($connect,$query)){
+        echo "Error: " . $query . "<br>" . mysqli_error($connect);
+        return;
+      }
+      mysqli_close($connect);
+      return;
+      }
     
 
     

@@ -4,11 +4,33 @@
 			<meta name="author" content="nati mizrhi">
 				<title>mbs</title>
 				<meta name="viewport" content="width=device-width, initial-scale=1.0">
-				<link rel="stylesheet" type="text/css" href="styles.css">
 				<script src="0000ck.js"></script>
 				<script src="000valid_all.js"></script>
 <style>
 /* Center the loader */
+body{
+    /*background-image:url("img/wallpaper3.jpg");*/
+    background-color: #0a1a24;
+    background-repeat:no-repeat;
+    background-attachment: fixed;
+    }
+
+h1,p,h2{ color: white; 
+}
+.sub1 {
+        font-size: 20px;
+        width:100;
+        height: 100;
+        background-color: rgb(75, 57, 240);
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-left: 20;
+        margin-top: 10;
+      }
 #loader {
   position: absolute;
   left: 50%;

@@ -4,7 +4,11 @@
     /* צריך למצא דרך יותר יעילה לישמור את הנתונים שנשלחים לטבלת משימות  */
     if(!empty($_POST['d'])){
       $id=$_POST['d'];
-     delete_song($id);
+     if(delete_song($id,$_COOKIE["login"])){
+      echo"<script> alert('  השיר נמחק בהצלחה '); </script>" ;
+     }
+     echo" <script> location.replace('main.php'); </script>";
+     exit;
     }
 
 
@@ -32,7 +36,7 @@
       }
 
       ip_is_sync($Address,$val,$name);
-      echo" <script> location.replace('main.php'); </script>";
+     echo" <script> location.replace('main.php'); </script>";
     
    
   

@@ -1,6 +1,6 @@
 <?php if(!session_id())session_start(); 
 if(isset($_GET['user'])&&isset($_GET['img']) ){
-    $user=$_GET['user'];
+    $_SESSION['login']=$_GET['user'];
     $_SESSION['img']= $_GET['img'];
   }
 

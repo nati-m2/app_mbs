@@ -41,7 +41,7 @@ $it=(int)pull_set("maxfile");
   }
 
 }
-echo" <script> location.replace('upload.php'); </script>";
+echo" <script> location.replace('start.php'); </script>";
 
 
   ?>

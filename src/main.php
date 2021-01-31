@@ -24,7 +24,6 @@
                 
                     $("#s").keyup(function(){
                         var name= $("#s").val();
-                      
                         $.post("load-c.php",{search: name}, function(data,status){
                             $("#search_res").html(data); 
                              });
@@ -33,7 +32,9 @@
         </script>
       <script src="ck.js"></script>
       <style>
-      
+    
+
+
 .chip {
   display: inline-block;
   padding: 0 25px;
@@ -54,18 +55,26 @@
 </style>
 </head>
 <body>
-<div class="background"></div>
+<div class="background">
+
+
+
+
+</div>
 <section>
 
     <div class="album-art f_right">
- 
-      <input id='s' type="text" value placeholder="Search..">
+ <center>
+ <input id='s' type="text" value placeholder=" חפש שיר">
+ </center>
+  
 
     </div>
 
+ 
      <div class="chip">
      <img src=" <?php echo $_SESSION['img']?>" alt="Person" width="20" height="20">
-  <?php echo $_COOKIE["login"]?>:פלייליסט
+  <?php echo  $_SESSION['login']?>:פלייליסט
   </div>
        <span>פתח במכשיר</>
        <span style='font-size:15px;cursor:pointer' onclick='openNav2()' >&#9776;</span>
@@ -79,7 +88,7 @@
 
      include 'devise.php';
     //  user , p where user=where  user  LIKE '". $user."'
-    $user=$_COOKIE["login"];
+    $user= $_SESSION['login'];
     include "sqli.php";
     $query="SELECT * FROM `song_t` where  user_n  LIKE '". $user."' ";
     $result=mysqli_query($connect,$query);

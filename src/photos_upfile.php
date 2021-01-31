@@ -44,6 +44,6 @@ if(isset($_COOKIE["login"])) {
                     }
                 }
 }
-echo" <script> location.replace('upload.php'); </script>";
+echo" <script> location.replace('photos.php'); </script>";
 
 ?>

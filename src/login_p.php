@@ -9,8 +9,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     $query="SELECT * FROM `user` WHERE `firstname`='".$name."' AND  `pass`= '". md5($password)."'";
     $result=mysqli_query($connect,$query);
     if(mysqli_num_rows($result) == 1){
+        setcookie("login",$name, time() + (86400 * 30), "/");
       
-        setcookie("login",$name); 
         echo"<script> alert('אתה מחובר'); </script>" ;
         echo" <script> location.replace('index.php'); </script>";
         mysqli_close($connect);

@@ -31,6 +31,13 @@ function openNav() {
     document.getElementById("log").style.display = "block";
   } 
   
+
+  function open_change_password() { 
+    close0();
+    document.getElementById("change_password").style.display = "block";
+  } 
+
+
   function open_d_user() { 
     close0();
     document.getElementById("d_user").style.display = "block";
@@ -42,7 +49,7 @@ function openNav() {
     document.getElementById("set").style.display = "none";
     document.getElementById("setimg").style.display = "none";
     document.getElementById("log").style.display = "none";
-  
+    document.getElementById("change_password").style.display = "none";
   }
 
 
@@ -83,7 +90,6 @@ function openNav() {
   function close3(){
     document.getElementById("updir_img").style.display = "none";
     document.getElementById("upfile_img").style.display = "none";
-
   }
   function o_file_img() { 
     close3();
@@ -92,7 +98,6 @@ function openNav() {
   function o_updir_img() { 
     close3();
     document.getElementById("updir_img").style.display = "block";
- 
   } 
   function loader1(){ 
     document.getElementById("loader").style.display = "block";

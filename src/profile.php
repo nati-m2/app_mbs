@@ -21,12 +21,71 @@ mysqli_close($connect);
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="styles.css">
     <script src="ck.js"></script>
+    <script src="valid_all.js"></script>
     <style>
 
 img {
         border-radius: 150px;
     }
+    .switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
 
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #f44336;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
   </style>
   </head>
     <body>
@@ -50,13 +109,14 @@ img {
         <div class="avt-art">
     <img  src=<?php echo $img; ?> alt="Avatar"   width="200" height="200"  class="avatar">
     </div>
-      <form class="" action="" method="post" >
-            <h1><?php echo $_COOKIE["login"]; ?> :שם משתמש </h1>
-            <h1>  pass <?php  ?>:סיסמה </h1>
-          <p> <input type="checkbox" checked="checked" name="prev"> premesheng</p>
      
-      </form>
-
+    <h1><?php echo $_COOKIE["login"]; ?> :שם משתמש </h1>      
+    <button class="button button6" id="b1" onclick="open_change_password()">שנה סיסמה</button>
+ 
+        
+       
+     
+        
       </div>
       <center>
         <div id="log"   class="scroll_n">
@@ -85,6 +145,21 @@ img {
           </form>
           <button class="button button2"  onclick="close0()" >סגור</button>
         </div>
+     
+          
+          <div id="change_password"  >
+          <br><br><br>
+          <h2> שינוי סיסמה</h2>
+          <form action="d_user.php" method="post"  onsubmit="return validpass() &&  checkpass()" >
+          <input type="text" placeholder="סיסמה ישנה" name="old_password"  required> <br><br>
+          <input type="password" placeholder=" סיסמה חדשה" name="password" id="pass" require><br><br>
+          <input type="password" placeholder="שוב סיסמה" name="password2" id="pass2" require><br><br>
+          <input  class=sub_up type=submit  name=id  value="עדכן">
+          </form>
+         <h1 style=" color:red;" id="result"></h1>
+    
+          </div>
+              
       <div id="set">
       <h1>   הגדרות  מערכת</h1>
       <?php
@@ -111,11 +186,33 @@ img {
           </div>
         </div>
         <div id="d_user" >
-          <h1>מחיקת משתמש  אזור  מסוכן</h1>
-         <h2>האם אתה בטוח שאתה רוצה למחוק את המשתמש זה?</h2>
-         <h2> פעולה זו תמחק גם את כל הקבצים שהמשתמש ההעלה</h2>
-         <a href="d_user.php" target="_top" id="b1">
-        <button class="button button2" id="b2" onclick="openset_img()">מחק</button><a> <br><br>
+
+
+          <h1 style="color: #f44336;" >מחיקת משתמש  אזור  מסוכן</h1>
+         <h2>בחר איזה מידע את/ה רוצה למחוק מהשרת </h2>
+    
+         <form action="d_user.php" method="post"  >
+         <label class="switch">  
+         <input type="checkbox" name= "user" value= "user" >
+         <span class="slider round"> <br> <p>מחיקת משתמש</p></span>
+        </label>
+        <label class="switch">
+         <input type="checkbox" name= "photos"  value="photos" >
+         <span class="slider round">  <br> <p>מחיקת תיקיית תמונות</p></span>
+        </label>
+
+     
+        <label class="switch">
+         <input type="checkbox" name="music" value="music" >
+         <span class="slider round">   <br> <p>מחיקת תיקיית מוזיקה</p> </span>
+        </label>
+        <br>   <br> <br>   <br> <br>
+        <input type="submit" class="button button3">
+        </form>
+
+
+
+       
       <button class="button button2"   onclick="close0()" >ביטול</button>
   
          

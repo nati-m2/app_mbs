@@ -101,19 +101,14 @@ function insert_set($name,$val){
 
 function insert_task($name,$task,$Address,$val){
   include 'sqli.php'; 
-  /*
-  if(pull_task($Address,'play')){
-    echo "קיימת משימה ללקוח זה אין אפשרות לצור שני משימות לאותו לקוח";
-    mysqli_close($connect);
-    return;
-  }
- */
   $query = "INSERT INTO task_t(`name`,`task`, `Address_d`,`val`) VALUES('".$name."','".$task."','".$Address."','".$val."')";
    if(!mysqli_query($connect,$query)){
     echo "Error: " . $query . "<br>" . mysqli_error($connect);
 }
 mysqli_close($connect);
 }
+
+//  מיותר
 // colome   $row['$c'];   pull_task($Address,task) 
 function pull_task($Address,$c){
   include 'sqli.php'; 
@@ -225,11 +220,22 @@ function update_task($Address,$val){
     } 
      
 
-    function delete_song($id){
+    function delete_song($id,$user){
       include 'sqli.php'; 
-      if(!unlink("Media_Library/music/".pull_song_t($id))) return false;
-      if(!mysqli_query($connect," DELETE FROM `song_t` where `id` = $id"))
+      $query="SELECT `id` FROM `song_t` WHERE  id = $id  and user_n = '".$user."' ";
+      $result=mysqli_query($connect,$query);
+      $result_check=mysqli_num_rows($result);
+      if($result_check==0){
+      echo"<script> alert(' אנא בדוק שהשיר נמצא בבעלותך '); </script>" ;
+      return false;
+     }
+      if(!unlink("Media_Library/music/".pull_song_t($id))){
+        echo"<script> alert(' שגיאה במערכת קבצים '); </script>" ;
+        return false;
+      } 
+      if(!mysqli_query($connect," DELETE FROM `song_t` where `id` = $id" ))
         {
+          echo"<script> alert('  שגיאה לא צפוייה במערכת, מידע לא נמחק   '); </script>" ;
           echo "Error: " . $query . "<br>" . mysqli_error($connect);
           return false;
         }
@@ -248,6 +254,39 @@ function update_task($Address,$val){
       return;
       }
     
+
+
+      function  update_devise($devise,$Address){
+        include 'sqli.php'; 
+        $query="SELECT `id` FROM `devise`  WHERE    `Address` = '".$Address."' ";
+        $result=mysqli_query($connect,$query);
+        if(mysqli_num_rows($result)==1){
+            $query = "update `devise`  set `devise_name` ='".$devise."'  where  `Address`='".$Address."'  ";
+            if(!mysqli_query($connect,$query)){
+              echo "Error: " . $query . "<br>" . mysqli_error($connect);
+          }
+          echo"<script> alert(' ".$devise."   עודכן  '); </script>" ;
+         mysqli_close($connect);
+          return;
+           }else{
+            $query = "INSERT INTO `devise`(`devise_name`, `Address`) VALUES('".$devise."','".$Address."')";
+            if(!mysqli_query($connect,$query)){
+              echo "Error: " . $query . "<br>" . mysqli_error($connect);
+          }
+          echo"<script> alert('  נוסף בהצלחה ".$devise."  '); </script>" ;
+        
+          mysqli_close($connect);
+           }
+
+
+         
+         
+
+      }
+     
+
+
+
 
     
 

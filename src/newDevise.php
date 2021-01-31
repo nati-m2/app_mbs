@@ -1,16 +1,20 @@
 <?php
  include 'Sidebar.php';
 include_once 'sqli.php'; 
+if(!isset($_COOKIE["login"])) {
+	echo" <script> location.replace('login.php'); </script>";
+  }
+ 
+
 
 if(isset($_GET['devise'])){
 $Address=get_ip();
 $devise=$_GET['devise'];
-$query = "INSERT INTO `devise`(`devise_name`, `Address`) VALUES('".$devise."','".$Address."')";
-   if(!mysqli_query($connect,$query)){
-    echo "Error: " . $query . "<br>" . mysqli_error($connect);
-}
-  echo" <script> location.replace('index.php'); </script>";
-mysqli_close($connect);
+
+  update_devise($devise,$Address);
+
+echo" <script> location.replace('index.php'); </script>";
+
 }
 ?>  
 <html>
@@ -20,8 +24,7 @@ mysqli_close($connect);
 				<title>mbs</title>
 				<meta name="viewport" content="width=device-width, initial-scale=1.0">
 				<link rel="stylesheet" type="text/css" href="styles.css">
-				<script src="0000ck.js"></script>
-				<script src="000valid_all.js"></script>
+				
 		</head>
 		<body class="body_y">
 

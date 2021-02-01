@@ -167,3 +167,10 @@ display: inline-block;
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
   }
+
+
+  .f_right{
+ 
+    float: right;
+  
+  }

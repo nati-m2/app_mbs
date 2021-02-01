@@ -277,14 +277,10 @@ function update_task($Address,$val){
         
           mysqli_close($connect);
            }
-
-
-         
-         
-
       }
      
 
+ 
 
 
 

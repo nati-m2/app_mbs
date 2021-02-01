@@ -2,7 +2,7 @@
  include 'sqli.php'; 
  include "php_func/phpFunction.php";
  if(!isset($_COOKIE["login"])) {
-  echo" <script> location.replace('login.php'); </script>";
+  echo" <script> location.replace('index.php'); </script>";
 }
 
 

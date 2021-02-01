@@ -33,11 +33,9 @@ include "php_func/phpFunction.php";
                 url: "play.php",
                 data: {
                     function: "update"
-                   
                 },
                 cache: false,
                 success: function(data) {
-                    console.log("ttt");
                     if (data != "") {
                         console.log(data);
                        if (data==="pause"){
@@ -47,7 +45,6 @@ include "php_func/phpFunction.php";
                        }
                         else  if (data.substring(0, 6)==="volume"){
                          slider.value=parseInt(data.substring(7));
-                          
                          x.volume=slider.value/100;
                         }else{
                             //play song

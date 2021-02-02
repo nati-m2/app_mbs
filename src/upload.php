@@ -34,16 +34,18 @@ if(!isset($_COOKIE["login"])) {
               </div>
 
               <div id="upfile_img">
-                <form action="photos_upfile.php" method="post" enctype="multipart/form-data" >
+                <form action="upload_logic.php" method="post" enctype="multipart/form-data" >
                 <p> בחר קובץ</p>
                   <input type="file" name="fileToUpload" id="fileToUpload"  />
+                  <input type='hidden'  name='up'   value='upfile_img'>
                   <input type="submit" class="button button2" onclick="loader1()" value="Upload " name="submit">
                 </form>
                 <button class="button button2" onclick="close3()">סגור</button>
                 </div>
               <div id="updir_img">
-              <form action="photos_updir.php" method="post" enctype="multipart/form-data"> 
+              <form action="upload_logic.php" method="post" enctype="multipart/form-data"> 
               <p> בחר תיקייה להעלאה</p> 
+              <input type='hidden'  name='up'   value='updir_img'>
             <input type='file'   name="files[]" id="files"  directory="" webkitdirectory="" moxdirectory="" multiple>
               <input type="Submit" class="button button2"  onclick="loader1()"  value="upload" name="upload" />
               </form>
@@ -58,16 +60,18 @@ if(!isset($_COOKIE["login"])) {
                     <button class="button button3" id="b2" onclick="open_upfile()">שיר</button>
 
             <div id="upfile">
-              <form action="uploads.php" method="post" enctype="multipart/form-data" >
+              <form action="upload_logic.php" method="post" enctype="multipart/form-data" >
                   <p> בחר קובץ</p>
+                  <input type='hidden'  name='up'   value='upfile_music'>
                 <input type="file" name="fileToUpload" id="fileToUpload"  />
                 <input type="Submit" id="bt" class="button button2"   onclick="loader1()" value="Upload" name="upload" />
               </form>
               <button class="button button2" onclick="close1()">סגור</button>
             </div>
             <div id="updir">
-              <form action="upload_dir.php" method="post" enctype="multipart/form-data"> 
+              <form action="upload_logic.php" method="post" enctype="multipart/form-data"> 
                       <p> בחר תיקיה להעלאה</p> 
+            <input type='hidden'  name='up'   value='updir_music'>
             <input type='file'   name="files[]" id="files"  directory="" webkitdirectory="" moxdirectory="" multiple>
               <input type="Submit" id="bt" class="button button2"   onclick="loader1()" value="Upload" name="upload" />
               </form>

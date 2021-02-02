@@ -140,7 +140,7 @@ input:checked + .slider:before {
         <div id="setimg" >
           <form action="up_img_p.php" method="post" enctype="multipart/form-data" >
             <p> Select img to upload:</p>
-            <input class="button button2"  type="file" name="fileToUpload" id="fileToUpload"  />
+            <input class="button button2"  type="file"  name="file"  />
             <input class="button button2"  type="submit" value="Upload img" name="submit" />
           </form>
           <button class="button button2"  onclick="close0()" >סגור</button>
@@ -188,9 +188,8 @@ input:checked + .slider:before {
         <div id="d_user" >
 
 
-          <h1 style=" color:red;" > מחיקת  משתמש אזור  מסוכן </h1>
-       
-         <h2>בחר איזה מידע את/ה רוצה למחוק מהשרת <?php echo $_COOKIE["login"]; ?></h2>
+          <h1 style="color: #f44336;" >מחיקת משתמש  אזור  מסוכן</h1>
+         <h2>בחר איזה מידע את/ה רוצה למחוק מהשרת </h2>
     
          <form action="d_user.php" method="post"  >
          <label class="switch">  
@@ -207,15 +206,15 @@ input:checked + .slider:before {
          <input type="checkbox" name="music" value="music" >
          <span class="slider round">   <br> <p>מחיקת תיקיית מוזיקה</p> </span>
         </label>
-        <br> <br> <br> <br><br>
+        <br>   <br> <br>   <br> <br>
         <input type="submit" class="button button3">
         </form>
 
 
 
-
+       
       <button class="button button2"   onclick="close0()" >ביטול</button>
-
+  
          
           </div>
   

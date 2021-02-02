@@ -1,68 +1,56 @@
-<?php  if(!session_id()) session_start(); 
-include 'sqli.php';
-   
+<?php 
 
-
-
-echo " <center><p>";
-$target_dir = "img/";
-$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
-$uploadOk = 1;
-$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-// Check if image file is a actual image or fake image
-if(isset($_POST["submit"])) {
-    $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
-    if($check !== false) {
-      //  echo "File is an image - " . $check["mime"] . ".";
-        $uploadOk = 1;
-    } else {
-        echo "קובץ תמונה<br>";
-        $uploadOk = 0;
-    }
+if(isset($_COOKIE["login"]) && isset($_FILES["file"])){
+  upload_img_pro($_FILES["file"],$_COOKIE["login"]);
+  echo"<script> location.replace('index.php'); </script>";
 }
+
+
+
+function upload_img_pro($file,$user){
+    include 'sqli.php';
+    $size=1000000;
+    $img_type=array("png", "jpeg", "gif", "jpg");
+    $name = $file['name'];
+   // $img="img/".$name;
+    $FileType = strtolower(pathinfo($name,PATHINFO_EXTENSION));
+        if (!in_array($FileType,$img_type)){
+        echo"<script> alert(' קובץ זה אינו פורמט נתמך(png, jpeg, gif, jpg)'); </script>" ;
+            return false;
+        }
+    
 //Check if file already exists
-if (file_exists($target_file)) {
-    // Use unlink() function to delete a file  
-    if (!unlink($target_file)) {  
-        echo"<script> alert('קיים קובץ עם אותו שם בתיקיית תמונות'); </script>" ;
-        $uploadOk = 0;
-    }  
-}
- /*  Check file size
-if ($_FILES["fileToUpload"]["size"] > 500000) {
-    echo "Sorry, your file is too large.";
-    $uploadOk = 0;
-}
-*/
-// Allow certain file formats
-if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-&& $imageFileType != "gif" ) {
-    echo"<script> alert('הקובץ שנבחר אינו קובץ תמונה'); </script>" ;
-    $uploadOk = 0;
-}
-// Check if $uploadOk is set to 0 by an error
-if ($uploadOk == 0) {
-    echo "התהליך בוטל עקב שגיאת העלאה <br>";
-// if everything is ok, try to upload file
-} else {
-    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-       $img=basename( $_FILES["fileToUpload"]["name"]);
-if(isset($_SESSION["login"])){
-    $user = $_SESSION["login"];
-    $img="img/".$img;
-$query = "UPDATE `user` SET  `path`='".$img."'  WHERE `firstname` LIKE '".$user."'  ";
-if (!mysqli_query($connect,$query)){
-    echo"<script> alert('לא ניתן ליצור חיבור למסד נתונים'); </script>" ;
-} else {
-echo "Error: " . $query . "<br>" . mysqli_error($connect);
-}
-}
-else {
-        echo "Sorry, there was an error uploading your file.";
+    if(file_exists("img/".$name)) {
+        // Use unlink() function to delete a file  
+        if(!unlink("img/".$name)) {  
+            echo"<script> alert('קיים קובץ עם אותו שם בתיקיית תמונות'); </script>" ;
+            return false;
+        }  
     }
 
-echo " </p></center>";
-}}
-echo" <script> location.replace('index.php'); </script>";
+    if($file["size"] > $size) { 
+        return false;
+    }
+
+    if(move_uploaded_file($file['tmp_name'],"img/".$name)){
+            $query = "UPDATE `user` SET  `path`='"."img/".$name."'  WHERE `firstname` LIKE '".$user."'  ";
+            mysqli_query($connect,$query);
+                //echo"<script> alert('לא ניתן ליצור חיבור למסד נתונים'); </script>" ;
+                /*
+            } else {
+            echo "Error: " . $query . "<br>" . mysqli_error($connect);
+            }*/
+            mysqli_close($connect);
+            return true;  
+        } else {
+            echo"<script> alert('Sorry, there was an error uploading your file.'); </script>" ;
+            return false;
+        }
+        echo"<script> location.replace('profile.php'); </script>";
+    }
+
+
+
+
 
 ?>

@@ -7,7 +7,7 @@ include "php_func/phpFunction.php";
         create_table_Task();
         insert_set("maxfile","10000000");
         insert_set("default volume","30");
-        create_table_song_t();
+        create_table_music();
         create_table_Photos();
         //insert_set($name,$val);
         chown ("/var/www/html/",33);
@@ -108,15 +108,15 @@ function  create_table_Task(){
 
 
 
-function  create_table_song_t(){
+function  create_table_music(){
   include 'sqli.php'; 
-    $query = "CREATE TABLE song_t(id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, name VARCHAR(100) NOT NULL,user_n TEXT(30)) ";
+    $query = "CREATE TABLE music(id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, name VARCHAR(100) NOT NULL,user_n TEXT(30)) ";
       if (mysqli_query($connect,$query)) {
-        echo "Table song_t created successfully";
+        echo "Table music created successfully";
         echo "<br>";
       } else {
 
-        echo "Error creating table song_t: " . mysqli_error($connect);
+        echo "Error creating table music: " . mysqli_error($connect);
       }
       mysqli_close($connect);
 }

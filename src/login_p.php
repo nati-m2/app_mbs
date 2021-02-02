@@ -10,6 +10,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     $result=mysqli_query($connect,$query);
     if(mysqli_num_rows($result) == 1){
         setcookie("login",$name, time() + (86400 * 30), "/");
+      
+        echo"<script> alert('אתה מחובר'); </script>" ;
         echo" <script> location.replace('index.php'); </script>";
         mysqli_close($connect);
         }else{  

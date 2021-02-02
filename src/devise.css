@@ -131,7 +131,7 @@ display: inline-block;
 
     .slider_v {
         -webkit-appearance: none;
-      
+        width: 600;
         height: 15px;
         border-radius: 5px;
         background: #d3d3d3;
@@ -166,11 +166,4 @@ display: inline-block;
   .scroll_n2{
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
-  }
-
-
-  .f_right{
- 
-    float: right;
-  
   }

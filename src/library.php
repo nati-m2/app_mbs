@@ -54,7 +54,7 @@
     //  user , p where user=where  user  LIKE '". $user."'
     $user=$_SESSION['user'];
     include 'sqli.php'; 
-    $query="SELECT * FROM `song_t` where  user_n  LIKE '". $user."' ";
+    $query="SELECT * FROM `music` where  user_n  LIKE '". $user."' ";
     $result=mysqli_query($connect,$query);
     $result_check=mysqli_num_rows($result);
     if($result_check>0){

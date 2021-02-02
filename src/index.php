@@ -1,4 +1,5 @@
-<?php  
+<?php
+  
   include "sqli.php";
 include 'Sidebar.php';
 if(!isset($_COOKIE["login"])) {

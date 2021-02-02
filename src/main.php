@@ -2,7 +2,7 @@
  include 'sqli.php'; 
  include "php_func/phpFunction.php";
  if(!isset($_COOKIE["login"])) {
-  echo" <script> location.replace('index.php'); </script>";
+  echo" <script> location.replace('login.php'); </script>";
 }
 
 
@@ -78,7 +78,7 @@
   </div>
        <span>פתח במכשיר</>
        <span style='font-size:15px;cursor:pointer' onclick='openNav2()' >&#9776;</span>
-      <div  class="scroll_n"> 
+      <div  class="scroll_main"> 
       
      
       <div class="album-tracks">
@@ -90,7 +90,7 @@
     //  user , p where user=where  user  LIKE '". $user."'
     $user= $_SESSION['login'];
     include "sqli.php";
-    $query="SELECT * FROM `song_t` where  user_n  LIKE '". $user."' ";
+    $query="SELECT * FROM `music` where  user_n  LIKE '". $user."' ";
     $result=mysqli_query($connect,$query);
     $result_check=mysqli_num_rows($result);
     if($result_check>0){

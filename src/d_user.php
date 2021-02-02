@@ -7,13 +7,15 @@ if(!isset($_COOKIE["login"])) {
 
 
   if($_POST['music'] =="music") {
-    delete_user_data($user,"song_t");
+    delete_user_data($user,"music");
     rrmdir("Media_Library/music/".$user);
+    mkdir("Media_Library/music/".$user, 0777, true);
   }
 
   if($_POST['photos']=="photos") {
     delete_user_data($user,"photos");
     rrmdir("Media_Library/photos/".$user);
+    mkdir("Media_Library/photos/".$user, 0777, true);
   }
   if($_POST['user']=="user"){
     $query=" DELETE FROM `user` where  `firstname`  LIKE '". $user."' ";

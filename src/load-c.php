@@ -2,7 +2,7 @@
 include 'sqli.php';
 //if(!empty($_POST['search'])){
   $search=$_POST['search'];
- $query="SELECT * FROM `song_t` where  `name` LIKE '%".$search."%'  ";
+ $query="SELECT * FROM `music` where  `name` LIKE '%".$search."%'  ";
  $result=mysqli_query($connect,$query);
  $result_check=mysqli_num_rows($result);
  echo "<p>" .$result_check." תוצאות חיפוש</p>";

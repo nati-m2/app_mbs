@@ -12,7 +12,7 @@ if (mysqli_num_rows($query)>1){
 
 if ($row){
    if($row['name']=='play'){
-        echo  pull_song_t($row['val']); 
+        echo  pull_music($row['val']); 
         exit;
     }else if($row['name']=='volume'){     // var= $row['name']:$row['song_id'] // "volume:84"
         echo 'volume'.":".$row['val'];

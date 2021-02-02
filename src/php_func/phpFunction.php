@@ -40,6 +40,9 @@ function pull_set($name){
 
 
 
+
+
+
 function insert_set($name,$val){
     include 'sqli.php'; 
     $query = "INSERT INTO  settings(`name`,`val`) VALUES('".$name."','".$val."')";
@@ -51,20 +54,9 @@ function insert_set($name,$val){
     return;
   }
 
-  function insert_song_t($name,$user){
-    include 'sqli.php'; 
-    $query = "INSERT INTO  song_t(`name`,`user_n`) VALUES('".$name."','".$user."')";
-    if(!mysqli_query($connect,$query)){
-      echo "Error: " . $query . "<br>" . mysqli_error($connect);
-      return;
-    }
-    mysqli_close($connect);
-    return;
-    }
-  
-    function pull_song_t($id){
+    function pull_music($id){
       include 'sqli.php'; 
-      $query="SELECT * FROM `song_t` WHERE  id = $id  ";
+      $query="SELECT * FROM `music` WHERE  id = $id  ";
       $result=mysqli_query($connect,$query);
       if($result){
         $result_check=mysqli_num_rows($result);
@@ -78,26 +70,8 @@ function insert_set($name,$val){
     }
 
 
- /*
-    function pull_song_p($id){
-      include 'sqli.php'; 
-      $query="SELECT name FROM `song_t` WHERE  id = $id  ";
-      $result=mysqli_query($connect,$query);
-      if($result){
-        $result_check=mysqli_num_rows($result);
-        if($result_check){
-          $row=mysqli_fetch_assoc($result); 
-            return  $row['user_n'];
-        }
-      echo "Error: " . $query . "<br>" . mysqli_error($connect);
-      return;
-      }
-    }
 
-*/
-
-
-   // pull_song_t
+   // pull_music
 
 function insert_task($name,$task,$Address,$val){
   include 'sqli.php'; 
@@ -222,18 +196,18 @@ function update_task($Address,$val){
 
     function delete_song($id,$user){
       include 'sqli.php'; 
-      $query="SELECT `id` FROM `song_t` WHERE  id = $id  and user_n = '".$user."' ";
+      $query="SELECT `id` FROM `music` WHERE  id = $id  and user_n = '".$user."' ";
       $result=mysqli_query($connect,$query);
       $result_check=mysqli_num_rows($result);
       if($result_check==0){
       echo"<script> alert(' אנא בדוק שהשיר נמצא בבעלותך '); </script>" ;
       return false;
      }
-      if(!unlink("Media_Library/music/".pull_song_t($id))){
+      if(!unlink("Media_Library/music/".pull_music($id))){
         echo"<script> alert(' שגיאה במערכת קבצים '); </script>" ;
         return false;
       } 
-      if(!mysqli_query($connect," DELETE FROM `song_t` where `id` = $id" ))
+      if(!mysqli_query($connect," DELETE FROM `music` where `id` = $id" ))
         {
           echo"<script> alert('  שגיאה לא צפוייה במערכת, מידע לא נמחק   '); </script>" ;
           echo "Error: " . $query . "<br>" . mysqli_error($connect);
@@ -242,18 +216,6 @@ function update_task($Address,$val){
         mysqli_close($connect);
         return true;
     }
-    
-    function insert_picture($name,$user){
-      include 'sqli.php'; 
-      $query = "INSERT INTO  photos(`name`,`user_n`) VALUES('".$name."','".$user."')";
-      if(!mysqli_query($connect,$query)){
-        echo "Error: " . $query . "<br>" . mysqli_error($connect);
-        return;
-      }
-      mysqli_close($connect);
-      return;
-      }
-    
 
 
       function  update_devise($devise,$Address){
@@ -278,12 +240,7 @@ function update_task($Address,$val){
           mysqli_close($connect);
            }
       }
-     
 
- 
-
-
-
-    
+          
 
 ?>

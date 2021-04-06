@@ -9,6 +9,13 @@ body{
       background-image:url("");
       
       }
+
+
+
+      .body_z{
+        background-image:url("img/wallpaperflare.com_wallpaper.jpg");
+        
+        }
 h1,p,h2{ color: white; 
 }
 
@@ -319,12 +326,13 @@ top:0;
 
 
 #s {
-  width: 130px;
+  width: 150px;
   box-sizing: border-box;
   border: 4px solid white;
   border-radius: 4px;
   font-size: 20px;
-  background-image: url('img/searchicon.png');
+ 
+
   background-color: #0a1a2400;
 
   background-position: 10px 10px; 

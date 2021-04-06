@@ -3,11 +3,16 @@ document.getElementById("play").style.display = "block";
 document.getElementById("pause").style.display = "none";
 document.getElementById("myRange").style.display = "none";
 document.getElementById("speaker").style.display = "block";
+var queue=[];
+var  song_q;
 
-
-
-
-
+function print_q(){
+  var queue_d="";
+  for (i = 0; i < queue.length ; i++) {
+    queue_d += queue[i] + "<br>";
+  }
+  document.getElementById("song_queue").innerHTML=queue_d;
+}
 
 var slider = document.getElementById("myRange");
 var speaker = document.getElementById("speaker");
@@ -27,10 +32,6 @@ slider.onmouseout= function(){
 }
 
 
-
-
-
-
 setCurTime();
 slider_c_time.oninput = function(){
   x.currentTime=this.value;
@@ -42,12 +43,29 @@ slider.oninput = function(){
 }
 
 function playAudio() { 
+    x.currentTime=getCurTime();
+    document.getElementById("song_n").innerHTML=song_q;
+
+    document.getElementById("pause").style.display = "block";
+    document.getElementById("play").style.display = "none";
     x.play(); 
-  document.getElementById("play").style.display = "none";
-  document.getElementById("pause").style.display = "block";
-  x.currentTime=getCurTime();
- 
+   
+  }
+
+
+  function play_next_bt(){
+    setCurTime();
+    playnext();
+  }
+
+function playnext(){
+  if(x.currentTime== 0 || x.currentTime==getduration()){
+    song_q=queue.shift();
+    x.src = "Media_Library/music/"+ song_q;
+    playAudio();
+  }
 } 
+
 
 function start(){
   var d=getduration();
@@ -72,13 +90,18 @@ function up_time_val(){
 
   document.getElementById("s_time").innerHTML=min;
   document.getElementById("sec_time_s").innerHTML=sec;
-
+  print_q();
+  if(queue.length !=0){
+    playnext();
+  }
 }
 
 function pauseAudio() { 
   x.pause(); 
   document.getElementById("play").style.display = "block";
   document.getElementById("pause").style.display = "none";
+
+
 } 
 
 function autoplay_f(){
@@ -99,3 +122,6 @@ function getduration(){
 function setCurTime(){ 
   x.currentTime=0;
 }
+
+
+

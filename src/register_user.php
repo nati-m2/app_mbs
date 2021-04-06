@@ -14,7 +14,7 @@
 
 </style>
 </head>
-<body class="body_x">
+<body class="body_z">
 
 <div id="id01" class="modal">
 <form class="modal-content animate" action="register_user_p.php"   method="POST" onsubmit="return validation();"  >

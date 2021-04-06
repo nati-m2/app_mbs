@@ -22,6 +22,19 @@ if(isset($_GET['user'])&&isset($_GET['img']) ){
                 include_once 'sqli.php'; 
                 ?>
                 </div>
+
+
+                <?php
+
+    $addr= get_ip();
+               $query="SELECT * FROM `devise`   WHERE  '.$addr.' ";
+               $result=mysqli_query($connect,$query);
+               $result_check=mysqli_num_rows($result);
+               if($result_check==0)
+                 echo "<p>המכשיר לא רשום</p>";
+                  ?>
+
+
               
 <center>
     <iframe src="main.php" width="100%" height="69%"  name="main"  style="border:none;"></iframe>

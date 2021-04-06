@@ -27,10 +27,10 @@ echo" <script> location.replace('index.php'); </script>";
 				
 		</head>
 		<body class="body_y">
-
 				<center>
+				
 					<form action="newDevise.php" method="GET" onsubmit="/*return  validpass();*/">
-							<h2 >:התחבר</h2><br>
+							<h2 >רישום מכשיר</h2><br>
 							 <p> 
 								שם מכשיר 
 								 <br>

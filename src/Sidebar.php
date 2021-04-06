@@ -33,18 +33,9 @@ include "php_func/phpFunction.php";
                         ?>
                          <a href="start.php" target="_top">מוזיקה שלי</a>
                          <a  href="photos.php" onclick="closeNav()" >התמונות שלי</a>
-                         <a href="upload.php" onclick="closeNav()" target="_top">uploads</a>
-                         <a href="library.php" onclick="closeNav()" target="main">ספריה</a>
                          <a href="index.php" onclick="closeNav()" target="_top" >החלף חשבון</a>
-                         <a  href="newDevise.php" onclick="closeNav()" >newDevise</a>   
-                     
-                        <a  href="Settings.php" onclick="closeNav()" >settings</a>
-                       
-                     
-
-
-
-
+                         <a href="upload.php" onclick="closeNav()" target="_top">uploads</a>
+                         <a  href="newDevise.php" onclick="closeNav()" >מכשיר חדש</a>   
                   </div>
 </div>
 </center> 

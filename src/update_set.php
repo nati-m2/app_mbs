@@ -4,6 +4,6 @@ include "php_func/phpFunction.php";
         $id=$_GET['id'];
         $val=$_GET['val'];
         update_set($id,$val);
-      echo" <script> location.replace('Settings.php'); </script>";
+      echo" <script> location.replace('profile.php'); </script>";
     }
 ?>

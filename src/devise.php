@@ -74,7 +74,13 @@
         <input type='submit' class='button button1' value='play'>
         </form> ";
       
-        
+        echo"
+        <form class='in_line' action='devise_logic.php' method='POST' >
+        <input type='hidden'  name='Address'  value='".$row['Address']."'>
+        <input type='hidden'  name='acc'  value='next'>
+        <input type='submit' class='button button1' value='next'>
+        </form> ";
+      
       
          echo"</span><br>";
              }

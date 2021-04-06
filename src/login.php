@@ -10,7 +10,7 @@
 				<script src="ck.js"></script>
         <script src="valid_all.js"></script>
 </head>
-<body class="body_x">
+<body class="body_z">
 
 
 <div id="id01" class="modal">

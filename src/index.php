@@ -8,10 +8,7 @@ if(!isset($_COOKIE["login"])) {
 ?>
 
 <html>
-<body>
 
-
-<html>
 <head>
 			<meta charset="UTF-8">
 			<meta name="author" content="nati mizrhi">
@@ -19,12 +16,12 @@ if(!isset($_COOKIE["login"])) {
 				<meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel="stylesheet" type="text/css" href="styles.css">
   </head>
-  
+  <body class="body_z">
 
 <style>
 .card {
 
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.7);
   transition: 0.3s;
   width: 270;
   margin-top: 200;
@@ -33,9 +30,10 @@ if(!isset($_COOKIE["login"])) {
 }
 
 .card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,1,1);
+  box-shadow: 0 8px 16px 0 rgba(0,0,5,20);
 }
 img {
+ color:#0a1a24;
   border-radius: 150px;
 }
 
@@ -46,6 +44,9 @@ img {
 </style>
 </head>
 <body>
+
+
+
 <center>
 <?php
 
@@ -62,7 +63,7 @@ img {
             <a href='start.php?user=".$row['firstname']."&&img=".$row['path']."'>
          <img src=".$row['path']." alt='Avatar' width='250px' height='250px'   ></a> 
          <div class='container'>
-         <h1><b>".$row['firstname']."</b></h1> 
+         <h1 style='color: #0a1a24; '><b>".$row['firstname']."</b></h1> 
          
        </div>
      </div>

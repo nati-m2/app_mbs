@@ -18,8 +18,12 @@ if ($row){
         echo 'volume'.":".$row['val'];
         exit;
     }
-    else if($row['name']=='pause'){     // var= $row['name']:$row['song_id'] // "volume:84"
+    else if($row['name']=='pause'){     // 
         echo 'pause';
+        exit;
+    }
+    else if($row['name']=='next'){     // 
+        echo 'next';
         exit;
     }
 

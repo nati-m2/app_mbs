@@ -44,19 +44,18 @@ include "php_func/phpFunction.php";
                         document.getElementById("play").style.display = "block";
                          document.getElementById("pause").style.display = "none";
                        }
-                        else  if (data.substring(0, 6)==="volume"){
+                        else  if (data.substring(0, 6)==="volume"){ 
                          slider.value=parseInt(data.substring(7));
-                          
                          x.volume=slider.value/100;
-                        }else{
-                            //play song
-                            var data2=data;
-                            document.getElementById("song_n").innerHTML=data2;
-                            data ="Media_Library/music/"+data;
-                            document.getElementById("myAudio").src=data;
-                            playAudio();
+                        }else if (data==="next"){
+                            //play song       
+                            // console.log(queue);
+                            play_next_bt();
+                            }else{
+                             queue.push(data);   
+                             playAudio();
                             }
-                             // location.reload();
+                            // location.reload();
                             RemoveFromDb();
                     }
                 },
@@ -77,8 +76,11 @@ include "php_func/phpFunction.php";
         <source src  type='audio/mpeg'>
         </audio>
         <p id="song_n"></p>
+        <p id="song_queue"></p>
+        <input id='next' type="image"  src='img/next-icon.png' width='45' height='45' value='' onclick='play_next_bt()' >
+
         <center>
-        <input id='play' type="image"  src='img/play-icon.png' width='45' height='45' value='' onclick='playAudio()' >
+        <input id='play' type="image"  src='img/play-icon.png' width='50' height='50' value='' onclick='playAudio()' >
        <input id='pause'  type="image"  src='img/Puse-icon.png' width='45' height='45' value='' onclick='pauseAudio()' >
         <div class='slidecontainer2'>
             <input type='range' min='0' max='' value='0' class='slider' id='c_time'>
@@ -86,7 +88,7 @@ include "php_func/phpFunction.php";
         </center>
         <div class='slidecontainer'>
         <img   id ='speaker'  src='img/speaker.png' width='27' height='27' >
-        <input id='myRange' type='range' min='0' max='100' value class='slider'>
+        <input id='myRange' type='range' min='0' max='100' value='<?php echo pull_set("default volume");  ?>' class='slider'>
         </div>
         <center>
         <div class='s_time'>

@@ -1,7 +1,7 @@
 
 
 
-    h1,p{ color: white; 
+    h1,h2,h3,p{ color: white; 
 }
 
 .grid-container {
@@ -65,6 +65,101 @@
   
 }
 
+.queue{
+display: none;
+}
+
+.player_t{
+  position: absolute;
+  top: 7%;
+}
+
+#next{
+  position: absolute;
+  left: 54%;
+}
+#prev{
+
+  position: absolute;
+  left: 45%;
+
+}
+#play{
+  position: absolute;
+
+  left: 49.5%;
+}
+
+#pause{
+  position: absolute;
+  left: 49.5%;
+}
+
+#c_time{
+  max-width: 600px;
+  margin: auto;
+ 
+  position: absolute;
+  top: 50%;
+  left: 35%;
+}
+.s_time{
+  position: absolute;
+  top: 52%;
+  left: 48%;
+}
+
+.slidecontainer{
+  position: absolute;
+  top: 22%;
+  
+}
+
+#song_n{
+  position: absolute;
+  top: 0%;
+}
+
+.f_right{
+  float: right;
+}
+
+#close_q{
+  display: none;
+  position: absolute;
+  top:13%;
+  right:1% ;
+}
 
 
+#open_q{
+  position: absolute;
+  top: 13%;
+  right:1% ;
 
+}
+
+#ne{
+  display: none;
+  position: absolute;
+  top: 1%;
+  right:4% ;
+
+}
+
+
+.queue_div_c{
+ float: right;
+  width: 45%;
+  height: 80%;
+  border: none;
+  overflow-y: scroll;
+}
+
+.queue_div_c::-webkit-scrollbar{
+  display: none;
+}
+.queue_div_c{
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}

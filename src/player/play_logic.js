@@ -1,18 +1,9 @@
 var x = document.getElementById("myAudio");
+
 document.getElementById("play").style.display = "block";
 document.getElementById("pause").style.display = "none";
 document.getElementById("myRange").style.display = "none";
 document.getElementById("speaker").style.display = "block";
-var queue=[];
-var  song_q;
-
-function print_q(){
-  var queue_d="";
-  for (i = 0; i < queue.length ; i++) {
-    queue_d += queue[i] + "<br>";
-  }
-  document.getElementById("song_queue").innerHTML=queue_d;
-}
 
 var slider = document.getElementById("myRange");
 var speaker = document.getElementById("speaker");
@@ -20,6 +11,37 @@ var slider_c_time = document.getElementById("c_time");
 var c_time = x.currentTime;
 var devise = document.getElementById("speaker_m");
 var devise_div = document.getElementById("speaker_devise");
+
+
+var queue=[];
+var played=[];
+var  song_q;
+
+function print_q(){
+  var queue_d="";
+  for (i = 0; i < queue.length ; i++) {
+    queue_d += queue[i] + "<br>";
+  }
+ // console.log('print_q');
+  document.getElementById("song_queue").innerHTML=queue_d;
+}
+
+
+function play_prev_bt(){
+  setCurTime();
+  playprev();
+}
+
+function playprev(){
+if(x.currentTime== 0 || x.currentTime==getduration()){
+ song_q=played.shift();
+  x.src = "Media_Library/music/"+ song_q;
+  playAudio();
+}
+} 
+
+
+
 
 speaker.onmouseover= function(){
   document.getElementById("speaker").style.display = "none";
@@ -42,25 +64,29 @@ slider.oninput = function(){
   x.volume=this.value/100;
 }
 
-function playAudio() { 
+function playAudio(){ 
     x.currentTime=getCurTime();
+    if (typeof song_q === "undefined"){
+      document.getElementById("song_n").innerHTML="בחר שיר לניגון";
+        return;
+  }
     document.getElementById("song_n").innerHTML=song_q;
-
     document.getElementById("pause").style.display = "block";
     document.getElementById("play").style.display = "none";
     x.play(); 
-   
+    
   }
-
 
   function play_next_bt(){
     setCurTime();
     playnext();
   }
-
+  
 function playnext(){
   if(x.currentTime== 0 || x.currentTime==getduration()){
-    song_q=queue.shift();
+   song_q=queue.shift();
+   played.push(song_q); 
+   open_q();
     x.src = "Media_Library/music/"+ song_q;
     playAudio();
   }
@@ -90,7 +116,7 @@ function up_time_val(){
 
   document.getElementById("s_time").innerHTML=min;
   document.getElementById("sec_time_s").innerHTML=sec;
-  print_q();
+  // print_q();
   if(queue.length !=0){
     playnext();
   }
@@ -100,9 +126,13 @@ function pauseAudio() {
   x.pause(); 
   document.getElementById("play").style.display = "block";
   document.getElementById("pause").style.display = "none";
-
-
 } 
+
+
+
+function sleep(ms) {
+  return setTimeout(close_q, ms);
+}
 
 function autoplay_f(){
   x.autoplay = true;
@@ -123,5 +153,19 @@ function setCurTime(){
   x.currentTime=0;
 }
 
+function open_q(){ 
+  print_q();
+  document.getElementById("ne").style.display = "block";
+  document.getElementById("queue_div").style.display = "block";
+  document.getElementById("close_q").style.display = "block";
+  document.getElementById("open_q").style.display = "none";
+  sleep(15000);
+}
 
+function close_q(){ 
+  document.getElementById("ne").style.display = "none";
+  document.getElementById("open_q").style.display = "block";
+  document.getElementById("close_q").style.display = "none";
+  document.getElementById("queue_div").style.display = "none";
+}
 

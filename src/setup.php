@@ -2,7 +2,7 @@
 		<head>
 		<meta charset="UTF-8">
 			<meta name="author" content="nati mizrhi">
-				<title>mbs</title>
+			<title>mbs</title>
 				<meta name="viewport" content="width=device-width, initial-scale=1.0">
 				<script src="0000ck.js"></script>
 				<script src="000valid_all.js"></script>

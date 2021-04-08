@@ -26,6 +26,10 @@ if ($row){
         echo 'next';
         exit;
     }
+    else if($row['name']=='prev'){     // 
+        echo 'prev';
+        exit;
+    }
 
 
 

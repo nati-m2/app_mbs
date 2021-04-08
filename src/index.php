@@ -12,7 +12,7 @@ if(!isset($_COOKIE["login"])) {
 <head>
 			<meta charset="UTF-8">
 			<meta name="author" content="nati mizrhi">
-				<title>home</title>
+			<title>mbs</title>
 				<meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel="stylesheet" type="text/css" href="styles.css">
   </head>

@@ -58,9 +58,14 @@
         <input type='hidden'  name='toggel'   value='true'>
         <input type='submit' class='button button2' value='sync'>
         </form>";
-
       }
-
+      echo"
+      <form class='in_line' action='devise_logic.php' method='POST' >
+      <input type='hidden'  name='Address'  value='".$row['Address']."'>
+      <input type='hidden'  name='acc'  value='prev'>
+      <input type='submit' class='button button1' value='prev'>
+      </form> ";
+    
         echo"
         <form class='in_line' action='devise_logic.php' method='POST' >
         <input type='hidden'  name='Address'  value='".$row['Address']."'>
@@ -81,7 +86,7 @@
         <input type='submit' class='button button1' value='next'>
         </form> ";
       
-      
+       
          echo"</span><br>";
              }
            }

@@ -33,7 +33,7 @@
            echo  "<p>" .$row['devise_name']."<p>";
         echo"
         <form class='in_line' action='devise_logic.php' method='POST' >
-        <input type='hidden'  name='Address'  value='".$row['Address']."'>
+        <input type='hidden'  name='devise_name'  value='".$row['devise_name']."'>
         <input type='hidden'  name='acc'   value='volume'  >
          <input class='slider_v' style='width: 600;'  type='range' name='val'  min='1' max='100' value='' >
          <input type='submit' class='button button5' value='עדכן'>
@@ -45,7 +45,7 @@
         if($row['sync']){
          echo"
         <form class='in_line' action='devise_logic.php' method='POST' >
-        <input type='hidden'  name='Address'  value='".$row['Address']."'>
+        <input type='hidden'  name='devise_name'  value='".$row['devise_name']."'>
         <input type='hidden'  name='acc'   value='sync'>
         <input type='hidden'  name='toggel'   value='false'>
         <input type='submit' class='button button3' value='sync'>
@@ -53,7 +53,7 @@
       }else{
         echo"
         <form class='in_line' action='devise_logic.php' method='POST' >
-        <input type='hidden'  name='Address'  value='".$row['Address']."'>
+        <input type='hidden'  name='devise_name'  value='".$row['devise_name']."'>
         <input type='hidden'  name='acc'   value='sync'>
         <input type='hidden'  name='toggel'   value='true'>
         <input type='submit' class='button button2' value='sync'>
@@ -61,27 +61,27 @@
       }
       echo"
       <form class='in_line' action='devise_logic.php' method='POST' >
-      <input type='hidden'  name='Address'  value='".$row['Address']."'>
+      <input type='hidden'  name='devise_name'  value='".$row['devise_name']."'>
       <input type='hidden'  name='acc'  value='prev'>
       <input type='submit' class='button button1' value='prev'>
       </form> ";
     
         echo"
         <form class='in_line' action='devise_logic.php' method='POST' >
-        <input type='hidden'  name='Address'  value='".$row['Address']."'>
+        <input type='hidden'  name='devise_name'  value='".$row['devise_name']."'>
         <input type='hidden'  name='acc'   value='pause'>
         <input type='submit' class='button button4 ' value='pause'>
         </form> ";
         echo"
         <form class='in_line' action='devise_logic.php' method='POST' >
-        <input type='hidden'  name='Address'  value='".$row['Address']."'>
+        <input type='hidden'  name='devise_name'  value='".$row['devise_name']."'>
         <input type='hidden'  name='acc'   value='play'>
         <input type='submit' class='button button1' value='play'>
         </form> ";
       
         echo"
         <form class='in_line' action='devise_logic.php' method='POST' >
-        <input type='hidden'  name='Address'  value='".$row['Address']."'>
+        <input type='hidden'  name='devise_name'  value='".$row['devise_name']."'>
         <input type='hidden'  name='acc'  value='next'>
         <input type='submit' class='button button1' value='next'>
         </form> ";

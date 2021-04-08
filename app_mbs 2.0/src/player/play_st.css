@@ -1,0 +1,165 @@
+
+
+
+    h1,h2,h3,p{ color: white; 
+}
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    'header header header header header header'
+    'menu main main main main  right'
+    'footer  footer  footer  footer  footer  footer ';
+ 
+}
+
+
+
+
+#speaker_devise { grid-area: right; }
+
+
+
+.slidecontainer {
+  position: absolute;
+  width: 15%;
+}
+.slidecontainer2 {
+  
+  width: 50%;
+  counter-reset: 0;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 15px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #2e93ce;
+  cursor: pointer;
+}
+
+
+.speaker_m{
+
+  position: absolute;
+  top: 75;
+  right:75 ;
+  
+}
+
+.queue{
+display: none;
+}
+
+.player_t{
+  position: absolute;
+  top: 7%;
+}
+
+#next{
+  position: absolute;
+  left: 54%;
+}
+#prev{
+
+  position: absolute;
+  left: 45%;
+
+}
+#play{
+  position: absolute;
+
+  left: 49.5%;
+}
+
+#pause{
+  position: absolute;
+  left: 49.5%;
+}
+
+#c_time{
+  max-width: 600px;
+  margin: auto;
+ 
+  position: absolute;
+  top: 50%;
+  left: 35%;
+}
+.s_time{
+  position: absolute;
+  top: 52%;
+  left: 48%;
+}
+
+.slidecontainer{
+  position: absolute;
+  top: 22%;
+  
+}
+
+#song_n{
+  position: absolute;
+  top: 0%;
+}
+
+.f_right{
+  float: right;
+}
+
+#close_q{
+  display: none;
+  position: absolute;
+  top:13%;
+  right:1% ;
+}
+
+
+#open_q{
+  position: absolute;
+  top: 13%;
+  right:1% ;
+
+}
+
+#ne{
+  display: none;
+  position: absolute;
+  top: 1%;
+  right:4% ;
+
+}
+
+
+.queue_div_c{
+ float: right;
+  width: 45%;
+  height: 80%;
+  border: none;
+  overflow-y: scroll;
+}
+
+.queue_div_c::-webkit-scrollbar{
+  display: none;
+}
+.queue_div_c{
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}

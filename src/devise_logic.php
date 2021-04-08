@@ -13,15 +13,15 @@
 
 
 
-      if(!empty($_POST['Address'])){
-        $Address=$_POST['Address'];
+      if(!empty($_POST['devise_name'])){
+        $devise_cookie=$_POST['devise_name'];
       } else{
-        $Address=null;
+        $devise_cookie=null;
       }
     
       if(!empty($_POST['toggel'])){
         $toggel=$_POST['toggel'];
-        toggel_sync($Address,$toggel);
+        toggel_sync($devise_cookie,$toggel);
         echo" <script> location.replace('main.php'); </script>";
         exit;
       }
@@ -35,7 +35,7 @@
         $name=$_POST['acc'];
       }
 
-      ip_is_sync($Address,$val,$name);
+      ip_is_sync($devise_cookie,$val,$name);
      echo" <script> location.replace('main.php'); </script>";
     
    

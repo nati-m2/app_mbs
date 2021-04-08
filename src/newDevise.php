@@ -3,18 +3,17 @@
 include_once 'sqli.php'; 
 if(!isset($_COOKIE["login"])) {
 	echo" <script> location.replace('login.php'); </script>";
+	
   }
  
 
 
-if(isset($_GET['devise'])){
-$Address=get_ip();
+if(isset($_GET['devise']) && isset($_COOKIE["login"])){
+$devise_cookie=get_devise_name();
 $devise=$_GET['devise'];
-
-  update_devise($devise,$Address);
-
+setcookie("devise",$devise,time() + (86400 * 365), "/");
+update_devise($devise);
 echo" <script> location.replace('index.php'); </script>";
-
 }
 ?>  
 <html>

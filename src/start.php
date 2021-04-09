@@ -2,8 +2,10 @@
 if(!isset($_COOKIE["login"])){
   echo" <script> location.replace('login.php'); </script>";
 }
+if(!isset($_COOKIE['devise'])){
+  echo" <script> location.replace('newDevise.php'); </script>";
 
-
+}
 if(isset($_GET['user'])&&isset($_GET['img']) ){
     $_SESSION['login']=$_GET['user'];
     $_SESSION['img']= $_GET['img'];
@@ -29,21 +31,7 @@ if(isset($_GET['user'])&&isset($_GET['img']) ){
                 </div>
 
 
-                <?php
-
-    $addr= get_ip();
-               $query="SELECT * FROM `devise`   WHERE  '.$addr.' ";
-               $result=mysqli_query($connect,$query);
-               $result_check=mysqli_num_rows($result);
-               if($result_check==0)
-                 echo "<p>המכשיר לא רשום</p>";
-                  ?>
-
-
-              
 <center>
-
-
       <iframe src='main.php' width='100%' height='69%'  name='main'  style='border:none;'></iframe>
       <div class='player'>
         <iframe  src='run.php' width='100%' height='19%' style='border:none;'></iframe>

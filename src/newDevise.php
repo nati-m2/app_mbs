@@ -1,19 +1,14 @@
 <?php
- include 'Sidebar.php';
-include_once 'sqli.php'; 
+include "php_func/phpFunction.php"; 
+//include_once 'Sidebar.php';
 if(!isset($_COOKIE["login"])) {
 	echo" <script> location.replace('login.php'); </script>";
-	
   }
- 
-
-
 if(isset($_GET['devise']) && isset($_COOKIE["login"])){
-$devise_cookie=get_devise_name();
-$devise=$_GET['devise'];
-setcookie("devise",$devise,time() + (86400 * 365), "/");
-update_devise($devise);
-echo" <script> location.replace('index.php'); </script>";
+$devise_cookie=$_GET['devise'];
+setcookie("devise",$devise_cookie,time() + (86400 * 365), "/");
+update_devise($devise_cookie);
+ echo" <script> location.replace('index.php'); </script>";
 }
 ?>  
 <html>

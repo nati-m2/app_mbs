@@ -123,13 +123,13 @@ input:checked + .slider:before {
       <h1>לוג  מערכת</h1>
       <?php
               include "sqli.php";
-              $query="SELECT * FROM `task_t`";
+              $query="SELECT * FROM `task_tb`";
               $result=mysqli_query($connect,$query);
               $result_check=mysqli_num_rows($result);
               if($result_check>0){
                   while($row=mysqli_fetch_assoc($result)){
           
-                      echo"<p>".$row['id']." [משימה:".$row['name']."] ".$row['task']." [כתובת:".$row['Address_d']."][ערך:".$row['song_id']."] </p>";
+                      echo"<p>".$row['id']." [משימה:".$row['name']."] ".$row['task']." [כתובת:".$row['devise_name']."][ערך:".$row['song_id']."] </p>";
                   }
               }
               mysqli_close($connect);

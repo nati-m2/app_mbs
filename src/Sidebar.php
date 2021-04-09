@@ -1,6 +1,3 @@
-<?php //if(!session_id())session_start();
-include "php_func/phpFunction.php"; 
-?>
 <html>
 		<head>
 		<meta charset="UTF-8">
@@ -11,7 +8,6 @@ include "php_func/phpFunction.php";
                <script src="ck.js"></script>
         </head>             
 <body>
-
 <div id="Sidebar0">
                 <div id="main Sidebar0">
                     <button class="openbtn" onclick="openNav()">☰</button>  
@@ -20,9 +16,9 @@ include "php_func/phpFunction.php";
                     <div id="mySidebar" class="sidebar">
                         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
                         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+                        <a ><?php   echo $_COOKIE['devise']; ?> </a>
                         <?php date_default_timezone_set("israel");
                           echo "<p>".date("G:i:s  -  d/m/y")."</p>";?>
-                        <a ><?php echo " כתובת :".get_ip(); ?> </a>
                         <?php
                          if(!isset($_COOKIE["login"])){
                             echo "<a href='login.php'>login</a>";   

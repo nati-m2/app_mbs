@@ -35,7 +35,8 @@ include "php_func/phpFunction.php";
                    
                 },
                 cache: false,
-                success: function(data) {   
+                success: function(data) {  
+                    console.log(data); 
                     if (data != "") {
                        if (data==="pause"){
                         x.pause(); 
@@ -47,7 +48,7 @@ include "php_func/phpFunction.php";
                          x.volume=slider.value/100;  
                         }else if (data==="next"){
                             //play song       
-                            // console.log(queue);
+                           
                             play_next_bt();
                         }else if (data==="prev"){
                             play_prev_bt();

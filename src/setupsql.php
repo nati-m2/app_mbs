@@ -64,7 +64,7 @@ function  create_table_user(){
 function  create_table_devise(){
   include 'sqli.php'; 
     $query = "CREATE TABLE devise(id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-      devise_name TEXT(20) NOT NULL, Address TEXT(20),  sync  BOOLEAN NOT NULL DEFAULT FALSE )";
+      devise_name TEXT(20) NOT NULL,  sync  BOOLEAN NOT NULL DEFAULT FALSE )";
       if (mysqli_query($connect,$query)) {
         echo "Table devise created successfully";
         echo "<br>";
@@ -95,8 +95,8 @@ function  create_table_settings(){
 
 function  create_table_Task(){
   include 'sqli.php'; 
-    $query = "CREATE TABLE task_t(id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-        name TEXT(15) NOT NULL,task TEXT(5), Address_d TEXT(20), val INT(6), s_time TEXT(15))";
+    $query = "CREATE TABLE task_tb(id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+        name TEXT(15) NOT NULL,task TEXT(5), `devise_name` TEXT(20), val INT(6))";
       if (mysqli_query($connect,$query)){
         echo "Table Task created successfully";
         echo "<br>";

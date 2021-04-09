@@ -28,7 +28,6 @@ else
 
 function get_devise_name(){
   if(!isset($_COOKIE["devise"])){
-  
       return;
   }
 return $_COOKIE["devise"];
@@ -47,10 +46,6 @@ function pull_set($name){
     return null;
   }
 }
-
-
-
-
 
 
 
@@ -87,43 +82,18 @@ function insert_set($name,$val){
 
 function insert_task($name,$task,$devise_cookie,$val){
   include 'sqli.php'; 
-  $query = "INSERT INTO task_t(`name`,`task`, `Address_d`,`val`) VALUES('".$name."','".$task."','".$devise_cookie."','".$val."')";
+  $query = "INSERT INTO task_tb(`name`,`task`, `devise_name`,`val`) VALUES('".$name."','".$task."','".$devise_cookie."','".$val."')";
    if(!mysqli_query($connect,$query)){
     echo "Error: " . $query . "<br>" . mysqli_error($connect);
 }
 mysqli_close($connect);
 }
 
-//  מיותר
-// colome   $row['$c'];   pull_task($devise_cookie,task) 
-function pull_task($devise_cookie,$c){
-  include 'sqli.php'; 
-  $query="SELECT * FROM `task_t` WHERE `Address_d` = '".$devise_cookie."'   AND task='on' ";
-  $result=mysqli_query($connect,$query);
-  if($result){
-    $result_check=mysqli_num_rows($result);
-    if($result_check==1){
-      $row=mysqli_fetch_assoc($result);
-      if($c==1)  
-        return  $row['devise_name'];
-      else if($c==2)
-        return  $row['name'];
-      else if($c==3)
-        return  $row['task'];
-      else if($c==4)
-        return  $row['val']; //val
 
-      }
-      return null;
-  }
-  echo "Error: " . $query . "<br>" . mysqli_error($connect);
-  return null;
-  mysqli_close($connect);
-}
 
 function update_task($devise_cookie,$val){
   include 'sqli.php'; 
-  $query = "UPDATE `task_t` SET `name`='".$val."' WHERE `Address_d` LIKE '".$devise_cookie."' ";
+  $query = "UPDATE `task_tb` SET `name`='".$val."' WHERE `devise_name` LIKE '".$devise_cookie."' ";
   if(!mysqli_query($connect,$query)){
     echo "Error: " . $query . "<br>" . mysqli_error($connect);
     return;
@@ -248,13 +218,42 @@ function  update_devise($devise_cookie){
     if(!mysqli_query($connect,$query)){
       echo "Error: " . $query . "<br>" . mysqli_error($connect);
     }
-  }
+    echo"<script> alert(' ".$devise_cookie." נרשם בהצלחה  '); </script>" ;
+    
+  } 
+ 
   mysqli_close($connect);
 }
 
 
 
+//  מיותר
+// colome   $row['$c'];   pull_task($devise_cookie,task) 
+/*
+function pull_task($devise_cookie,$c){
+  include 'sqli.php'; 
+  $query="SELECT * FROM `task_tb` WHERE `devise_name` = '".$devise_cookie."'   AND task='on' ";
+  $result=mysqli_query($connect,$query);
+  if($result){
+    $result_check=mysqli_num_rows($result);
+    if($result_check==1){
+      $row=mysqli_fetch_assoc($result);
+      if($c==1)  
+        return  $row['devise_name'];
+      else if($c==2)
+        return  $row['name'];
+      else if($c==3)
+        return  $row['task'];
+      else if($c==4)
+        return  $row['val']; //val
 
+      }
+      return null;
+  }
+  echo "Error: " . $query . "<br>" . mysqli_error($connect);
+  return null;
+  mysqli_close($connect);
+}*/
 
 
 ?>

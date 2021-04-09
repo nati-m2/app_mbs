@@ -34,7 +34,7 @@ function play_prev_bt(){
 
 function playprev(){
 if(x.currentTime== 0 || x.currentTime==getduration()){
- song_q=played.shift();
+  song_q=played.pop();
   x.src = "Media_Library/music/"+ song_q;
   playAudio();
 }

@@ -12,6 +12,19 @@
     }
 
 
+    if(!empty($_POST['likes_val'])){
+      $song_id=$_POST['likes_val'];
+      toggel_likes($song_id,$_COOKIE["login"]);
+      if($_POST['ret'] == "likes"){
+        echo" <script> location.replace('likes.php'); </script>";
+        exit;
+      }
+      else
+        echo" <script> location.replace('main.php'); </script>";
+     exit;
+    }
+
+
 
       if(!empty($_POST['devise_name'])){
         $devise_cookie=$_POST['devise_name'];
@@ -36,12 +49,19 @@
       }
 
       ip_is_sync($devise_cookie,$val,$name);
+      if($_POST['ret'] == "likes"){
+      echo" <script> location.replace('likes.php'); </script>";
+      exit;
+    }
+    else
      echo" <script> location.replace('main.php'); </script>";
+   exit;
+  
     
    
   
 
-      exit;
+     
     
     
  

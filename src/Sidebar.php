@@ -18,7 +18,7 @@
                         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
                         <?php  
                         if(isset($_COOKIE['devise'])){
-                            echo  "<a > ".$_COOKIE['devise']." </a> ";
+                            echo  "<a href='newDevise.php' onclick='closeNav()'> ".$_COOKIE['devise']." </a> ";
                             }else{
                                 echo  " <a  href='newDevise.php' onclick='closeNav()' >מכשיר חדש</a>";
                              }
@@ -33,10 +33,12 @@
                                 echo "<a href='logout.php'>logout</a>"; 
                              }
                         ?>
-                         <a href="start.php" target="_top">מוזיקה שלי</a>
+                         <a href="main.php" onclick="closeNav()" target="main">מוזיקה שלי</a>
+                         <a href="likes.php" onclick="closeNav()" target="main">מוזיקה שאהבת</a>  
                          <a  href="photos.php" onclick="closeNav()" >התמונות שלי</a>
                          <a href="index.php" onclick="closeNav()" target="_top" >החלף חשבון</a>
-                         <a href="upload.php" onclick="closeNav()" target="_top">uploads</a>  
+                         <a href="upload.php" onclick="closeNav()" target="_top">uploads</a> 
+                    
                   </div>
 </div>
 </center> 

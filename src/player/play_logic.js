@@ -34,16 +34,15 @@ function play_prev_bt(){
 }
 
 function playprev(){
-
   if(x.currentTime== 0 || x.currentTime==getduration()){
       if(played.length > 0){
         song_q=played.pop();
       }
-        x.src = "Media_Library/music/"+ song_q;
-        playAudio();
+      x.src = "Media_Library/music/"+ song_q;
+      playAudio();
     
   } 
-
+}
 
 speaker.onmouseover= function(){
   document.getElementById("speaker").style.display = "none";
@@ -172,4 +171,7 @@ function close_q(){
   document.getElementById("close_q").style.display = "none";
   document.getElementById("queue_div").style.display = "none";
 }
+
+
+
 

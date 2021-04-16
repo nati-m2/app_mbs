@@ -225,6 +225,49 @@ function  update_devise($devise_cookie){
   mysqli_close($connect);
 }
 
+// main ניתן לייעל בעת משיכת נתונים  בדף 
+
+function user_like_the_song($song_id,$user_id){
+  include 'sqli.php'; 
+  $query="SELECT `likes` FROM `music` WHERE  id = $song_id ";
+  $result=mysqli_query($connect,$query);
+ if( mysqli_num_rows($result)){
+  $row=mysqli_fetch_assoc($result);
+  if(strripos($row['likes'],$user_id)){
+    mysqli_close($connect);
+    return true;
+  }
+  mysqli_close($connect);
+  return false;
+ }
+}
+
+
+function toggel_likes($song_id,$user_id){
+  include 'sqli.php'; 
+  $query="SELECT `likes` FROM `music` WHERE  id = $song_id ";
+  $result=mysqli_query($connect,$query);
+    if( mysqli_num_rows($result)){
+      $row=mysqli_fetch_assoc($result);
+      $likes=$row['likes'];
+      if(strpos( $likes,$user_id)){  
+        $likes=str_replace($user_id,"",$likes);
+          }else{
+            $likes= $likes." ".$user_id;
+          }
+      }
+      $query = "UPDATE `music` SET  `likes`= '".$likes."'  WHERE  id = '".$song_id."' ";
+      if(!mysqli_query($connect,$query)){
+        echo "Error: " . $query . "<br>" . mysqli_error($connect);
+        return;
+      }
+      mysqli_close($connect);
+      return;
+      } 
+
+  
+
+
 
 
 //  מיותר

@@ -10,13 +10,15 @@ include "php_func/phpFunction.php";
    // mkdir('/var/www/html/Media_Library/music', 0777, true);
     //mkdir('/var/www/html/Media_Library/photos', 0777, true);
 ///////////////////////////////testing aria////////////////////////////////////////////////
-//$file=$_FILES["fileToUpload"];
-//print_r($file);
-
-//insert_task("play","on","pc",12);
 
 
-insert_task('dddd','ghg','fhf',564);
+toggel_likes("1","admin");
+
+
+
+
+
+
 
 
 

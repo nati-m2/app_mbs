@@ -110,7 +110,7 @@ function  create_table_Task(){
 
 function  create_table_music(){
   include 'sqli.php'; 
-    $query = "CREATE TABLE music(id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, name VARCHAR(100) NOT NULL,user_n TEXT(30)) ";
+    $query = "CREATE TABLE music(id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, name VARCHAR(100) NOT NULL,user_n TEXT(30),likes TEXT(30)) ";
       if (mysqli_query($connect,$query)) {
         echo "Table music created successfully";
         echo "<br>";

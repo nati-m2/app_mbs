@@ -11,14 +11,35 @@ include 'sqli.php';
       echo" <li>
       <span>".$row['name']."</span>
       <div class='in_line'>
+      ";
+      if(!strpos($row['likes'],$_COOKIE["login"])){  
+        echo" 
+        <form class='in_line' action='devise_logic.php'   method='POST' >
+        <input type='hidden'  name='likes_val'  value='".$row['id']."'>
+        <input type='hidden'  name='ret'  value='search'>
+        <input id='play'   type='image' value='submit' src='img/dislike-icon.png' width='27' height='25'>
+        </form>
+          ";
+        }else{
+          echo" 
+          <form class='in_line' action='devise_logic.php'   method='POST' >
+          <input type='hidden'  name='likes_val'  value='".$row['id']."'>
+          <input type='hidden'  name='ret'  value='search'>
+          <input id='play'   type='image' value='submit' src='img/like-icon.png' width='27' height='25'>
+          </form>
+            ";
+        }
+        echo" <span>                    </span>
         <form class='in_line' action='devise_logic.php'   method='POST' >
         <input type='hidden'  name='val'  value='".$row['id']."'>
         <input type='hidden'  name='acc'   value='play'  >
+        <input type='hidden'  name='ret'  value='search'>
         <input id='play'   type='image'  src='img/play.png' width='27' height='25'>
          </form>
         <span>   </span>
         <form class='in_line' action='devise_logic.php'   method='POST' >
         <input type='hidden'  name='d'  value='".$row['id']."'>
+        <input type='hidden'  name='ret'  value='search'>
         <input id='play'   type='image'  src='img/trash.png' width='27' height='25'>
          </form>
 

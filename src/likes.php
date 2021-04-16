@@ -64,7 +64,7 @@
 
     <div class="album-art f_right">
  <center>
- <input id='s' type="text"  placeholder=" חפש שיר" value='<?php  echo $search ;?>' >
+ <input id='s' type="text" value placeholder=" חפש שיר">
  </center>
   
 
@@ -89,7 +89,7 @@
     //  user , p where user=where  user  LIKE '". $user."'
     $user= $_SESSION['login'];
     include "sqli.php";
-    $query="SELECT * FROM `music` where  user_n  LIKE '". $user."' ";
+    $query="SELECT * FROM `music` where  likes  LIKE '%". $user."%'  ";
     $result=mysqli_query($connect,$query);
     $result_check=mysqli_num_rows($result);
     if($result_check>0){
@@ -104,7 +104,7 @@
             echo" 
             <form class='in_line' action='devise_logic.php'   method='POST' >
             <input type='hidden'  name='likes_val'  value='".$row['id']."'>
-            <input type='hidden'  name='ret'  value='main'>
+            <input type='hidden'  name='ret'  value='likes'>
             <input id='play'   type='image' value='submit' src='img/dislike-icon.png' width='27' height='25'>
             </form>
               ";
@@ -112,7 +112,7 @@
               echo" 
               <form class='in_line' action='devise_logic.php'   method='POST' >
               <input type='hidden'  name='likes_val'  value='".$row['id']."'>
-              <input type='hidden'  name='ret'  value='main'>
+              <input type='hidden'  name='ret'  value='likes'>
               <input id='play'   type='image' value='submit' src='img/like-icon.png' width='27' height='25'>
               </form>
                 ";
@@ -122,7 +122,7 @@
             <form class='in_line' action='devise_logic.php'   method='POST' >
             <input type='hidden'  name='val'  value='".$row['id']."'>
             <input type='hidden'  name='acc'   value='play'  >
-            <input type='hidden'  name='ret'  value='main'>
+            <input type='hidden'  name='ret'  value='likes'>
             <input id='play'   type='image' value='submit' src='img/play.png' width='27' height='25'>
              </form>
           </span>

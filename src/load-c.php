@@ -11,8 +11,6 @@ include 'sqli.php';
       echo" <li>
       <span>".$row['name']."</span>
       <div class='in_line'>
- 
-
         <form class='in_line' action='devise_logic.php'   method='POST' >
         <input type='hidden'  name='val'  value='".$row['id']."'>
         <input type='hidden'  name='acc'   value='play'  >
@@ -33,13 +31,5 @@ include 'sqli.php';
 }
 mysqli_close($connect);
 //}
-
-
-
-
-
-
-
-
 
 ?>

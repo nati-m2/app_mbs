@@ -21,9 +21,8 @@
          crossorigin="anonymous"></script>
         <script>
                    $(document).ready(function(){
-                
                     $("#s").keyup(function(){
-                        var name= $("#s").val();
+                      var name= $("#s").val();
                         $.post("load-c.php",{search: name}, function(data,status){
                             $("#search_res").html(data); 
                              });

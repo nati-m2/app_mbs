@@ -55,7 +55,7 @@
   background: #2e93ce;
   cursor: pointer;
 }
-
+/*  מיקום כפתורים בנגן*/
 
 .speaker_m{
 
@@ -144,10 +144,8 @@ display: none;
   position: absolute;
   top: 1%;
   right:4% ;
-
 }
-
-
+/*  מיקום כפתורים בנגן*/
 .queue_div_c{
  float: right;
   width: 45%;
@@ -163,3 +161,109 @@ display: none;
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }
+
+/*  מסכים קטנים מחשבי לוח  px (800) -- מיקום כפתורים בנגן*/
+@media (max-width: 950px) {
+
+
+  .player_t{
+    position: absolute;
+    top: 22%;
+  }
+  
+
+  #open_q{
+    width: 30;
+    height: 30;
+    position: absolute;
+    top: 13%;
+    right:1% ;
+  }
+  #close_q{
+    width: 30;
+    height: 30;
+    display: none;
+    position: absolute;
+    top:13%;
+    right:1% ;
+  }
+  #next{
+    width: 30;
+    height: 30;
+    position: absolute;
+    left: 60%;
+  }
+
+  #play{
+    width: 30;
+    height: 30;
+    position: absolute;
+    left: 50%;
+  }
+  
+  #pause{
+    width: 30;
+    height: 30;
+    position: absolute;
+    left: 50%;
+  }
+
+
+  #prev{
+    width: 30;
+    height: 30;
+    position: absolute;
+    left: 40%;
+  
+  }
+ 
+  #c_time{
+    max-width: 500px;
+    margin: auto;
+    position: absolute;
+    top: 60%;
+    left: 23%;
+  }
+  .s_time{
+    position: absolute;
+    top: 62%;
+    left: 48%;
+  }
+  
+
+  h3{
+     color: rgb(28, 133, 2); 
+  }
+  
+
+  
+}
+/*  מסכים קטנים טלפונים -- מיקום כפתורים בנגן*/
+
+
+/*  מסכים קטנים טלפונים -- מיקום כפתורים בנגן*/
+@media (max-width: 450px) {
+  #c_time{
+    max-width: 300px;
+    margin: auto;
+    position: absolute;
+    top: 60%;
+    left: 15%;
+  }
+  .s_time{
+    position: absolute;
+    top: 62%;
+    left: 48%;
+  }
+  
+
+  h3{
+     color: rgb(253, 16, 16); 
+  }
+  
+
+  
+}
+/*  מסכים קטנים טלפונים -- מיקום כפתורים בנגן*/
+
+

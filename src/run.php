@@ -93,9 +93,15 @@ include "php_func/phpFunction.php";
         <input id='next'  class="player_t" type="image"  src='img/next-icon.png' width='45' height='45' value='' onclick='play_next_bt()' />
         <input id='play' class="player_t" type="image"  src='img/play-icon.png' width='49' height='49' value='' onclick='playAudio()' >
        <input id='pause' class="player_t" type="image"  src='img/Puse-icon.png' width='45' height='45' value='' onclick='pauseAudio()' >
-        <div class='slidecontainer2'>
+     
+
+       <div class='slidecontainer2'>
             <input type='range' min='0' max='' value='0' class='slider' id='c_time'>
         </div>
+
+    
+      
+
         <div class='slidecontainer'>
         <img   id ='speaker'  src='img/speaker.png' width='27' height='27' >
         <input id='myRange' type='range' min='0' max='100' value='<?php echo pull_set("default volume");  ?>' class='slider'>

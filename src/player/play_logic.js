@@ -19,10 +19,11 @@ var  song_q;
 
 function print_q(){
   var queue_d="";
+  var queue_d1=[];
   for (i = 0; i < queue.length ; i++) {
-    queue_d += queue[i] + "<br>";
+     queue_d1= queue[i].split("/");
+     queue_d += queue_d1[1] + "<br>";
   }
- // console.log('print_q');
   document.getElementById("song_queue").innerHTML=queue_d;
 }
 
@@ -33,15 +34,15 @@ function play_prev_bt(){
 }
 
 function playprev(){
-if(x.currentTime== 0 || x.currentTime==getduration()){
- song_q=played.shift();
-  x.src = "Media_Library/music/"+ song_q;
-  playAudio();
+  if(x.currentTime== 0 || x.currentTime==getduration()){
+      if(played.length > 0){
+        song_q=played.pop();
+      }
+        x.src = "Media_Library/music/"+ song_q;
+        playAudio();
+    
+  } 
 }
-} 
-
-
-
 
 speaker.onmouseover= function(){
   document.getElementById("speaker").style.display = "none";
@@ -70,7 +71,9 @@ function playAudio(){
       document.getElementById("song_n").innerHTML="בחר שיר לניגון";
         return;
   }
-    document.getElementById("song_n").innerHTML=song_q;
+    var song_name=[];
+    song_name = song_q.split("/");
+    document.getElementById("song_n").innerHTML=song_name[1];
     document.getElementById("pause").style.display = "block";
     document.getElementById("play").style.display = "none";
     x.play(); 

@@ -16,7 +16,13 @@
                     <div id="mySidebar" class="sidebar">
                         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
                         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-                        <a ><?php   echo $_COOKIE['devise']; ?> </a>
+                        <?php  
+                        if(isset($_COOKIE['devise'])){
+                            echo  "<a > ".$_COOKIE['devise']." </a> ";
+                            }else{
+                                echo  " <a  href='newDevise.php' onclick='closeNav()' >מכשיר חדש</a>";
+                             }
+                        ?> 
                         <?php date_default_timezone_set("israel");
                           echo "<p>".date("G:i:s  -  d/m/y")."</p>";?>
                         <?php
@@ -30,8 +36,7 @@
                          <a href="start.php" target="_top">מוזיקה שלי</a>
                          <a  href="photos.php" onclick="closeNav()" >התמונות שלי</a>
                          <a href="index.php" onclick="closeNav()" target="_top" >החלף חשבון</a>
-                         <a href="upload.php" onclick="closeNav()" target="_top">uploads</a>
-                         <a  href="newDevise.php" onclick="closeNav()" >מכשיר חדש</a>   
+                         <a href="upload.php" onclick="closeNav()" target="_top">uploads</a>  
                   </div>
 </div>
 </center> 

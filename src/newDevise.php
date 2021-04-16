@@ -1,6 +1,6 @@
 <?php
 include "php_func/phpFunction.php"; 
-//include_once 'Sidebar.php';
+include_once 'Sidebar.php';
 if(!isset($_COOKIE["login"])) {
 	echo" <script> location.replace('login.php'); </script>";
   }

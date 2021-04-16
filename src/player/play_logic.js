@@ -20,7 +20,7 @@ var  song_q;
 function print_q(){
   var queue_d="";
   var queue_d1=[];
-  for (i = 0; i < queue.length ; i++) {
+  for (i = 0; i < queue.length ; i++){
      queue_d1= queue[i].split("/");
      queue_d += queue_d1[1] + "<br>";
   }
@@ -34,6 +34,7 @@ function play_prev_bt(){
 }
 
 function playprev(){
+
   if(x.currentTime== 0 || x.currentTime==getduration()){
       if(played.length > 0){
         song_q=played.pop();
@@ -42,7 +43,7 @@ function playprev(){
         playAudio();
     
   } 
-}
+
 
 speaker.onmouseover= function(){
   document.getElementById("speaker").style.display = "none";
@@ -119,7 +120,7 @@ function up_time_val(){
 
   document.getElementById("s_time").innerHTML=min;
   document.getElementById("sec_time_s").innerHTML=sec;
-  // print_q();
+ 
   if(queue.length !=0){
     playnext();
   }

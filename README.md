@@ -4,10 +4,6 @@ app mbs is a system for sharing music at the home and family level, this system 
 
 app_mbs 2.0
 
-@nati-m2 nati-m2 released this 10 minutes ago
-
-app_mbs
-
 cd [path] /app_mbs
 For example:
 cd /srv/dev-disk-by...... /app_mbs

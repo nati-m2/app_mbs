@@ -6,6 +6,7 @@ app_mbs 2.0
 cd [path] /app_mbs
 For example:
 cd /srv/dev-disk-by...... /app_mbs
+
 docker-compose up -d
 
 run ..

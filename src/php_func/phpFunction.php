@@ -1,31 +1,8 @@
 <?php 
-//whether ip is from share internet
-// import get_ip.php  - get_devise_name();
-//   
-//    
-/*
-function get_devise_name(){
-//whether ip is from share internet
-if (!empty($_SERVER['HTTP_CLIENT_IP']))   
-  {
-    $ip_devise_name = $_SERVER['HTTP_CLIENT_IP'];
-  }
-//whether ip is from proxy
-elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR']))  
-  {
-    $ip_devise_name = $_SERVER['HTTP_X_FORWARDED_FOR'];
-  }
-//whether ip is from remote devise_name
-else
-  {
-    $ip_devise_name = $_SERVER['REMOTE_ADDR'];
-  }
-
-   return $ip_devise_name;
-}
-*/
+/////////////////////////////// Library of Logical Functions /////////////////////////////////
 
 
+// if $_COOKIE["devise"]  rturn name else return null
 function get_devise_name(){
   if(!isset($_COOKIE["devise"])){
       return;
@@ -34,7 +11,7 @@ return $_COOKIE["devise"];
 }
 
 
-
+// pull settings by name from sql table
 function pull_set($name){
   include 'sqli.php'; 
   $query="SELECT * FROM `settings` WHERE `name` LIKE '".$name."' ";
@@ -48,9 +25,9 @@ function pull_set($name){
 }
 
 
+// insert settings  name(str) and  val(str) 
 
-
-function insert_set($name,$val){
+function insert_set ($name,$val){
     include 'sqli.php'; 
     $query = "INSERT INTO  settings(`name`,`val`) VALUES('".$name."','".$val."')";
     if(!mysqli_query($connect,$query)){
@@ -60,6 +37,10 @@ function insert_set($name,$val){
     mysqli_close($connect);
     return;
   }
+
+
+
+// pull music by id from sql table
 
     function pull_music($id){
       include 'sqli.php'; 
@@ -78,8 +59,8 @@ function insert_set($name,$val){
 
 
 
-   // pull_music
-
+//insert new task  $name(str) ,$task(str) ,$devise_cookie(str) ,$val(str)
+   
 function insert_task($name,$task,$devise_cookie,$val){
   include 'sqli.php'; 
   $query = "INSERT INTO task_tb(`name`,`task`, `devise_name`,`val`) VALUES('".$name."','".$task."','".$devise_cookie."','".$val."')";
@@ -91,18 +72,8 @@ mysqli_close($connect);
 
 
 
-function update_task($devise_cookie,$val){
-  include 'sqli.php'; 
-  $query = "UPDATE `task_tb` SET `name`='".$val."' WHERE `devise_name` LIKE '".$devise_cookie."' ";
-  if(!mysqli_query($connect,$query)){
-    echo "Error: " . $query . "<br>" . mysqli_error($connect);
-    return;
-  }
-  mysqli_close($connect);
-  return;
-  }
 
-
+// update  settings by $id(int)  $val(str)
 
   function update_set($id,$val){
     include 'sqli.php'; 
@@ -114,7 +85,8 @@ function update_task($devise_cookie,$val){
     mysqli_close($connect);
     return;
     }
-  
+
+   // Replace a sync flag on a device table
     function toggel_sync($devise_cookie,$toggel){
       include 'sqli.php'; 
       $query = "UPDATE `devise` SET `sync`=$toggel  WHERE `devise_name` = '".$devise_cookie."' ";
@@ -125,7 +97,7 @@ function update_task($devise_cookie,$val){
       mysqli_close($connect);
       return;
       }  
-
+// play  call  to  insert_task() to create a task
     function play($devise_cookie,$val,$name){  
         if($val){
           $_SESSION['val']=$val;
@@ -133,6 +105,8 @@ function update_task($devise_cookie,$val){
         insert_task($name,"on",$devise_cookie,$val); 
       return;
     }
+
+// if the sync flag enabled, send the task to any device with the sync flag enabled
 
     function sync_and_play($devise_cookie,$val,$name){
       include "sqli.php";
@@ -144,7 +118,6 @@ function update_task($devise_cookie,$val){
       $result_check=mysqli_num_rows($result);
       if($result_check>0){                                  // <1    192.168.0.2    //play >1
           while($row=mysqli_fetch_assoc($result)){
-
             $devise_cookie =$row['devise_name'];                     // nede fix comend to all
            insert_task($name,"on",$devise_cookie,$val); 
           }
@@ -153,10 +126,10 @@ function update_task($devise_cookie,$val){
       }
     }
     
-
-    function ip_is_sync($devise_cookie,$val,$name){   // bool
+//  Distinguishes between a single device task or a multiple device task
+    function send_task($devise_cookie,$val,$name){   // bool
       include "sqli.php";
-      $devise_cookie=check_ip($devise_cookie);
+      $devise_cookie=check_devise($devise_cookie);
       $query="SELECT `id` FROM `devise` WHERE `devise_name` = '".$devise_cookie."'   and  `sync`= true ";
       $result=mysqli_query($connect,$query);
       if(mysqli_num_rows($result)){
@@ -167,15 +140,16 @@ function update_task($devise_cookie,$val){
       return ;
     }
 
-
-    function check_ip($devise_cookie){ //bool
+//Checks if the device name is valid
+    function check_devise($devise_cookie){ //bool
       if(!$devise_cookie){
         $devise_cookie= get_devise_name();
       }
       return $devise_cookie;
     } 
      
-
+//Deletes a song from the library
+//! note Only if the owner of the song is the one who deletes
     function delete_song($id,$user){
       include 'sqli.php'; 
       $query="SELECT `id` FROM `music` WHERE  id = $id  and user_n = '".$user."' ";
@@ -200,7 +174,7 @@ function update_task($devise_cookie,$val){
     }
 
 
-          
+// Adds or updates device name in device table          
 function  update_devise($devise_cookie){
   include 'sqli.php'; 
   $query="SELECT `id` FROM `devise`  WHERE  `devise_name` = '".$devise_cookie."' ";
@@ -225,24 +199,8 @@ function  update_devise($devise_cookie){
   mysqli_close($connect);
 }
 
-// main ניתן לייעל בעת משיכת נתונים  בדף 
 
-function user_like_the_song($song_id,$user_id){
-  include 'sqli.php'; 
-  $query="SELECT `likes` FROM `music` WHERE  id = $song_id ";
-  $result=mysqli_query($connect,$query);
- if( mysqli_num_rows($result)){
-  $row=mysqli_fetch_assoc($result);
-  if(strripos($row['likes'],$user_id)){
-    mysqli_close($connect);
-    return true;
-  }
-  mysqli_close($connect);
-  return false;
- }
-}
-
-
+// toggel a likes flag on a song in sql  table
 function toggel_likes($song_id,$user_id){
   include 'sqli.php'; 
   $query="SELECT `likes` FROM `music` WHERE  id = $song_id ";
@@ -265,8 +223,19 @@ function toggel_likes($song_id,$user_id){
       return;
       } 
 
-  
-
+//   reset and DELETE  devise frome   devise sql  table
+  function reset_devise($devise_cookie){
+        include 'sqli.php'; 
+        $query="SELECT `id` FROM `devise`  WHERE  `devise_name` = '".$devise_cookie."' ";
+        $result=mysqli_query($connect,$query);
+        if(mysqli_num_rows($result)==1){
+          mysqli_query($connect," DELETE FROM  `devise` WHERE `devise_name` = '".$devise_cookie."'   ");
+          echo"<script> alert(' ".$devise_cookie." נמחק בהצלחה  '); </script>" ;
+          return ;
+        }
+        echo"<script> alert(' ".$devise_cookie." מכשיר לא קיים  '); </script>" ;
+        return ;
+      }
 
 
 
@@ -297,6 +266,59 @@ function pull_task($devise_cookie,$c){
   return null;
   mysqli_close($connect);
 }*/
+
+/*
+function update_task($devise_cookie,$val){
+  include 'sqli.php'; 
+  $query = "UPDATE `task_tb` SET `name`='".$val."' WHERE `devise_name` LIKE '".$devise_cookie."' ";
+  if(!mysqli_query($connect,$query)){
+    echo "Error: " . $query . "<br>" . mysqli_error($connect);
+    return;
+  }
+  mysqli_close($connect);
+  return;
+  }
+*/
+// main ניתן לייעל בעת משיכת נתונים  בדף 
+/*
+function user_like_the_song($song_id,$user_id){
+  include 'sqli.php'; 
+  $query="SELECT `likes` FROM `music` WHERE  id = $song_id ";
+  $result=mysqli_query($connect,$query);
+ if( mysqli_num_rows($result)){
+  $row=mysqli_fetch_assoc($result);
+  if(strripos($row['likes'],$user_id)){
+    mysqli_close($connect);
+    return true;
+  }
+  mysqli_close($connect);
+  return false;
+ }
+}
+*/
+
+/*
+function get_devise_name(){
+//whether ip is from share internet
+if (!empty($_SERVER['HTTP_CLIENT_IP']))   
+  {
+    $ip_devise_name = $_SERVER['HTTP_CLIENT_IP'];
+  }
+//whether ip is from proxy
+elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR']))  
+  {
+    $ip_devise_name = $_SERVER['HTTP_X_FORWARDED_FOR'];
+  }
+//whether ip is from remote devise_name
+else
+  {
+    $ip_devise_name = $_SERVER['REMOTE_ADDR'];
+  }
+
+   return $ip_devise_name;
+}
+*/
+
 
 
 ?>

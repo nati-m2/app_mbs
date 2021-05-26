@@ -33,6 +33,7 @@
                                 echo "<a href='logout.php'>logout</a>"; 
                              }
                         ?>
+                          <a href="start.php" onclick="closeNav()" >בית</a>
                          <a href="main.php" onclick="closeNav()" target="main">מוזיקה שלי</a>
                          <a href="likes.php" onclick="closeNav()" target="main">מוזיקה שאהבת</a>  
                          <a  href="photos.php" onclick="closeNav()" >התמונות שלי</a>

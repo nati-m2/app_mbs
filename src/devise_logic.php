@@ -48,7 +48,7 @@
         $name=$_POST['acc'];
       }
 
-      ip_is_sync($devise_cookie,$val,$name);
+      send_task($devise_cookie,$val,$name);
       if($_POST['ret'] == "likes"){
       echo" <script> location.replace('likes.php'); </script>";
       exit;

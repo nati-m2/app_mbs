@@ -4,8 +4,8 @@ if(!isset($_COOKIE["login"])){
 }
 if(!isset($_COOKIE['devise'])){
   echo" <script> location.replace('newDevise.php'); </script>";
-
 }
+
 if(isset($_GET['user'])&&isset($_GET['img']) ){
     $_SESSION['login']=$_GET['user'];
     $_SESSION['img']= $_GET['img'];
